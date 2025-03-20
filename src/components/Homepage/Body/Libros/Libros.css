@@ -1,0 +1,35 @@
+/* BOOKS */
+.books-section {
+    display: flex;
+    justify-content: center;
+    width: 80%;
+    margin: px auto 80px; /* Aumenta el margen superior e inferior */
+    gap: 20px;
+    flex-wrap: wrap;
+    padding: 20px 0; /* Añade padding arriba y abajo */
+}
+
+.book h3 {
+    font-size: 20px;
+    color: #333;
+    text-align: center;
+}
+
+.book-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.book {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 40px; /* Aumentado el margin para separar más */
+}
+
+.book img {
+    width: 110px; /* Modificado el ancho de las imágenes */
+    height: 130px;
+    object-fit: contain;
+    margin-bottom: 10px;
+}
