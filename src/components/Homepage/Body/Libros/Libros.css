@@ -1,35 +1,116 @@
-/* BOOKS */
-.books-section {
-    display: flex;
-    justify-content: center;
-    width: 80%;
-    margin: px auto 80px; /* Aumenta el margen superior e inferior */
-    gap: 20px;
-    flex-wrap: wrap;
-    padding: 20px 0; /* Añade padding arriba y abajo */
-}
-
-.book h3 {
-    font-size: 20px;
-    color: #333;
-    text-align: center;
-}
-
-.book-link {
-    text-decoration: none;
-    color: inherit;
-}
-
-.book {
+/* === CONTENEDOR DE LIBROS === */
+.books-container {
+    width: 100%;
+    max-width: 1525px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  /* === SECCIÓN DE LIBROS === */
+  .books-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 2rem;
+    width: 100%;
+    padding: 20px 0;
+  }
+  
+  /* === ELEMENTOS INDIVIDUALES DE LIBROS === */
+  .book {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 0 40px; /* Aumentado el margin para separar más */
-}
-
-.book img {
-    width: 110px; /* Modificado el ancho de las imágenes */
-    height: 130px;
+  }
+  
+  .book img {
+    width: 110px;
+    height: 100px;
     object-fit: contain;
     margin-bottom: 10px;
-}
+  }
+  
+  .book h3 {
+    font-size: 20px;
+  }
+  
+ /* === MEDIA QUERIES RESPONSIVE === */
+
+/* Pantallas menores a 1565px */
+@media (max-width: 1565px) {
+    .books-container {
+      padding: 0 30px;
+    }
+  }
+  
+  /* 🆕 TABLETS entre 769px y 1024px — libros visibles en una sola fila sin scroll */
+  @media (min-width: 769px) and (max-width: 1024px) {
+    .books-section {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr); /* Fuerza exactamente 5 libros visibles */
+      gap: 1rem;
+      padding-bottom: 1rem;
+    }
+  
+    .book img {
+      width: 85px;
+      height: 75px;
+    }
+  
+    .book h3 {
+      font-size: 15px;
+    }
+  }
+  
+  /* Tablets y móviles medianos */
+  @media (max-width: 768px) {
+    .books-container {
+      padding: 0 20px;
+    }
+  
+    .title-line {
+      font-size: 1.5rem;
+      margin: 1rem 0 1.5rem;
+    }
+  
+    .books-section {
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 1.5rem;
+    }
+  
+    .book img {
+      width: 90px;
+      height: 80px;
+    }
+  
+    .book h3 {
+      font-size: 16px;
+    }
+  }
+  
+  /* 📱 Móviles pequeños: 310x852, 480x1040, 478x932 — mostrar en cascada */
+  @media (max-width: 500px) {
+    .books-container {
+      padding: 0 15px;
+    }
+  
+    .books-section {
+      display: grid !important; /* fuerza cascada incluso si se definió flex o grid antes */
+      grid-template-columns: 1fr !important; /* una columna */
+      gap: 1rem;
+    }
+  
+    .book {
+      justify-content: center;
+      align-items: center;
+    }
+  
+    .book img {
+      width: 90px;
+      height: 80px;
+    }
+  
+    .book h3 {
+      font-size: 15px;
+    }
+  }
+  

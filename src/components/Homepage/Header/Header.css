@@ -1,23 +1,25 @@
 header {
-  background-color: #ffffff;
   color: #000;
-  position: fixed; /* Mantiene el header fijo en la partida */
-  top: 0; /* Posiciona el header en la parte superior */
-  width: 100%; /* Asegura que ocurre todo el ancho */
-  z-index: 1000; /* Asegura que esté por encima de otros elementos */
-  box-shadow: 0 2px 5px rgba(0,0,0,0,1); /* Añade una sombra sutil para destacarlo */
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Corrige el error: antes decía rgba(0,0,0,0,1) */
 }
 
 .nav-main {
+  width: 100%;
+  max-width: 1525px; /* Igual que books-container y footer */
+  margin: 0 auto;
+  padding: 0 20px;
   font-size: 24px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 125px; /* Aumenta la altura del header */
-  padding: 20px 20px; /* Espacio interno sin desajustar los elementos */
+  height: 125px;
   background-color: white;
   color: #000;
-  width: 100%;
+  box-sizing: border-box;
 }
 
 .nav-brand{

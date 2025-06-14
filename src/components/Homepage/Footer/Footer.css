@@ -1,73 +1,88 @@
-/* Footer Styles */
+/* === Footer Styles === */
 .main-footer {
     width: 100%;
+    height: 100%;
     padding: 15px 0;
     background-color: #fff;
     border-top: 1px solid #ddd;
     margin-top: 50px;
-}
-
-.footer-container {
-    width: 80%;
+  }
+  
+  /* === Contenedor central alineado con el resto del sitio === */
+  .footer-container {
+    width: 100%;
+    max-width: 1525px; /* igual que books-container, cards-container */
     margin: 0 auto;
+    padding: 0 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     font-size: 14px;
     color: #666;
-}
-
-.copyright {
-    font-size: 13px;
-}
-
-.footer-links a, .credits a {
+    box-sizing: border-box;
+  }
+  
+  .footer-links a,
+  .credits a {
     color: #666;
     text-decoration: none;
     transition: color 0.3s ease;
-}
-
-.footer-links a:hover, .credits a:hover {
+  }
+  
+  .footer-links a:hover,
+  .credits a:hover {
     color: #000;
-}
-
-.separator {
+  }
+  
+  .separator {
     margin: 0 8px;
-}
-
-/* Responsive adjustments */
-@media (max-width: 900px) {
+  }
+  
+  .copyright {
+    font-size: 13px;
+  }
+  
+  /* === MEDIA QUERIES RESPONSIVE === */
+  
+  @media (max-width: 1565px) {
     .footer-container {
-        width: 90%;
-        flex-wrap: wrap;
-        justify-content: center;
-        text-align: center;
-        gap: 10px;
+      padding: 0 30px;
     }
-    
-    .copyright, .footer-links, .credits {
-        width: 100%;
-        margin: 5px 0;
-    }
-}
-
-@media (max-width: 600px) {
+  }
+  
+  @media (max-width: 900px) {
     .footer-container {
-        flex-direction: column;
-        padding: 15px 0;
+      flex-wrap: wrap;
+      justify-content: center;
+      text-align: center;
+      gap: 10px;
     }
-    
-    .footer-links {
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
-    }
-    
-    .footer-links .separator {
-        display: none;
-    }
-    
+  
+    .copyright,
+    .footer-links,
     .credits {
-        margin-top: 10px;
+      width: 100%;
+      margin: 5px 0;
     }
-}
+  }
+  
+  @media (max-width: 600px) {
+    .footer-container {
+      flex-direction: column;
+      padding: 15px 20px;
+    }
+  
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+  
+    .footer-links .separator {
+      display: none;
+    }
+  
+    .credits {
+      margin-top: 10px;
+    }
+  }

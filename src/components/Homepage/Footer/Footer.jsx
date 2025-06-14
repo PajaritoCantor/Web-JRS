@@ -6,7 +6,7 @@ const Footer = () => {
         <footer className="main-footer">
             <div className="footer-container">
                 <div className="copyright">
-                    © Copyright {new Date().getFullYear()} Nombre-De-Tu-Empresa. All rights reserved
+                    © Copyright {new Date().getFullYear()} Jerónimo Ríos. All rights reseeerved
                 </div>
                 <div className="footer-links">
                     <a href="/privacy-policy">Privacy Policy</a>

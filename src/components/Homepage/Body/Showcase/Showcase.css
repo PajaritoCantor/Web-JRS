@@ -3,11 +3,20 @@
     width: 100%;
     max-width: 1525px;
     height: 650px;
-    background: url('../../../../assets/1000x1000.jpg') no-repeat center center/cover;
     padding: 0;
-    margin: 180px auto 20px auto; /* Margen entre Header y Showcase */
+    margin: 180px auto 80px auto; /* Margen entre Header y Showcase */
     position: relative;
     overflow: hidden;
+}
+
+.showcase-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
 }
 
 .showcase::before {
