@@ -1,9 +1,3 @@
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
 body {
   background: #f8f8f8; /* COLOR BACKGROUND GENERAL */
   font-family: "cera", sans-serif;
@@ -24,7 +18,7 @@ ul {
 }
 
 .container-header {
-    width: 80%;
+    width: 50%;
     margin: auto;
 }
 

@@ -1,25 +1,17 @@
-header {
-  color: #000;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 1000;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Corrige el error: antes decía rgba(0,0,0,0,1) */
-}
-
 .nav-main {
+  background: #fff;
+  height: 120px;
+  padding: 0px;
+  border-bottom: 1px solid #dcdcdc;
+  position: fixed; /* aquí hay error */
+  top: 0;
+  left: 0;
+  z-index: 9999;
   width: 100%;
-  max-width: 1525px; /* Igual que books-container y footer */
-  margin: 0 auto;
-  padding: 0 20px;
+  text-align: center;
+  line-height: 40px;
   font-size: 24px;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 125px;
-  background-color: white;
-  color: #000;
-  box-sizing: border-box;
 }
 
 .nav-brand{
