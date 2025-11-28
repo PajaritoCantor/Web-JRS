@@ -1,0 +1,125 @@
+.nav-main {
+  font-size: 17px;
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  align-items: center;
+  height: 60px;
+  padding: 0 20px;
+  background: #fff;
+}
+
+.nav-brand {
+  width: 50px;
+}
+
+.nav-main ul.nav-menu {
+  flex: 1;
+  margin-left: 
+}
+
+/* Menú principal */
+.nav-menu,
+.nav-menu-right {
+  display: flex;
+  align-items: center;
+  list-style: none;
+}
+
+.nav-menu li,
+.nav-menu-right li {
+  position: relative;
+  padding: 10px 18px;
+}
+
+.nav-menu a,
+.nav-menu-right a {
+  color: #000000;
+  text-decoration: none;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.nav-menu a:hover,
+.nav-menu-right a:hover {
+  color: #e62f2f;
+  border-bottom: 2px solid #fff;
+}
+
+/* Dropdowns */
+.menu-item .dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #ffffff;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  padding: 10px 0;
+  min-width: 180px;
+  border-radius: 4px;
+  z-index: 10;
+}
+
+.menu-item:hover .dropdown-menu {
+  display: block;
+}
+
+.dropdown-menu li {
+  padding: 8px 15px;
+}
+
+.dropdown-menu li a {
+  color: #000000;
+  text-decoration: none;
+}
+
+.dropdown-menu li a:hover {
+  color: #ffffff;
+}
+
+/* Botón responsive */
+.menu-btn {
+  cursor: pointer;
+  display: none;
+  font-size: 22px;
+  color: #000000;
+}
+
+/* Responsive: menú vertical en móviles */
+@media (max-width: 768px) {
+
+  .menu-btn {
+    display: block;
+    position: absolute;
+    top: 15px;
+
+    /* Centrado horizontal perfecto */
+    left: 50%;
+    transform: translateX(-50%);
+
+    z-index: 1000; /* siempre encima */
+  }
+
+  .nav-menu,
+  .nav-menu-right {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background: #111;
+    position: absolute;
+    top: 60px;
+    left: 0;
+  }
+
+  .nav-menu.show,
+  .nav-menu-right.show {
+    display: flex;
+  }
+
+  .menu-item {
+    padding: 10px 20px;
+  }
+}
