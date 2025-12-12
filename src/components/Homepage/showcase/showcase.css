@@ -1,0 +1,96 @@
+.showcase {
+    width: 98%;
+    max-width: 1470px;
+    height: 650px; /* altura de la imagen*/
+    padding: 0 20px; /*alineación del texto*/
+    margin: 100px auto 80px auto; 
+    position: relative;
+    overflow: hidden;
+}
+
+.showcase-img { 
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    object-fit: cover;
+    z-index: 0; /* Lo ponemos en 0 para que el ::before esté en 1 */
+}
+
+.showcase::before {
+    content: ''; /* Contenido vacío */
+    position: absolute; /* Posicionamiento absoluto */
+    top: 0; /* Alineado al borde superior */
+    left: 0; /* Alineado al borde superior izquierdo */
+    width: 100%; /* Cubre toda el área del showcase */
+    height: 100%; /* Cubre toda el área del showcase */
+    background: rgba(0, 0, 0, 0.5); /* Capa oscura */
+    z-index: 1;
+}
+
+.showcase-content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column; 
+    justify-content: flex-end;
+    z-index: 2;
+}
+
+.quote-container {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.7); 
+    padding: 20px 0;
+}
+.slide-title {
+    font-family: 'Aida', serif;
+    font-size: 32px;
+    color: rgba(255, 255, 255, 0.9);
+    text-align: center;
+    line-height: 1.4;
+    padding: 10px 30px 20px;
+    width: 100%;
+    display: block;
+    transition: color 0.3s;
+}
+
+.btn-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    background-color: transparent;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.btn:hover {
+    color: #FF5722;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .slide-title {
+        font-size: 24px;
+        padding: 10px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .slide-title {
+        font-size: 20px;
+        padding: 10px 15px;
+    }
+    
+    .showcase {
+        height: 500px;
+    }
+}
