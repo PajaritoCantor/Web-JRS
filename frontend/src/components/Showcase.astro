@@ -1,0 +1,43 @@
+---
+// Showcase Component
+---
+<section class="relative w-full h-[100vh] flex items-center justify-center overflow-hidden bg-paper">
+  
+  <!-- Imagen de Fondo con Parallax Effect (Simulado con animaciones) -->
+  <div class="absolute inset-0 z-0">
+    <div class="absolute inset-0 bg-paper/60 backdrop-blur-[2px] z-10"></div>
+    <img src="/assets/1000x1000.jpg" alt="Jerónimo Ríos Sierra" class="w-full h-full object-cover grayscale opacity-40 animate-fade-in" />
+  </div>
+
+  <!-- Contenido Central -->
+  <div class="relative z-20 container mx-auto px-6 text-center animate-slide-up">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="font-serif text-[clamp(3rem,10vw,8rem)] font-black text-academic-dark leading-[0.9] tracking-tighter mb-12">
+        Jerónimo <br/>
+        <span class="text-academic-accent italic font-light">Ríos Sierra</span>
+      </h2>
+      
+      <p class="font-sans text-academic-muted text-xl md:text-2xl leading-relaxed mb-16 max-w-2xl mx-auto font-medium">
+        Premio Extraordinario de Doctorado. <br/>Investigador de conflictos armados y violencia política.
+      </p>
+      
+      <div class="flex flex-wrap items-center justify-center gap-10">
+        <a href="/biografia" class="group relative px-12 py-5 text-[11px] font-black tracking-[0.4em] uppercase text-white bg-academic-dark rounded-full hover:bg-black transition-all duration-700 hover:shadow-premium overflow-hidden">
+          <span class="relative z-10">Biografía</span>
+          <div class="absolute inset-0 bg-academic-accent translate-y-full group-hover:translate-y-0 transition-transform duration-500"></div>
+        </a>
+        <a href="#" class="text-[11px] font-black text-academic-dark hover:text-academic-accent transition-colors uppercase tracking-[0.4em] relative group">
+          Publicaciones
+          <span class="absolute -bottom-2 left-0 w-full h-0.5 bg-academic-accent scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-center"></span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Indicador de Scroll -->
+  <div class="absolute bottom-12 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-4 opacity-40 animate-bounce">
+    <span class="text-[9px] uppercase tracking-[0.5em] font-bold text-academic-dark">Explorar</span>
+    <div class="w-[1px] h-12 bg-academic-dark/30"></div>
+  </div>
+
+</section>

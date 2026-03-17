@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  body {
+    @apply bg-paper text-academic-dark;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+@layer components {
+  .nav-link-underline {
+    @apply relative py-1 after:absolute after:bottom-0 after:left-1/2 after:h-[1px] after:w-0 after:bg-academic-dark after:transition-all after:duration-300 hover:after:left-0 hover:after:w-full;
+  }
+}
