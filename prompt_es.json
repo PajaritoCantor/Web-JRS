@@ -1,39 +1,42 @@
 {
     "role": "Mentor Senior Fullstack & Arquitecto Web",
-    "context": "Desarrollo de una Web Profesional para el académico Jerónimo Ríos Sierra. Inspiración visual: Yuval Noah Harari / Timothy Snyder.",
-    "objective": "Crear un Portfolio Académico robusto, escalable y seguro. El sitio debe permitir gestionar artículos, libros y vídeos, garantizando que el backend sea una fortaleza contra inyecciones y accesos no autorizados.",
+    "context": "Fase 3: Navegación Dropdown y Módulo de Artículos Académicos para Jerónimo Ríos Sierra.",
+    "objective": "Implementar un submenú dinámico en el Header y una página de Artículos que funcione como un repositorio académico elegante, con enlaces externos seguros.",
     "parameters": {
-        "stack_requirements": {
-            "frontend": "Astro (Static Site Generation + Islas de Interactividad) con Tailwind CSS para el estilo minimalista.",
-            "backend": "Node.js con Express.js (API REST para gestión de contenidos).",
-            "persistence": "SQLite (para portabilidad y rapidez en Docker) gestionado con un ORM ligero o SQL directo sanitizado."
+        "navigation_specs": {
+            "header_dropdown": {
+                "label": "Publicaciones",
+                "options": ["Artículos", "Libros"],
+                "behavior": "Hover/Click dinámico con transiciones suaves en Tailwind (dropdown-menu).",
+                "style": "Fondo que herede el degradado dinámico del sitio para no romper la estética."
+            }
         },
-        "infrastructure": {
-            "docker_compose": "Servicios: 'frontend' (Astro), 'api' (Node), 'db' (Volumen para SQLite).",
-            "deployment": "Contenerización completa para despliegue inmediato."
+        "design_guidelines": {
+            "page_articles": {
+                "layout": "Listado cronológico tipo 'Índice Académico'.",
+                "typography": "Uso de fuentes Serif para títulos de artículos (elegancia) y Sans-serif para metadatos (modernidad).",
+                "elements": "Cada artículo debe mostrar: Título, Nombre de la Revista/Journal, Año de publicación y un botón discreto pero claro de 'Leer en fuente original'."
+            },
+            "background": "Mantener el background dinámico (degradado/textura) para cohesión total con Biografía y Showcase."
         }
     },
     "project_specs": {
-        "Portfolio_Academico": {
-            "modules": {
-                "Articulos": "Listado con metadatos (título, revista, año) y enlace externo original.",
-                "Libros": "Galería visual con sinopsis y enlaces de compra (Amazon, Editoriales).",
-                "Media": "Gestor de vídeos (YouTube/Vimeo embebidos) y entrevistas."
-            },
-            "admin_panel": "Área privada para que el profesor o su equipo suban contenido (Login requerido)."
+        "Modulo_Articulos": {
+            "frontend": "Nueva página 'src/pages/publicaciones/articulos.astro'. Uso de componentes reutilizables para cada entrada de artículo.",
+            "backend": "Endpoint 'GET /api/articles' que devuelva los datos desde la base de datos SQLite.",
+            "data_model": {
+                "articulos": "id, titulo, revista, año, url_externa, descripcion_corta"
+            }
         }
     },
     "security_focus": [
-        "Prevención de XSS en la renderización de títulos y sinopsis.",
-        "Validación estricta de URLs externas (evitar redirecciones maliciosas).",
-        "Protección de la ruta /admin mediante JWT o sesiones seguras.",
-        "Sanitización de inputs para evitar SQL Injection en la gestión de la base de datos."
+        "Rel='noopener noreferrer' obligatorio en todos los links externos para evitar ataques de Tabnabbing.",
+        "Validación de esquema de URL (solo permitir http/https) en el backend para evitar inyecciones de protocolos maliciosos (javascript:)."
     ],
     "instructions": [
-        "Define la estructura de carpetas separando /frontend (Astro) y /backend (Node).",
-        "Genera un Dockerfile multi-etapa para optimizar el tamaño de la imagen de Astro.",
-        "Crea el esquema de base de datos para Libros, Artículos y Vídeos.",
-        "Guíame en la creación de una API segura que el frontend de Astro consumirá mediante 'fetch' en tiempo de compilación o ejecución.",
-        "Advierte sobre vulnerabilidades antes de dar la solución definitiva."
+        "1. Genera el código para el componente Dropdown del Header en Astro/Tailwind.",
+        "2. Diseña la página 'articulos.astro' con un estilo de 'Índice de Prestigio', eliminando cualquier rastro de gris sólido.",
+        "3. Crea el componente 'ArticleItem.astro' que renderice el título, la revista y el link externo de forma elegante.",
+        "4. Advierte sobre los peligros de permitir que un usuario (admin) inserte URLs arbitrarias sin sanitización."
     ]
 }

@@ -1,0 +1,17 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Footer from '../../components/Footer.astro';
+import Articulos from '../../components/Articulos.astro';
+---
+
+<Layout>
+  <main class="w-full flex-grow min-h-screen">
+    <Articulos showAllLink={false} />
+    <section class="max-w-6xl mx-auto px-6 lg:px-8 pb-14">
+      <aside class="rounded-xl border border-rose-300/60 bg-rose-50/80 px-5 py-4 font-sans text-sm text-rose-900 leading-relaxed">
+        Nota de seguridad: permitir URLs arbitrarias desde panel admin sin validacion puede introducir enlaces maliciosos con esquemas como <strong>javascript:</strong>, habilitando XSS o tabnabbing al abrir enlaces externos.
+      </aside>
+    </section>
+    <Footer />
+  </main>
+</Layout>

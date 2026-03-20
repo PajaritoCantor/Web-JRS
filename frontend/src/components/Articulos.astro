@@ -1,0 +1,119 @@
+---
+import ArticleItem from './ArticleItem.astro';
+
+interface Article {
+  id: number;
+  titulo: string;
+  revista: string;
+  anio: number;
+  url_externa: string;
+  descripcion_corta?: string;
+}
+
+interface Props {
+  limit?: number;
+  showAllLink?: boolean;
+}
+
+const { limit, showAllLink = true } = Astro.props as Props;
+
+const apiBase = import.meta.env.PUBLIC_API_BASE_URL ?? 'http://localhost:3000';
+let articles: Article[] = [];
+
+try {
+  const response = await fetch(`${apiBase}/api/articles`);
+  const body = await response.json();
+
+  if (response.ok && Array.isArray(body.data)) {
+    articles = body.data
+      .map((item: any) => ({
+        id: Number(item.id),
+        titulo: item.titulo ?? item.title ?? '',
+        revista: item.revista ?? item.journal ?? 'Publicacion academica',
+        anio: Number(item.anio ?? item.year ?? 0),
+        url_externa: item.url_externa ?? item.url ?? '',
+        descripcion_corta: item.descripcion_corta ?? ''
+      }))
+      .filter((item: Article) => item.titulo && item.url_externa)
+      .sort((a: Article, b: Article) => b.anio - a.anio);
+  }
+} catch {
+  // Fallback silencioso para desarrollo sin backend.
+}
+
+if (articles.length === 0) {
+  articles = [
+    {
+      id: 1,
+      titulo: 'Dinamicas contemporaneas de violencia politica en Iberoamerica',
+      revista: 'Revista de Estudios Estrategicos',
+      anio: 2024,
+      url_externa: 'https://example.org/articulo-1',
+      descripcion_corta: 'Revision comparada sobre repertorios de accion armada y respuestas estatales en el siglo XXI.'
+    },
+    {
+      id: 2,
+      titulo: 'Insurgencia, territorio y gobernanza local en Colombia',
+      revista: 'Journal of Conflict and Society',
+      anio: 2022,
+      url_externa: 'https://example.org/articulo-2',
+      descripcion_corta: 'Analisis del vinculo entre control territorial, legitimidad y construccion de paz subnacional.'
+    },
+    {
+      id: 3,
+      titulo: 'Negociacion politica y desmovilizacion comparada',
+      revista: 'Anuario Iberoamericano de Seguridad',
+      anio: 2021,
+      url_externa: 'https://example.org/articulo-3',
+      descripcion_corta: 'Lecciones comparativas sobre procesos de desarme, reintegracion y estabilizacion institucional.'
+    }
+  ];
+}
+
+const visibleArticles = typeof limit === 'number' ? articles.slice(0, limit) : articles;
+---
+
+<section id="articulos" class="relative w-full bg-gradient-to-br from-white via-gray-50 to-amber-50 py-16 lg:py-20 overflow-hidden">
+  <div class="absolute top-0 left-0 w-3/4 h-3/4 bg-gradient-to-br from-blue-100/20 to-transparent blur-3xl -z-10 opacity-50"></div>
+  <div class="absolute bottom-0 right-0 w-96 h-96 bg-gradient-to-t from-amber-100/15 to-transparent rounded-full blur-3xl -z-10"></div>
+  <div class="absolute inset-0 opacity-5 -z-10" style="background-image: radial-gradient(rgba(15,23,42,0.2) 1px, transparent 1px); background-size: 20px 20px;"></div>
+
+  <div class="max-w-6xl mx-auto px-6 lg:px-8 relative z-10">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
+      <div class="lg:col-span-4">
+        <div class="flex items-center gap-3 mb-5">
+          <span class="h-1 w-10 bg-blue-900/60"></span>
+          <span class="text-xs font-bold tracking-[0.2em] text-blue-900/70 uppercase">Publicaciones</span>
+        </div>
+
+        <h2 class="font-serif text-4xl lg:text-5xl font-black text-slate-900 leading-tight">
+          Articulos de
+          <span class="text-slate-600 italic font-light">investigacion</span>
+        </h2>
+
+        <p class="mt-5 text-slate-700 leading-relaxed font-sans text-base">
+          Indice academico cronologico con acceso a fuentes originales y metadatos editoriales.
+        </p>
+
+        {showAllLink && (
+          <a href="/publicaciones/articulos" class="inline-flex items-center gap-2 mt-7 rounded-full border border-slate-300/70 bg-white/80 px-5 py-2.5 font-sans text-[10px] tracking-[0.18em] uppercase font-black text-slate-700 hover:border-blue-900/30 hover:text-blue-900 transition-colors duration-300">
+            Ver todos
+            <i class="fa-solid fa-arrow-right text-[10px]" aria-hidden="true"></i>
+          </a>
+        )}
+      </div>
+
+      <div class="lg:col-span-8 rounded-2xl border border-zinc-200/70 bg-white/65 backdrop-blur-sm px-6 md:px-10 py-3 shadow-[0_10px_40px_-25px_rgba(15,23,42,0.35)]">
+        {visibleArticles.map((article) => (
+          <ArticleItem
+            titulo={article.titulo}
+            revista={article.revista}
+            anio={article.anio}
+            urlExterna={article.url_externa}
+            descripcionCorta={article.descripcion_corta}
+          />
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

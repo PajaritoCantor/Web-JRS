@@ -20,7 +20,8 @@ function initDB() {
             title TEXT NOT NULL,
             journal TEXT NOT NULL,
             year INTEGER NOT NULL,
-            url TEXT NOT NULL
+            url TEXT NOT NULL,
+            descripcion_corta TEXT DEFAULT ''
         )`);
 
         db.run(`CREATE TABLE IF NOT EXISTS books (

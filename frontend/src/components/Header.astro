@@ -21,10 +21,31 @@
           Biografía
         </a>
       </li>
-      <li>
-        <a href="#" class="nav-link-underline hover:text-academic-dark transition-colors">
+      <li class="relative group">
+        <button
+          id="publicaciones-toggle"
+          type="button"
+          class="nav-link-underline hover:text-academic-dark transition-colors inline-flex items-center gap-2 text-[10px] lg:text-[11px] tracking-[0.3em] uppercase font-black leading-none"
+          aria-expanded="false"
+          aria-controls="publicaciones-menu"
+        >
           Publicaciones
-        </a>
+          <i class="fa-solid fa-chevron-down text-[9px] transition-transform duration-200 group-hover:rotate-180" aria-hidden="true"></i>
+        </button>
+        <div
+          id="publicaciones-menu"
+          class="absolute left-1/2 top-full z-40 w-60 -translate-x-1/2 pt-2 opacity-0 pointer-events-none translate-y-1 transition-all duration-200 group-hover:opacity-100 group-hover:pointer-events-auto group-hover:translate-y-0 group-focus-within:opacity-100 group-focus-within:pointer-events-auto group-focus-within:translate-y-0"
+          role="menu"
+        >
+          <div class="rounded-xl border border-zinc-200/60 bg-gradient-to-br from-white/95 via-gray-50/95 to-amber-50/95 p-2 shadow-xl shadow-zinc-900/10 backdrop-blur-md">
+            <a href="/publicaciones/articulos" class="block rounded-lg px-4 py-3 text-[10px] tracking-[0.18em] uppercase font-black text-academic-dark/70 hover:bg-white/70 hover:text-academic-dark transition-colors" role="menuitem">
+              Artículos
+            </a>
+            <a href="/#libros" class="block rounded-lg px-4 py-3 text-[10px] tracking-[0.18em] uppercase font-black text-academic-dark/70 hover:bg-white/70 hover:text-academic-dark transition-colors" role="menuitem">
+              Libros
+            </a>
+          </div>
+        </div>
       </li>
       <li>
         <a href="#" class="nav-link-underline hover:text-academic-dark transition-colors">
@@ -70,8 +91,67 @@
     <button aria-label="Buscar" class="text-gray-600 hover:text-black transition-colors">
       <i class="fa-solid fa-magnifying-glass text-lg"></i>
     </button>
+    <div class="relative">
+      <button id="publicaciones-mobile-toggle" class="text-[11px] uppercase tracking-widest font-black text-academic-dark/70 hover:text-academic-dark transition-colors" aria-expanded="false" aria-controls="publicaciones-mobile-menu">
+        Publicaciones
+      </button>
+      <div id="publicaciones-mobile-menu" class="hidden absolute right-0 top-full mt-3 w-52 rounded-xl border border-zinc-200/60 bg-gradient-to-br from-white/95 via-gray-50/95 to-amber-50/95 p-2 shadow-xl shadow-zinc-900/10 backdrop-blur-md">
+        <a href="/publicaciones/articulos" class="block rounded-lg px-4 py-3 text-[10px] tracking-[0.18em] uppercase font-black text-academic-dark/70 hover:bg-white/70 hover:text-academic-dark transition-colors">
+          Artículos
+        </a>
+        <a href="/#libros" class="block rounded-lg px-4 py-3 text-[10px] tracking-[0.18em] uppercase font-black text-academic-dark/70 hover:bg-white/70 hover:text-academic-dark transition-colors">
+          Libros
+        </a>
+      </div>
+    </div>
     <button class="text-2xl text-gray-800 focus:outline-none" aria-label="Abrir Menú">
       <i class="fa-solid fa-bars-staggered"></i>
     </button>
   </div>
 </header>
+
+<script>
+  const desktopToggle = document.getElementById('publicaciones-toggle');
+  const desktopMenu = document.getElementById('publicaciones-menu');
+  const mobileToggle = document.getElementById('publicaciones-mobile-toggle');
+  const mobileMenu = document.getElementById('publicaciones-mobile-menu');
+
+  const closeDesktopMenu = () => {
+    if (!desktopToggle || !desktopMenu) return;
+    desktopToggle.setAttribute('aria-expanded', 'false');
+    desktopMenu.classList.add('opacity-0', 'pointer-events-none', 'translate-y-2');
+  };
+
+  if (desktopToggle && desktopMenu) {
+    desktopToggle.addEventListener('click', (event) => {
+      event.preventDefault();
+      const expanded = desktopToggle.getAttribute('aria-expanded') === 'true';
+      desktopToggle.setAttribute('aria-expanded', String(!expanded));
+      desktopMenu.classList.toggle('opacity-0', expanded);
+      desktopMenu.classList.toggle('pointer-events-none', expanded);
+      desktopMenu.classList.toggle('translate-y-2', expanded);
+    });
+  }
+
+  if (mobileToggle && mobileMenu) {
+    mobileToggle.addEventListener('click', () => {
+      const expanded = mobileToggle.getAttribute('aria-expanded') === 'true';
+      mobileToggle.setAttribute('aria-expanded', String(!expanded));
+      mobileMenu.classList.toggle('hidden', expanded);
+    });
+  }
+
+  document.addEventListener('click', (event) => {
+    const target = event.target;
+    if (!(target instanceof Element)) return;
+
+    if (desktopToggle && desktopMenu && !desktopToggle.contains(target) && !desktopMenu.contains(target)) {
+      closeDesktopMenu();
+    }
+
+    if (mobileToggle && mobileMenu && !mobileToggle.contains(target) && !mobileMenu.contains(target)) {
+      mobileToggle.setAttribute('aria-expanded', 'false');
+      mobileMenu.classList.add('hidden');
+    }
+  });
+</script>
