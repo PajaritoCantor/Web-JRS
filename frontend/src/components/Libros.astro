@@ -1,5 +1,10 @@
 ---
 // Libros Component
+interface Props {
+    showAllLink?: boolean;
+}
+
+const { showAllLink = true } = Astro.props;
 ---
 <section id="libros" class="w-full bg-academic-dark text-white py-32 overflow-hidden">
     <div class="container mx-auto px-6">
@@ -13,10 +18,12 @@
                 <p class="text-white/40 font-medium text-lg max-w-sm mb-8">
                     Análisis críticos y revisiones históricas sobre la violencia en Iberoamérica.
                 </p>
-                <a href="#" class="inline-flex items-center gap-4 text-xs font-black tracking-widest uppercase text-white hover:text-academic-accent transition-colors group">
-                    Ver Catálogo Completo
-                    <i class="fa-solid fa-arrow-right-long group-hover:translate-x-2 transition-transform"></i>
-                </a>
+                {showAllLink && (
+                    <a href="/publicaciones/libros" class="inline-flex items-center gap-4 text-xs font-black tracking-widest uppercase text-white hover:text-academic-accent transition-colors group">
+                        Ver Catálogo Completo
+                        <i class="fa-solid fa-arrow-right-long group-hover:translate-x-2 transition-transform"></i>
+                    </a>
+                )}
             </div>
         </div>
 
@@ -40,30 +47,63 @@
         </div>
 
         <!-- Grilla de Obras Secundarias -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-16">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
             
+            <!-- Libro 1 -->
             <a href="#" class="group block">
-                <div class="aspect-[4/5] bg-white/5 rounded-2xl overflow-hidden mb-8 p-8 flex items-center justify-center border border-white/5 group-hover:border-academic-accent/30 transition-all duration-700">
-                    <img src="/assets/TerrorismodeEstadoyGruposArmadosEnPeruArticle.jpeg" alt="Libro" class="w-full h-full object-contain grayscale group-hover:grayscale-0 transition-all duration-700" />
+                <div class="relative aspect-[3/4] rounded-2xl overflow-hidden mb-8 bg-gradient-to-br from-white/10 to-white/5 border border-white/10 group-hover:border-academic-accent/40 transition-all duration-700 shadow-lg group-hover:shadow-2xl group-hover:shadow-academic-accent/20">
+                    <img src="/assets/TerrorismodeEstadoyGruposArmadosEnPeruArticle.jpeg" alt="Terrorismo de Estado" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105" />
+                    
+                    <!-- Overlay -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-academic-dark via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
+                        <span class="inline-block bg-academic-accent text-academic-dark text-[9px] font-black tracking-widest uppercase px-3 py-1 rounded-full w-fit mb-4">Teoría Política</span>
+                        <p class="text-white/80 text-sm leading-relaxed mb-6">Análisis crítico de la represión estatal y sus mecanismos de control territorial.</p>
+                        <button class="text-academic-accent border-b border-academic-accent text-[10px] font-black tracking-widest uppercase hover:text-white hover:border-white transition-all">Ver Detalles</button>
+                    </div>
                 </div>
-                <h5 class="font-serif text-2xl font-bold mb-3">Terrorismo de Estado</h5>
-                <p class="text-white/30 text-xs font-black tracking-widest uppercase">2021</p>
+                <h5 class="font-serif text-xl font-bold mb-2 group-hover:text-academic-accent transition-colors">Terrorismo de Estado</h5>
+                <div class="flex items-center justify-between">
+                    <p class="text-white/40 text-xs font-black tracking-widest uppercase">2021</p>
+                    <span class="text-white/20 text-xs uppercase tracking-wider">Editorial UCM</span>
+                </div>
             </a>
 
-            <a href="#" class="group block translate-y-12">
-                <div class="aspect-[4/5] bg-white/5 rounded-2xl overflow-hidden mb-8 p-8 flex items-center justify-center border border-white/5 group-hover:border-academic-accent/30 transition-all duration-700">
-                    <img src="/assets/1000x1000.jpg" alt="Libro" class="w-full h-full object-contain grayscale group-hover:grayscale-0 transition-all duration-700" />
+            <!-- Libro 2 -->
+            <a href="#" class="group block">
+                <div class="relative aspect-[3/4] rounded-2xl overflow-hidden mb-8 bg-gradient-to-br from-white/10 to-white/5 border border-white/10 group-hover:border-academic-accent/40 transition-all duration-700 shadow-lg group-hover:shadow-2xl group-hover:shadow-academic-accent/20">
+                    <img src="/assets/1000x1000.jpg" alt="Análisis Político" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105" />
+                    
+                    <!-- Overlay -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-academic-dark via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
+                        <span class="inline-block bg-academic-accent text-academic-dark text-[9px] font-black tracking-widest uppercase px-3 py-1 rounded-full w-fit mb-4">Geopolítica</span>
+                        <p class="text-white/80 text-sm leading-relaxed mb-6">Interpretación de las dinámicas políticas contemporáneas en contextos de transformación global.</p>
+                        <button class="text-academic-accent border-b border-academic-accent text-[10px] font-black tracking-widest uppercase hover:text-white hover:border-white transition-all">Ver Detalles</button>
+                    </div>
                 </div>
-                <h5 class="font-serif text-2xl font-bold mb-3">Análisis Político</h5>
-                <p class="text-white/30 text-xs font-black tracking-widest uppercase">2019</p>
+                <h5 class="font-serif text-xl font-bold mb-2 group-hover:text-academic-accent transition-colors">Análisis Político Contemporáneo</h5>
+                <div class="flex items-center justify-between">
+                    <p class="text-white/40 text-xs font-black tracking-widest uppercase">2019</p>
+                    <span class="text-white/20 text-xs uppercase tracking-wider">Comares</span>
+                </div>
             </a>
 
+            <!-- Libro 3 -->
             <a href="#" class="group block">
-                <div class="aspect-[4/5] bg-white/5 rounded-2xl overflow-hidden mb-8 p-8 flex items-center justify-center border border-white/5 group-hover:border-academic-accent/30 transition-all duration-700">
-                    <img src="/assets/TerrorismodeEstadoyGruposArmadosEnPeruArticle.jpeg" alt="Libro" class="w-full h-full object-contain grayscale group-hover:grayscale-0 transition-all duration-700" />
+                <div class="relative aspect-[3/4] rounded-2xl overflow-hidden mb-8 bg-gradient-to-br from-white/10 to-white/5 border border-white/10 group-hover:border-academic-accent/40 transition-all duration-700 shadow-lg group-hover:shadow-2xl group-hover:shadow-academic-accent/20">
+                    <img src="/assets/TerrorismodeEstadoyGruposArmadosEnPeruArticle.jpeg" alt="Seguridad Global" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105" />
+                    
+                    <!-- Overlay -->
+                    <div class="absolute inset-0 bg-gradient-to-t from-academic-dark via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
+                        <span class="inline-block bg-academic-accent text-academic-dark text-[9px] font-black tracking-widest uppercase px-3 py-1 rounded-full w-fit mb-4">Seguridad</span>
+                        <p class="text-white/80 text-sm leading-relaxed mb-6">Perspectiva integral sobre amenazas transnacionales y cooperación en seguridad multisectorial.</p>
+                        <button class="text-academic-accent border-b border-academic-accent text-[10px] font-black tracking-widest uppercase hover:text-white hover:border-white transition-all">Ver Detalles</button>
+                    </div>
                 </div>
-                <h5 class="font-serif text-2xl font-bold mb-3">Seguridad Global</h5>
-                <p class="text-white/30 text-xs font-black tracking-widest uppercase">2016</p>
+                <h5 class="font-serif text-xl font-bold mb-2 group-hover:text-academic-accent transition-colors">Seguridad Global e Iberoamérica</h5>
+                <div class="flex items-center justify-between">
+                    <p class="text-white/40 text-xs font-black tracking-widest uppercase">2016</p>
+                    <span class="text-white/20 text-xs uppercase tracking-wider">Springer</span>
+                </div>
             </a>
 
         </div>
