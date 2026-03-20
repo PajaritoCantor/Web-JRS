@@ -1,19 +1,22 @@
 ---
 // Biografia.astro
-// Componente modernizado con foto dinámica y diseño editorial
+// Componente modernizado con foto dinámica, diseño editorial y fondo dinámico
 ---
-<section id="biografia" class="relative w-full bg-stone-50 py-16 lg:py-20 overflow-hidden">
+<section id="biografia" class="relative w-full bg-gradient-to-br from-white via-gray-50 to-amber-50 py-16 lg:py-20 overflow-hidden">
   
-  <!-- Fondos Decorativos (Gradients) -->
-  <div class="absolute top-0 right-0 w-1/2 h-1/2 bg-gradient-to-b from-stone-200/50 to-transparent blur-3xl -z-10 opacity-60"></div>
-  <div class="absolute bottom-0 left-0 w-96 h-96 bg-zinc-200/50 rounded-full blur-3xl -z-10"></div>
+  <!-- Fondos Decorativos (Gradients Sutiles) -->
+  <div class="absolute top-0 right-0 w-3/4 h-3/4 bg-gradient-to-b from-blue-50/20 to-transparent blur-3xl -z-10 opacity-40"></div>
+  <div class="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-t from-amber-100/10 to-transparent rounded-full blur-3xl -z-10"></div>
+  
+  <!-- Textura sutil de fondo -->
+  <div class="absolute inset-0 opacity-5 -z-10" style="background-image: url('data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%22 height=%22100%22%3E%3Cfilter id=%22noise%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.05%22 numOctaves=%221%22 /%3E%3C/filter%3E%3Crect width=%22100%22 height=%22100%22 filter=%22url(%23noise)%22 /%3E%3C/svg%3E'); background-size: 200px;"></div>
 
   <div class="max-w-6xl mx-auto px-6 lg:px-8 relative z-10">
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
       
       <!-- Columna Imagen: Estilo Portada de Revista -->
       <div class="lg:col-span-5 order-2 lg:order-1 relative">
-        <div class="relative rounded-2xl overflow-hidden shadow-xl group border-4 border-white">
+        <div class="relative rounded-xl overflow-hidden shadow-lg group border border-gray-200/50 backdrop-blur-sm">
           <!-- Imagen con lazy loading y transición de escala de grises a color -->
           <img 
             src="https://unavatar.io/twitter/Jeronimo_Rios_" 
@@ -23,57 +26,59 @@
           />
           
           <!-- Tarjeta Flotante "Glassmorphism" -->
-          <div class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-stone-900/90 via-stone-900/50 to-transparent backdrop-blur-[2px]">
+          <div class="absolute bottom-0 left-0 right-0 p-5 bg-gradient-to-t from-slate-900/95 via-slate-900/60 to-transparent backdrop-blur-md">
             <p class="text-white font-serif text-xl font-bold leading-tight">Dr. Jerónimo Ríos</p>
-            <p class="text-stone-300 text-xs font-sans tracking-widest uppercase mt-2">UCM • OEI • Geopolítica</p>
+            <p class="text-gray-300 text-xs font-sans tracking-widest uppercase mt-2">Pensador Político • Académico</p>
           </div>
         </div>
         
-        <!-- Sombra decorativa detrás -->
-        <div class="absolute -inset-4 bg-stone-900/5 rounded-[2.5rem] -z-10 rotate-3 group-hover:rotate-1 transition-transform duration-500"></div>
+        <!-- Sombra decorativa detrás con rotación sutil -->
+        <div class="absolute -inset-3 bg-gradient-to-br from-blue-900/8 to-amber-900/5 rounded-xl -z-10 group-hover:scale-105 transition-transform duration-500"></div>
       </div>
 
       <!-- Columna Texto: Narrativa Académica -->
-      <div class="lg:col-span-7 order-1 lg:order-2 flex flex-col">
-        <div class="mb-4 flex items-center gap-3">
-          <span class="h-px w-12 bg-red-800"></span>
-          <span class="text-xs font-bold tracking-[0.25em] text-red-900 uppercase">Perfil Académico</span>
+      <div class="lg:col-span-7 order-1 lg:order-2 flex flex-col space-y-6">
+        <div class="flex items-center gap-3">
+          <span class="h-1 w-10 bg-blue-900/60"></span>
+          <span class="text-xs font-bold tracking-[0.2em] text-blue-900/70 uppercase">Perfil Académico</span>
         </div>
 
-        <h2 class="font-serif text-4xl lg:text-5xl font-black text-stone-900 leading-tight mb-6">
+        <h2 class="font-serif text-4xl lg:text-5xl font-black text-slate-900 leading-tight">
           Violencia política y <br/>
-          <span class="text-stone-500 italic font-light">construcción de paz.</span>
+          <span class="text-slate-600 italic font-light">construcción de paz.</span>
         </h2>
 
-        <div class="prose text-stone-700 leading-relaxed font-sans mb-8">
-          <p>
-             Profesor Titular en la Facultad de Ciencias Políticas y Sociología de la <strong>Universidad Complutense de Madrid</strong>. Doble Doctor con Premio Extraordinario, su obra académica disecciona las dinámicas de las insurgencias en Iberoamérica.
+        <div class="space-y-4 text-slate-700 leading-relaxed lg:leading-relaxed font-sans text-base">
+          <p class="text-lg">
+            Profesor Titular en la Facultad de Ciencias Políticas y Sociología de la <strong>Universidad Complutense de Madrid</strong>. Doble Doctor con Premio Extraordinario, su obra académica disecciona con precisión analítica las dinámicas de las insurgencias en Iberoamérica.
           </p>
-          <p>
-             Su experiencia como asesor de la <strong>Organización de Estados Iberoamericanos (OEI)</strong> en el proceso de paz de Colombia le otorga una perspectiva única, combinando el rigor teórico con un extenso trabajo de campo.
+          <p class="text-lg">
+            Su experiencia como asesor de la <strong>Organización de Estados Iberoamericanos (OEI)</strong> en el proceso de paz de Colombia le otorga una perspectiva única, combinando el rigor teórico con un extenso trabajo de campo en zonas de conflicto.
+          </p>
+          <p class="text-lg">
+            Su pensamiento, influenciado por una lectura profunda de la historia política y las dinámicas sociales, propone un enfoque integral para comprender y superar la violencia sistemática.
           </p>
         </div>
 
-        <!-- Métricas Minimalistas -->
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 border-t border-stone-200 pt-6">
-          <div>
-            <span class="block text-3xl font-serif font-black text-stone-900">120+</span>
-            <span class="text-[10px] font-bold text-stone-500 uppercase tracking-widest mt-1 block">Artículos</span>
+        <!-- Métricas Minimalistas con línea superior -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 border-t border-gray-300/50 pt-7 mt-4">
+          <div class="group">
+            <span class="block text-3xl lg:text-4xl font-serif font-black text-slate-900 group-hover:text-blue-900 transition-colors duration-300">120+</span>
+            <span class="text-[10px] font-bold text-slate-500 uppercase tracking-widest mt-2 block group-hover:text-blue-900/60 transition-colors duration-300">Artículos</span>
           </div>
-          <div>
-            <span class="block text-3xl font-serif font-black text-stone-900">19</span>
-            <span class="text-[10px] font-bold text-stone-500 uppercase tracking-widest mt-1 block">Libros</span>
+          <div class="group">
+            <span class="block text-3xl lg:text-4xl font-serif font-black text-slate-900 group-hover:text-blue-900 transition-colors duration-300">19</span>
+            <span class="text-[10px] font-bold text-slate-500 uppercase tracking-widest mt-2 block group-hover:text-blue-900/60 transition-colors duration-300">Libros</span>
           </div>
-          <div>
-            <span class="block text-3xl font-serif font-black text-stone-900">2</span>
-            <span class="text-[10px] font-bold text-stone-500 uppercase tracking-widest mt-1 block">Premios</span>
+          <div class="group">
+            <span class="block text-3xl lg:text-4xl font-serif font-black text-slate-900 group-hover:text-blue-900 transition-colors duration-300">2</span>
+            <span class="text-[10px] font-bold text-slate-500 uppercase tracking-widest mt-2 block group-hover:text-blue-900/60 transition-colors duration-300">Premios</span>
           </div>
-          <div>
-             <span class="block text-3xl font-serif font-black text-stone-900">300+</span>
-             <span class="text-[10px] font-bold text-stone-500 uppercase tracking-widest mt-1 block">Entrevistas</span>
+          <div class="group">
+            <span class="block text-3xl lg:text-4xl font-serif font-black text-slate-900 group-hover:text-blue-900 transition-colors duration-300">300+</span>
+            <span class="text-[10px] font-bold text-slate-500 uppercase tracking-widest mt-2 block group-hover:text-blue-900/60 transition-colors duration-300">Entrevistas</span>
           </div>
         </div>
-
       </div>
     </div>
   </div>
