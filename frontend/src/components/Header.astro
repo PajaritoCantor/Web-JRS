@@ -41,7 +41,7 @@
             <a href="/publicaciones/articulos" class="block rounded-lg px-4 py-3 text-[10px] tracking-[0.18em] uppercase font-black text-academic-dark/70 hover:bg-white/70 hover:text-academic-dark transition-colors" role="menuitem">
               Artículos
             </a>
-            <a href="/#libros" class="block rounded-lg px-4 py-3 text-[10px] tracking-[0.18em] uppercase font-black text-academic-dark/70 hover:bg-white/70 hover:text-academic-dark transition-colors" role="menuitem">
+            <a href="/publicaciones/libros" class="block rounded-lg px-4 py-3 text-[10px] tracking-[0.18em] uppercase font-black text-academic-dark/70 hover:bg-white/70 hover:text-academic-dark transition-colors" role="menuitem">
               Libros
             </a>
           </div>
@@ -95,11 +95,17 @@
       <button id="publicaciones-mobile-toggle" class="text-[11px] uppercase tracking-widest font-black text-academic-dark/70 hover:text-academic-dark transition-colors" aria-expanded="false" aria-controls="publicaciones-mobile-menu">
         Publicaciones
       </button>
-      <div id="publicaciones-mobile-menu" class="hidden absolute right-0 top-full mt-3 w-52 rounded-xl border border-zinc-200/60 bg-gradient-to-br from-white/95 via-gray-50/95 to-amber-50/95 p-2 shadow-xl shadow-zinc-900/10 backdrop-blur-md">
-        <a href="/publicaciones/articulos" class="block rounded-lg px-4 py-3 text-[10px] tracking-[0.18em] uppercase font-black text-academic-dark/70 hover:bg-white/70 hover:text-academic-dark transition-colors">
+      <div id="publicaciones-mobile-menu" class="hidden absolute right-0 top-full mt-3 w-52 rounded-xl border border-zinc-200/60 bg-gradient-to-br from-white/95 via-gray-50/95 to-amber-50/95 p-2 shadow-premium backdrop-blur-md transition-all duration-300">
+        <a href="/publicaciones/articulos" class:list={[
+          "block rounded-lg px-4 py-3 text-[10px] tracking-[0.18em] uppercase font-black transition-colors",
+          "text-academic-dark/70 hover:bg-white/70 hover:text-academic-dark"
+        ]}>
           Artículos
         </a>
-        <a href="/#libros" class="block rounded-lg px-4 py-3 text-[10px] tracking-[0.18em] uppercase font-black text-academic-dark/70 hover:bg-white/70 hover:text-academic-dark transition-colors">
+        <a href="/publicaciones/libros" class:list={[
+          "block rounded-lg px-4 py-3 text-[10px] tracking-[0.18em] uppercase font-black transition-colors",
+          "text-academic-dark/70 hover:bg-white/70 hover:text-academic-dark"
+        ]}>
           Libros
         </a>
       </div>
@@ -138,6 +144,13 @@
       const expanded = mobileToggle.getAttribute('aria-expanded') === 'true';
       mobileToggle.setAttribute('aria-expanded', String(!expanded));
       mobileMenu.classList.toggle('hidden', expanded);
+      // Animación sutil de entrada
+      if (!expanded) {
+        mobileMenu.animate([
+          { opacity: 0, transform: 'translateY(10px)' },
+          { opacity: 1, transform: 'translateY(0)' }
+        ], { duration: 300, easing: 'ease-out' });
+      }
     });
   }
 

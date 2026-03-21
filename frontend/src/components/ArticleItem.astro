@@ -5,6 +5,7 @@ interface Props {
   anio: number;
   urlExterna: string;
   descripcionCorta?: string;
+  dark?: boolean;
 }
 
 const {
@@ -12,21 +13,34 @@ const {
   revista,
   anio,
   urlExterna,
-  descripcionCorta = ''
+  descripcionCorta = '',
+  dark = false
 } = Astro.props as Props;
 ---
 
-<article class="group relative border-t border-zinc-300/60 py-7 md:py-8">
+<article class:list={[
+  "group relative border-t py-7 md:py-8 transition-all duration-500",
+  dark ? "border-white/10" : "border-zinc-300/60"
+]}>
   <div class="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-6 md:gap-8 items-start">
     <div>
-      <p class="font-sans text-[10px] tracking-[0.2em] uppercase text-zinc-500 mb-3">
+      <p class:list={[
+        "font-sans text-[10px] tracking-[0.2em] uppercase mb-3",
+        dark ? "text-white/40" : "text-zinc-500"
+      ]}>
         {revista} · {anio}
       </p>
-      <h3 class="font-serif text-2xl md:text-3xl leading-tight text-slate-900 group-hover:text-blue-900 transition-colors duration-300">
+      <h3 class:list={[
+        "font-serif text-2xl md:text-3xl leading-tight transition-colors duration-300",
+        dark ? "text-white group-hover:text-academic-accent" : "text-slate-900 group-hover:text-blue-900"
+      ]}>
         {titulo}
       </h3>
       {descripcionCorta && (
-        <p class="mt-4 text-slate-700/90 leading-relaxed font-sans text-sm md:text-base max-w-3xl">
+        <p class:list={[
+          "mt-4 leading-relaxed font-sans text-sm md:text-base max-w-3xl",
+          dark ? "text-white/60 font-light" : "text-slate-700/90"
+        ]}>
           {descripcionCorta}
         </p>
       )}
@@ -37,7 +51,10 @@ const {
         href={urlExterna}
         target="_blank"
         rel="noopener noreferrer"
-        class="inline-flex items-center gap-3 rounded-full border border-slate-300/70 bg-white/80 px-5 py-2.5 font-sans text-[10px] tracking-[0.18em] uppercase font-black text-slate-700 hover:border-blue-900/30 hover:text-blue-900 hover:bg-white transition-colors duration-300"
+        class:list={[
+          "inline-flex items-center gap-3 rounded-full border px-5 py-2.5 font-sans text-[10px] tracking-[0.18em] uppercase font-black transition-colors duration-300",
+          dark ? "border-white/10 bg-white/5 text-white/70 hover:border-academic-accent/50 hover:text-academic-accent hover:bg-white/10" : "border-slate-300/70 bg-white/80 text-slate-700 hover:border-blue-900/30 hover:text-blue-900 hover:bg-white"
+        ]}
       >
         Leer en fuente original
         <i class="fa-solid fa-arrow-up-right-from-square text-[10px]" aria-hidden="true"></i>

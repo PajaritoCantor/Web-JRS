@@ -5,20 +5,23 @@
   <div class="grid grid-cols-1 md:grid-cols-4 gap-6 auto-rows-[300px] md:auto-rows-[350px]">
     
     <!-- Bloque 1: Título Editorial -->
-    <div class="md:col-span-2 md:row-span-1 bg-zinc-50 rounded-3xl p-12 flex flex-col justify-end border border-zinc-100 hover:shadow-premium transition-all duration-700 group">
-        <h2 class="text-xs font-bold tracking-[0.4em] uppercase text-academic-accent mb-6 animate-pulse">Actualidad</h2>
-        <h3 class="font-serif text-4xl md:text-5xl font-black text-academic-dark leading-tight">
-            Análisis & <br/>Perspectiva Crítica
+    <div class="md:col-span-2 md:row-span-1 bg-white/50 backdrop-blur-sm rounded-3xl p-12 flex flex-col justify-end border border-academic-accent/10 hover:shadow-premium transition-all duration-700 group">
+        <h2 class="text-[10px] font-black tracking-[0.5em] uppercase text-academic-accent mb-6 animate-pulse">Actualidad</h2>
+        <h3 class="font-serif text-5xl md:text-6xl font-black text-academic-dark leading-tight tracking-tighter">
+            Análisis & <br/><span class="text-academic-accent-800 italic font-light">Perspectiva Crítica</span>
         </h3>
     </div>
 
     <!-- Bloque 2: Actualidad Destacada (Imagen) - Relacionado con Pulso Actual -->
-    <div class="md:col-span-2 md:row-span-2 relative rounded-3xl overflow-hidden group shadow-premium">
-        <img src="/assets/original.jpeg" alt="Actualidad" class="w-full h-full object-cover grayscale-[20%] group-hover:grayscale-0 transition-all duration-1000 group-hover:scale-105" />
-        <div class="absolute inset-0 bg-gradient-to-t from-academic-dark/90 via-academic-dark/20 to-transparent p-12 flex flex-col justify-end">
-            <span class="text-[10px] uppercase tracking-[0.3em] font-bold text-white/70 mb-4">Investigación en Foco</span>
-            <h4 class="text-white text-2xl md:text-3xl font-serif font-bold leading-tight mb-6">El impacto de los conflictos prolongados en la memoria colectiva.</h4>
-            <a href="#" class="text-white text-xs font-bold uppercase tracking-widest border-b border-white/30 pb-1 w-max hover:border-white transition-all">Leer Análisis Completo</a>
+    <div class="md:col-span-2 md:row-span-2 relative rounded-3xl overflow-hidden group shadow-2xl border border-white/20">
+        <img src="/assets/original.jpeg" alt="Actualidad" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 group-hover:scale-110" />
+        <div class="absolute inset-0 bg-gradient-to-t from-academic-dark/90 via-academic-dark/20 to-transparent p-12 flex flex-col justify-end backdrop-blur-[2px] group-hover:backdrop-blur-none transition-all duration-700">
+            <span class="text-[10px] uppercase tracking-[0.4em] font-black text-academic-accent mb-4">Investigación en Foco</span>
+            <h4 class="text-white text-3xl md:text-4xl font-serif font-black leading-[1.1] mb-8 tracking-tight">El impacto de los conflictos prolongados en la memoria colectiva.</h4>
+            <a href="#" class="inline-flex items-center gap-4 text-white text-[10px] font-black uppercase tracking-[0.3em] border-b border-white/20 pb-2 w-max hover:border-academic-accent hover:text-academic-accent transition-all group/link">
+                Leer Análisis Completo
+                <i class="fa-solid fa-arrow-right-long transition-transform group-hover/link:translate-x-2"></i>
+            </a>
         </div>
     </div>
 
@@ -47,24 +50,24 @@
         </p>
     </div>
 
-    <!-- Bloque 5: Últimas Novedades (Feed Mixto) -->
-    <div class="md:col-span-2 md:row-span-1 bg-zinc-50 rounded-3xl p-8 flex gap-8 items-center border border-zinc-100 overflow-hidden">
+    <!-- Bloque 5: Últimas Novedades -->
+    <div class="md:col-span-2 md:row-span-1 bg-white/40 backdrop-blur-md rounded-3xl p-10 flex gap-8 items-center border border-white/20 overflow-hidden group/news">
         <div class="flex-1">
-            <span class="text-[9px] font-black tracking-[0.3em] uppercase text-academic-muted block mb-4 italic">Últimas Novedades</span>
-            <ul class="space-y-4">
-                <li class="flex items-center justify-between group cursor-pointer border-b border-zinc-200/50 pb-2 hover:border-academic-accent transition-colors">
-                    <div class="flex items-center gap-4">
-                        <span class="text-[8px] uppercase font-black text-academic-accent border border-academic-accent/30 px-2 py-0.5 rounded">Video</span>
-                        <span class="text-sm font-bold text-academic-dark group-hover:text-black">Entrevista en Radio Nacional</span>
+            <span class="text-[9px] font-black tracking-[0.4em] uppercase text-academic-accent block mb-6 px-1 border-l-2 border-academic-accent">Últimas Novedades</span>
+            <ul class="space-y-6">
+                <li class="flex items-center justify-between group cursor-pointer border-b border-academic-dark/5 pb-3 hover:border-academic-accent transition-colors">
+                    <div class="flex items-center gap-5">
+                        <span class="text-[8px] uppercase font-black text-academic-accent bg-academic-accent/5 px-3 py-1 rounded-full border border-academic-accent/20">Video</span>
+                        <span class="text-[11px] font-black tracking-widest text-academic-dark uppercase group-hover:text-black transition-colors">Entrevista en Radio Nacional</span>
                     </div>
-                    <i class="fa-solid fa-chevron-right text-[10px] text-zinc-300 group-hover:text-academic-accent transition-all"></i>
+                    <i class="fa-solid fa-arrow-right text-[10px] text-zinc-300 group-hover:text-academic-accent group-hover:translate-x-1 transition-all"></i>
                 </li>
-                <li class="flex items-center justify-between group cursor-pointer border-b border-zinc-200/50 pb-2 hover:border-academic-accent transition-colors">
-                    <div class="flex items-center gap-4">
-                        <span class="text-[8px] uppercase font-black text-zinc-400 border border-zinc-300 px-2 py-0.5 rounded">Artículo</span>
-                        <span class="text-sm font-bold text-academic-dark group-hover:text-black">Perspectivas sobre la Paz</span>
+                <li class="flex items-center justify-between group cursor-pointer border-b border-academic-dark/5 pb-3 hover:border-academic-accent transition-colors">
+                    <div class="flex items-center gap-5">
+                        <span class="text-[8px] uppercase font-black text-zinc-400 bg-zinc-100 px-3 py-1 rounded-full border border-zinc-200">Artículo</span>
+                        <span class="text-[11px] font-black tracking-widest text-academic-dark uppercase group-hover:text-black transition-colors">Perspectivas sobre la Paz</span>
                     </div>
-                    <i class="fa-solid fa-chevron-right text-[10px] text-zinc-300 group-hover:text-academic-accent transition-all"></i>
+                    <i class="fa-solid fa-arrow-right text-[10px] text-zinc-300 group-hover:text-academic-accent group-hover:translate-x-1 transition-all"></i>
                 </li>
             </ul>
         </div>

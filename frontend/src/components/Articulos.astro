@@ -13,9 +13,10 @@ interface Article {
 interface Props {
   limit?: number;
   showAllLink?: boolean;
+  dark?: boolean;
 }
 
-const { limit, showAllLink = true } = Astro.props as Props;
+const { limit, showAllLink = true, dark = false } = Astro.props as Props;
 
 const apiBase = import.meta.env.PUBLIC_API_BASE_URL ?? 'http://localhost:3000';
 let articles: Article[] = [];
@@ -73,37 +74,61 @@ if (articles.length === 0) {
 const visibleArticles = typeof limit === 'number' ? articles.slice(0, limit) : articles;
 ---
 
-<section id="articulos" class="relative w-full bg-gradient-to-br from-white via-gray-50 to-amber-50 py-16 lg:py-20 overflow-hidden">
-  <div class="absolute top-0 left-0 w-3/4 h-3/4 bg-gradient-to-br from-blue-100/20 to-transparent blur-3xl -z-10 opacity-50"></div>
-  <div class="absolute bottom-0 right-0 w-96 h-96 bg-gradient-to-t from-amber-100/15 to-transparent rounded-full blur-3xl -z-10"></div>
-  <div class="absolute inset-0 opacity-5 -z-10" style="background-image: radial-gradient(rgba(15,23,42,0.2) 1px, transparent 1px); background-size: 20px 20px;"></div>
+<section id="articulos" class:list={[
+  "relative w-full py-16 lg:py-20 overflow-hidden transition-colors duration-500",
+  dark ? "bg-academic-dark text-white" : "bg-gradient-to-br from-white via-gray-50 to-amber-50"
+]}>
+  {dark ? (
+    <div class="absolute inset-0 opacity-5 -z-10" style="background-image: radial-gradient(rgba(255,255,255,0.1) 1px, transparent 1px); background-size: 30px 30px;"></div>
+  ) : (
+    <>
+      <div class="absolute top-0 left-0 w-3/4 h-3/4 bg-gradient-to-br from-blue-100/20 to-transparent blur-3xl -z-10 opacity-50"></div>
+      <div class="absolute bottom-0 right-0 w-96 h-96 bg-gradient-to-t from-amber-100/15 to-transparent rounded-full blur-3xl -z-10"></div>
+      <div class="absolute inset-0 opacity-5 -z-10" style="background-image: radial-gradient(rgba(15,23,42,0.2) 1px, transparent 1px); background-size: 20px 20px;"></div>
+    </>
+  )}
 
   <div class="max-w-6xl mx-auto px-6 lg:px-8 relative z-10">
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
       <div class="lg:col-span-4">
         <div class="flex items-center gap-3 mb-5">
-          <span class="h-1 w-10 bg-blue-900/60"></span>
-          <span class="text-xs font-bold tracking-[0.2em] text-blue-900/70 uppercase">Publicaciones</span>
+          <span class:list={["h-1 w-10", dark ? "bg-academic-accent/60" : "bg-blue-900/60"]}></span>
+          <span class:list={["text-xs font-bold tracking-[0.2em] uppercase", dark ? "text-academic-accent/70" : "text-blue-900/70"]}>Publicaciones</span>
         </div>
 
-        <h2 class="font-serif text-4xl lg:text-5xl font-black text-slate-900 leading-tight">
-          Articulos de
-          <span class="text-slate-600 italic font-light">investigacion</span>
+        <h2 class:list={[
+          "font-serif text-4xl lg:text-5xl font-black leading-tight",
+          dark ? "text-white" : "text-slate-900"
+        ]}>
+          Artículos de
+          <span class:list={[
+            "italic font-light",
+            dark ? "text-white/40" : "text-slate-600"
+          ]}>investigación</span>
         </h2>
 
-        <p class="mt-5 text-slate-700 leading-relaxed font-sans text-base">
-          Indice academico cronologico con acceso a fuentes originales y metadatos editoriales.
+        <p class:list={[
+          "mt-5 leading-relaxed font-sans text-base",
+          dark ? "text-white/60" : "text-slate-700"
+        ]}>
+          Índice académico cronológico con acceso a fuentes originales y metadatos editoriales.
         </p>
 
         {showAllLink && (
-          <a href="/publicaciones/articulos" class="inline-flex items-center gap-2 mt-7 rounded-full border border-slate-300/70 bg-white/80 px-5 py-2.5 font-sans text-[10px] tracking-[0.18em] uppercase font-black text-slate-700 hover:border-blue-900/30 hover:text-blue-900 transition-colors duration-300">
+          <a href="/publicaciones/articulos" class:list={[
+            "inline-flex items-center gap-2 mt-7 rounded-full border px-5 py-2.5 font-sans text-[10px] tracking-[0.18em] uppercase font-black transition-colors duration-300",
+            dark ? "border-white/10 bg-white/5 text-white/70 hover:border-white/30 hover:text-white" : "border-slate-300/70 bg-white/80 text-slate-700 hover:border-blue-900/30 hover:text-blue-900"
+          ]}>
             Ver todos
             <i class="fa-solid fa-arrow-right text-[10px]" aria-hidden="true"></i>
           </a>
         )}
       </div>
 
-      <div class="lg:col-span-8 rounded-2xl border border-zinc-200/70 bg-white/65 backdrop-blur-sm px-6 md:px-10 py-3 shadow-[0_10px_40px_-25px_rgba(15,23,42,0.35)]">
+      <div class:list={[
+        "lg:col-span-8 rounded-2xl border backdrop-blur-sm px-6 md:px-10 py-3 shadow-premium transition-all",
+        dark ? "border-white/5 bg-white/5 shadow-none" : "border-zinc-200/70 bg-white/65 shadow-[0_10px_40px_-25px_rgba(15,23,42,0.35)]"
+      ]}>
         {visibleArticles.map((article) => (
           <ArticleItem
             titulo={article.titulo}
@@ -111,6 +136,7 @@ const visibleArticles = typeof limit === 'number' ? articles.slice(0, limit) : a
             anio={article.anio}
             urlExterna={article.url_externa}
             descripcionCorta={article.descripcion_corta}
+            dark={dark}
           />
         ))}
       </div>
