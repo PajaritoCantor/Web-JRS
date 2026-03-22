@@ -12,8 +12,8 @@ import Articulos from '../../components/Articulos.astro';
         <div class="container mx-auto px-6 relative z-10">
             <div class="max-w-4xl">
                 <span class="text-academic-accent text-[10px] font-black tracking-[0.5em] uppercase mb-8 block px-1 border-l-2 border-academic-accent">Producción Científica</span>
-                <h1 class="font-serif text-6xl md:text-9xl font-black mb-10 leading-none tracking-tighter">Artículos <br/><span class="text-white/20 italic font-light">Académicos</span></h1>
-                <p class="text-white/60 text-xl md:text-2xl leading-relaxed max-w-2xl font-light">
+                <h1 class="font-serif text-6xl md:text-9xl font-black mb-10 leading-none tracking-tighter text-white">Artículos <br/><span class="text-white/80 italic font-light">Académicos</span></h1>
+                <p class="text-white/90 text-xl md:text-2xl leading-relaxed max-w-2xl font-light">
                     Explora la producción académica en revistas de impacto nacional e internacional sobre conflictos armados y relaciones internacionales.
                 </p>
             </div>
@@ -21,21 +21,21 @@ import Articulos from '../../components/Articulos.astro';
     </section>
 
     <!-- Filtros y Buscador (Consistente con libros.astro) -->
-    <section class="py-10 bg-academic-dark/80 sticky top-0 z-50 backdrop-blur-xl border-b border-white/10">
+    <section class="py-10 bg-academic-dark/95 sticky top-0 z-50 backdrop-blur-xl border-b border-white/10">
         <div class="container mx-auto px-6 flex flex-wrap items-center justify-between gap-8">
-            <div class="flex gap-8">
-                <button class="text-academic-accent border-b-2 border-academic-accent pb-2 text-xs font-black tracking-widest uppercase">Recientes</button>
-                <button class="text-white/30 hover:text-white transition-colors pb-2 text-xs font-black tracking-widest uppercase">Q1/Q2 Journals</button>
-                <button class="text-white/30 hover:text-white transition-colors pb-2 text-xs font-black tracking-widest uppercase">Documentos</button>
+            <div class="flex gap-8 filter-container">
+                <button data-filter="all" class="filter-btn active text-academic-accent border-b-2 border-academic-accent pb-2 text-xs font-black tracking-widest uppercase transition-all">Todos</button>
+                <button data-filter="q1q2" class="filter-btn text-white/30 hover:text-white pb-2 text-xs font-black tracking-widest uppercase transition-all">Q1/Q2 Journals</button>
+                <button data-filter="general" class="filter-btn text-white/30 hover:text-white pb-2 text-xs font-black tracking-widest uppercase transition-all">Otras Pub.</button>
             </div>
             <div class="relative w-full md:w-96 group">
-                <input type="text" placeholder="BUSCAR POR PALABRACLAVE O REVISTA..." class="w-full bg-white/5 border border-white/10 rounded-full py-4 px-8 text-[11px] tracking-widest text-white placeholder:text-white/20 focus:outline-none focus:border-academic-accent/50 transition-all font-medium" />
+                <input type="text" id="articleSearch" placeholder="BUSCAR POR PALABRACLAVE O REVISTA..." class="w-full bg-white/5 border border-white/10 rounded-full py-4 px-8 text-[11px] tracking-widest text-white placeholder:text-white/20 focus:outline-none focus:border-academic-accent/50 transition-all font-medium" />
                 <i class="fa-solid fa-magnifying-glass absolute right-8 top-1/2 -translate-y-1/2 text-white/20 text-sm group-focus-within:text-academic-accent transition-colors"></i>
             </div>
         </div>
     </section>
 
-    <!-- Lista de Artículos (Componente con Prop Dark) -->
+    <!-- Lista de Artículos -->
     <Articulos showAllLink={false} dark={true} />
 
     <!-- Nota de Seguridad / Pie de Lista -->
@@ -53,6 +53,55 @@ import Articulos from '../../components/Articulos.astro';
     <Footer />
   </main>
 </Layout>
+
+<script is:inline>
+    document.addEventListener('DOMContentLoaded', () => {
+        const buttons = document.querySelectorAll('.filter-btn');
+        const searchInput = document.getElementById('articleSearch');
+
+        function filterArticles() {
+            const activeBtn = document.querySelector('.filter-btn.active');
+            if (!activeBtn) return;
+            
+            const activeFilter = activeBtn.getAttribute('data-filter');
+            const searchText = searchInput ? searchInput.value.toLowerCase() : '';
+            const cards = document.querySelectorAll('.article-card');
+
+            cards.forEach(card => {
+                const category = card.getAttribute('data-category');
+                const titleElement = card.querySelector('h3');
+                const title = titleElement ? titleElement.textContent.toLowerCase() : '';
+                const journal = card.getAttribute('data-journal') || '';
+                const bodyText = card.innerText.toLowerCase();
+
+                const matchesFilter = activeFilter === 'all' || category === activeFilter;
+                const matchesSearch = title.includes(searchText) || journal.includes(searchText) || bodyText.includes(searchText);
+
+                if (matchesFilter && matchesSearch) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        buttons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                buttons.forEach(b => {
+                    b.classList.remove('active', 'text-academic-accent', 'border-b-2', 'border-academic-accent');
+                    b.classList.add('text-white/30');
+                });
+                btn.classList.add('active', 'text-academic-accent', 'border-b-2', 'border-academic-accent');
+                btn.classList.remove('text-white/30');
+                filterArticles();
+            });
+        });
+
+        if (searchInput) {
+            searchInput.addEventListener('input', filterArticles);
+        }
+    });
+</script>
 
 <style>
     main {

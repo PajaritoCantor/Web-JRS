@@ -75,18 +75,11 @@ const visibleArticles = typeof limit === 'number' ? articles.slice(0, limit) : a
 ---
 
 <section id="articulos" class:list={[
-  "relative w-full py-16 lg:py-20 overflow-hidden transition-colors duration-500",
-  dark ? "bg-academic-dark text-white" : "bg-gradient-to-br from-white via-gray-50 to-amber-50"
+  "relative w-full py-16 lg:py-24 overflow-hidden transition-colors duration-500",
+  "bg-academic-dark text-white"
 ]}>
-  {dark ? (
-    <div class="absolute inset-0 opacity-5 -z-10" style="background-image: radial-gradient(rgba(255,255,255,0.1) 1px, transparent 1px); background-size: 30px 30px;"></div>
-  ) : (
-    <>
-      <div class="absolute top-0 left-0 w-3/4 h-3/4 bg-gradient-to-br from-blue-100/20 to-transparent blur-3xl -z-10 opacity-50"></div>
-      <div class="absolute bottom-0 right-0 w-96 h-96 bg-gradient-to-t from-amber-100/15 to-transparent rounded-full blur-3xl -z-10"></div>
-      <div class="absolute inset-0 opacity-5 -z-10" style="background-image: radial-gradient(rgba(15,23,42,0.2) 1px, transparent 1px); background-size: 20px 20px;"></div>
-    </>
-  )}
+  <div class="absolute inset-0 opacity-10 -z-10" style="background-image: radial-gradient(rgba(251,191,36,0.1) 1px, transparent 1px); background-size: 30px 30px;"></div>
+  <div class="absolute -top-20 -right-20 w-[60%] h-[60%] bg-academic-accent/5 blur-[120px] rounded-full -z-10"></div>
 
   <div class="max-w-6xl mx-auto px-6 lg:px-8 relative z-10">
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
@@ -96,15 +89,9 @@ const visibleArticles = typeof limit === 'number' ? articles.slice(0, limit) : a
           <span class:list={["text-xs font-bold tracking-[0.2em] uppercase", dark ? "text-academic-accent/70" : "text-blue-900/70"]}>Publicaciones</span>
         </div>
 
-        <h2 class:list={[
-          "font-serif text-4xl lg:text-5xl font-black leading-tight",
-          dark ? "text-white" : "text-slate-900"
-        ]}>
-          Artículos de
-          <span class:list={[
-            "italic font-light",
-            dark ? "text-white/40" : "text-slate-600"
-          ]}>investigación</span>
+        <h2 class="font-serif text-4xl lg:text-6xl font-black leading-[0.9] text-white italic">
+          Artículos de <br/>
+          <span class="not-italic text-white/90 underline decoration-academic-accent decoration-2 underline-offset-8">Investigación</span>
         </h2>
 
         <p class:list={[
@@ -125,10 +112,7 @@ const visibleArticles = typeof limit === 'number' ? articles.slice(0, limit) : a
         )}
       </div>
 
-      <div class:list={[
-        "lg:col-span-8 rounded-2xl border backdrop-blur-sm px-6 md:px-10 py-3 shadow-premium transition-all",
-        dark ? "border-white/5 bg-white/5 shadow-none" : "border-zinc-200/70 bg-white/65 shadow-[0_10px_40px_-25px_rgba(15,23,42,0.35)]"
-      ]}>
+      <div class="lg:col-span-8 space-y-4">
         {visibleArticles.map((article) => (
           <ArticleItem
             titulo={article.titulo}

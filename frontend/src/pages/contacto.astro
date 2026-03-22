@@ -1,0 +1,122 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Contacto - Jerónimo Ríos Sierra">
+  <main class="bg-academic-dark min-h-screen pt-32 pb-40 relative overflow-hidden">
+    
+    <!-- Fondos Decorativos Globales -->
+    <div class="absolute top-0 right-0 w-[60%] h-[60%] bg-academic-accent/5 blur-[150px] -z-10"></div>
+    <div class="absolute bottom-0 left-0 w-[50%] h-[50%] bg-blue-900/10 blur-[150px] -z-10"></div>
+
+    <div class="max-w-[1440px] mx-auto px-6 relative z-10">
+      
+      <!-- Contenedor Premium (Estilo Newsletter de Vídeos) -->
+      <div class="bg-gradient-to-br from-academic-dark to-slate-950 border border-white/5 rounded-[3rem] md:rounded-[5rem] p-10 md:p-24 relative overflow-hidden shadow-premium group">
+        
+        <!-- Efecto de luz interna -->
+        <div class="absolute -top-[50%] -right-[20%] w-[100%] h-[100%] bg-academic-accent/5 blur-[150px] rounded-full transition-colors duration-1000 group-hover:bg-academic-accent/10"></div>
+
+        <div class="relative z-10 max-w-4xl mx-auto">
+          
+          <!-- Encabezado -->
+          <div class="text-center mb-20">
+            <div class="w-20 h-20 bg-academic-accent/10 rounded-full flex items-center justify-center mx-auto mb-10 border border-academic-accent/20">
+              <i class="fa-solid fa-paper-plane text-academic-accent text-3xl"></i>
+            </div>
+            <h1 class="font-serif text-5xl md:text-8xl font-black text-white mb-8 tracking-tighter leading-none">
+              Iniciemos una <br/><span class="italic text-slate-400 font-light">conversación.</span>
+            </h1>
+            <p class="text-slate-400 text-xl font-sans max-w-2xl mx-auto font-light leading-relaxed">
+              Para conferencias, colaboraciones académicas o consultas de prensa, puedes contactar directamente a través del formulario o redes sociales.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
+            
+            <!-- Formulario -->
+            <form class="space-y-8 text-left">
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="space-y-3">
+                  <label class="text-[10px] uppercase tracking-widest font-black text-academic-accent/60 ml-2">Nombre</label>
+                  <input type="text" placeholder="Tu nombre" class="w-full bg-white/5 border border-white/10 rounded-2xl px-8 py-5 text-white text-base focus:outline-none focus:border-academic-accent transition-all placeholder:text-slate-600" />
+                </div>
+                <div class="space-y-3">
+                  <label class="text-[10px] uppercase tracking-widest font-black text-academic-accent/60 ml-2">Email</label>
+                  <input type="email" placeholder="tu@email.com" class="w-full bg-white/5 border border-white/10 rounded-2xl px-8 py-5 text-white text-base focus:outline-none focus:border-academic-accent transition-all placeholder:text-slate-600" />
+                </div>
+              </div>
+              <div class="space-y-3">
+                <label class="text-[10px] uppercase tracking-widest font-black text-academic-accent/60 ml-2">Asunto</label>
+                <input type="text" placeholder="Motivo de tu mensaje" class="w-full bg-white/5 border border-white/10 rounded-2xl px-8 py-5 text-white text-base focus:outline-none focus:border-academic-accent transition-all placeholder:text-slate-600" />
+              </div>
+              <div class="space-y-3">
+                <label class="text-[10px] uppercase tracking-widest font-black text-academic-accent/60 ml-2">Mensaje</label>
+                <textarea rows="5" placeholder="Cuéntame más sobre tu propuesta..." class="w-full bg-white/5 border border-white/10 rounded-3xl px-8 py-5 text-white text-base focus:outline-none focus:border-academic-accent transition-all placeholder:text-slate-600 resize-none"></textarea>
+              </div>
+              <button class="w-full bg-white text-academic-dark font-black uppercase text-[11px] tracking-[0.3em] px-12 py-6 rounded-2xl hover:bg-academic-accent hover:text-white transition-all duration-500 shadow-xl group/btn flex items-center justify-center gap-4">
+                Enviar Mensaje
+                <i class="fa-solid fa-arrow-right-long group-hover/btn:translate-x-3 transition-transform"></i>
+              </button>
+            </form>
+
+            <!-- Información Lateral -->
+            <div class="space-y-16">
+              <div>
+                <h3 class="text-[10px] uppercase tracking-[0.4em] font-black text-academic-accent mb-8">Información Directa</h3>
+                <div class="space-y-6">
+                  <a href="mailto:info@jeronimorios.com" class="flex items-center gap-6 group/item">
+                    <div class="w-14 h-14 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center group-hover/item:border-academic-accent/40 transition-colors">
+                      <i class="fa-solid fa-envelope text-slate-400 group-hover/item:text-academic-accent"></i>
+                    </div>
+                    <div>
+                      <span class="block text-[9px] uppercase tracking-widest text-slate-500 font-bold mb-1">Email General</span>
+                      <span class="text-white text-lg font-sans">info@jeronimorios.com</span>
+                    </div>
+                  </a>
+                  <div class="flex items-center gap-6">
+                    <div class="w-14 h-14 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center">
+                      <i class="fa-solid fa-location-dot text-slate-400"></i>
+                    </div>
+                    <div>
+                      <span class="block text-[9px] uppercase tracking-widest text-slate-500 font-bold mb-1">Ubicación</span>
+                      <span class="text-white text-lg font-sans">Madrid, España</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <h3 class="text-[10px] uppercase tracking-[0.4em] font-black text-academic-accent mb-8">Redes Académicas</h3>
+                <div class="flex gap-4">
+                  <a href="#" class="w-16 h-16 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 hover:text-academic-accent hover:border-academic-accent/40 transition-all text-xl hover:-translate-y-2">
+                    <i class="fa-brands fa-linkedin-in"></i>
+                  </a>
+                  <a href="#" class="w-16 h-16 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 hover:text-academic-accent hover:border-academic-accent/40 transition-all text-xl hover:-translate-y-2">
+                    <i class="fa-brands fa-x-twitter"></i>
+                  </a>
+                  <a href="#" class="w-16 h-16 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 hover:text-academic-accent hover:border-academic-accent/40 transition-all text-xl hover:-translate-y-2">
+                    <i class="fa-brands fa-researchgate"></i>
+                  </a>
+                  <a href="#" class="w-16 h-16 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 hover:text-academic-accent hover:border-academic-accent/40 transition-all text-xl hover:-translate-y-2">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                  </a>
+                </div>
+              </div>
+
+              <!-- Decoración inferior -->
+              <div class="p-8 rounded-[2rem] bg-academic-accent/5 border border-academic-accent/10">
+                <p class="text-[10px] text-slate-500 font-medium leading-relaxed uppercase tracking-[0.2em]">
+                  Disponibilidad para colaboraciones internacionales y consultoría especializada en procesos de paz.
+                </p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <Footer />
+</Layout>

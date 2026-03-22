@@ -4,11 +4,12 @@ export default {
   theme: {
     extend: {
       colors: {
-        paper: '#fafafa',
+        paper: '#f8fafc', // Bone white for better readability
         academic: {
-          dark: '#18181b', // zinc-900
-          muted: '#71717a', // zinc-500
-          accent: '#92400e', // amber-800
+          dark: '#0f172a', // Midnight Slate (Slate 950)
+          muted: '#64748b', // Slate 500
+          accent: '#fbbf24', // Aureate Amber (Amber 400)
+          "accent-dark": '#d97706', // Amber 600 for contrast
         }
       },
       fontFamily: {

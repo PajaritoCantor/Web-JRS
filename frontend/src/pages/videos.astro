@@ -1,0 +1,188 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Footer from '../components/Footer.astro';
+
+// Datos de ejemplo para la galería de vídeos
+const videos = [
+  {
+    id: 1,
+    title: "Entrevista en Radio Nacional: El futuro de la Paz en Colombia",
+    category: "Entrevista",
+    duration: "15:45",
+    date: "12 Mar 2024",
+    thumbnail: "/assets/original.jpeg",
+    url: "#",
+    featured: true,
+    description: "Una discusión profunda sobre los retos de la implementación de los acuerdos de paz y el papel de la sociedad civil en el post-conflicto."
+  },
+  {
+    id: 2,
+    title: "Conferencia Magistral: Terrorismo de Estado en Perú",
+    category: "Conferencia",
+    duration: "45:20",
+    date: "28 Feb 2024",
+    thumbnail: "/assets/TerrorismodeEstadoyGruposArmadosEnPeruArticle.jpeg",
+    url: "#",
+    featured: false,
+    description: "Análisis histórico sobre las dinámicas de violencia estatal durante las décadas de conflicto interno en el Perú."
+  },
+  {
+    id: 3,
+    title: "Documental: Las huellas de la insurgencia",
+    category: "Documental",
+    duration: "1:12:00",
+    date: "15 Ene 2024",
+    thumbnail: "/assets/original.jpeg",
+    url: "#",
+    featured: false,
+    description: "Un recorrido visual por los territorios marcados por la presencia de grupos armados en Iberoamérica."
+  },
+  {
+    id: 4,
+    title: "Webinar UCM: Geopolítica del Conflicto",
+    category: "Académico",
+    duration: "58:10",
+    date: "05 Dic 2023",
+    thumbnail: "/assets/original.jpeg",
+    url: "#",
+    featured: false,
+    description: "Debate académico sobre las nuevas formas de conflictividad en el siglo XXI."
+  }
+];
+
+const featuredVideo = videos.find(v => v.featured);
+const otherVideos = videos.filter(v => !v.featured);
+---
+
+<Layout title="Vídeos - Jerónimo Ríos Sierra">
+  <main class="bg-academic-dark min-h-screen pt-24 relative overflow-hidden">
+    
+    <!-- Hero Section: Vídeo Destacado -->
+    <section class="max-w-[1440px] mx-auto px-6 py-12 relative z-10">
+      <div class="relative rounded-[2.5rem] overflow-hidden group shadow-2xl bg-black/20 aspect-video lg:aspect-[21/9] border border-white/5">
+        <!-- Miniatura de Fondo con Overlay -->
+        <img 
+          src={featuredVideo.thumbnail} 
+          alt={featuredVideo.title} 
+          class="absolute inset-0 w-full h-full object-cover opacity-30 group-hover:scale-105 transition-transform duration-1000 grayscale group-hover:grayscale-0"
+        />
+        <div class="absolute inset-0 bg-gradient-to-t from-academic-dark via-academic-dark/60 to-transparent"></div>
+        
+        <!-- Contenido del Vídeo Destacado -->
+        <div class="absolute inset-0 p-8 md:p-16 flex flex-col justify-end">
+          <div class="flex items-center gap-4 mb-6">
+            <span class="bg-academic-accent text-academic-dark text-[10px] font-black tracking-[0.3em] uppercase px-4 py-1 rounded-full">
+              {featuredVideo.category} Destacada
+            </span>
+            <span class="text-slate-500 text-[10px] uppercase tracking-widest font-bold">
+              {featuredVideo.duration}
+            </span>
+          </div>
+          
+          <h2 class="font-serif text-3xl md:text-5xl lg:text-7xl text-white font-black leading-tight max-w-4xl mb-6 tracking-tighter">
+            {featuredVideo.title}
+          </h2>
+          
+          <p class="text-slate-400 text-base md:text-xl max-w-2xl mb-10 font-sans leading-relaxed font-light">
+            {featuredVideo.description}
+          </p>
+          
+          <a href={featuredVideo.url} class="inline-flex items-center gap-6 group/btn">
+            <div class="w-16 h-16 rounded-full bg-white flex items-center justify-center group-hover/btn:bg-academic-accent transition-all duration-500 shadow-xl group-hover/btn:scale-110">
+              <i class="fa-solid fa-play text-academic-dark text-2xl ml-1"></i>
+            </div>
+            <span class="text-white text-[11px] uppercase tracking-[0.3em] font-black border-b border-white/20 pb-2 group-hover/btn:border-academic-accent group-hover/btn:text-academic-accent transition-all">
+              Reproducir Ahora
+            </span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Galería de Vídeos -->
+    <section class="max-w-[1440px] mx-auto px-6 py-12 md:py-24 relative z-10">
+      <div class="flex flex-col md:flex-row items-end justify-between mb-20 gap-10">
+        <div>
+          <span class="text-academic-accent text-[10px] font-black tracking-[0.4em] uppercase mb-6 block border-l-2 border-academic-accent/40 pl-4">Repositorio Multimedia</span>
+          <h3 class="font-serif text-5xl md:text-8xl font-black text-white tracking-tighter">Entrevistas & <br/><span class="italic text-slate-400 font-light">Conferencias</span></h3>
+        </div>
+        
+        <!-- Filtros -->
+        <div class="flex flex-wrap gap-3">
+          {['Todos', 'Entrevistas', 'Conferencias', 'Académico'].map((filter, index) => (
+            <button class={`px-8 py-3 rounded-xl text-[10px] font-black tracking-widest uppercase transition-all duration-300 border ${index === 0 ? 'bg-academic-accent text-academic-dark border-academic-accent' : 'bg-white/5 text-slate-500 border-white/5 hover:border-academic-accent/40 hover:text-academic-accent'}`}>
+              {filter}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+        {otherVideos.map((video) => (
+          <div class="group cursor-pointer">
+            <div class="aspect-video rounded-3xl overflow-hidden relative mb-8 shadow-2xl border border-white/5 bg-white/5">
+              <img 
+                src={video.thumbnail} 
+                alt={video.title} 
+                class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 group-hover:scale-110"
+              />
+              <div class="absolute inset-0 bg-academic-dark/30 group-hover:bg-academic-dark/0 transition-colors duration-500"></div>
+              
+              <!-- Badge de Duración -->
+              <div class="absolute bottom-4 right-4 bg-black/80 backdrop-blur-md px-3 py-1 rounded-lg text-[9px] text-white font-black tracking-widest">
+                {video.duration}
+              </div>
+
+              <!-- Botón Play Hover -->
+              <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 backdrop-blur-[2px]">
+                <div class="w-16 h-16 rounded-full bg-academic-accent text-academic-dark shadow-2xl flex items-center justify-center scale-75 group-hover:scale-100 transition-transform duration-500">
+                  <i class="fa-solid fa-play text-xl ml-1"></i>
+                </div>
+              </div>
+            </div>
+
+            <div class="px-2">
+              <div class="flex items-center gap-4 mb-5">
+                <span class="text-[10px] font-black text-academic-accent uppercase tracking-[0.2em]">{video.category}</span>
+                <span class="text-[10px] font-bold text-slate-500 uppercase tracking-widest">{video.date}</span>
+              </div>
+              <h5 class="font-serif text-3xl font-black text-white leading-tight group-hover:text-academic-accent transition-colors duration-300 mb-5 tracking-tighter">
+                {video.title}
+              </h5>
+              <p class="text-slate-400 text-base font-sans line-clamp-2 leading-relaxed font-light">
+                {video.description}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Sección de Suscripción -->
+    <section class="max-w-[1440px] mx-auto px-6 py-24 pb-48 relative z-10">
+        <div class="bg-gradient-to-br from-academic-dark to-slate-950 border border-white/5 rounded-[4rem] p-12 md:p-24 text-center relative overflow-hidden group shadow-premium">
+            <div class="absolute -top-[50%] -left-[20%] w-[100%] h-[100%] bg-academic-accent/5 blur-[150px] rounded-full"></div>
+            
+            <div class="relative z-10 max-w-3xl mx-auto">
+                <div class="w-20 h-20 bg-academic-accent/10 rounded-full flex items-center justify-center mx-auto mb-10 border border-academic-accent/20">
+                    <i class="fa-solid fa-microphone-lines text-academic-accent text-3xl"></i>
+                </div>
+                <h3 class="font-serif text-4xl md:text-6xl text-white font-black mb-10 tracking-tighter leading-[0.9]">
+                    Recibe las últimas <br/><span class="italic text-slate-400 font-light">intervenciones académicas.</span>
+                </h3>
+                <p class="text-slate-400 text-xl mb-14 font-sans max-w-xl mx-auto font-light">
+                    Mantente al día con las nuevas entrevistas y seminarios de Jerónimo Ríos directamente en tu correo.
+                </p>
+                <div class="flex flex-col md:flex-row gap-6 max-w-2xl mx-auto">
+                    <input type="email" placeholder="Tu correo electrónico" class="flex-1 bg-white/5 border border-white/10 rounded-2xl px-10 py-5 text-white text-base focus:outline-none focus:border-academic-accent transition-all placeholder:text-slate-600" />
+                    <button class="bg-white text-academic-dark font-black uppercase text-[11px] tracking-[0.2em] px-12 py-5 rounded-2xl hover:bg-academic-accent hover:text-white transition-all duration-500 shadow-xl">
+                        Suscribirse
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+  </main>
+  <Footer />
+</Layout>

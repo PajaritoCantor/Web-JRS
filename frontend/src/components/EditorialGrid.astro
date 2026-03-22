@@ -6,10 +6,10 @@
 <section class="max-w-[1440px] mx-auto px-6 py-24">
   <div class="grid grid-cols-1 md:grid-cols-4 gap-6 auto-rows-[300px] md:auto-rows-[350px]">
     
-    <div class="md:col-span-2 md:row-span-1 bg-white/50 backdrop-blur-sm rounded-3xl p-12 flex flex-col justify-end border border-academic-accent/10 hover:shadow-premium transition-all duration-700 group">
+    <div class="md:col-span-2 md:row-span-1 bg-white/5 backdrop-blur-sm rounded-3xl p-12 flex flex-col justify-end border border-white/5 hover:border-academic-accent/20 hover:shadow-2xl hover:shadow-academic-accent/5 transition-all duration-700 group">
         <h2 class="text-[10px] font-black tracking-[0.5em] uppercase text-academic-accent mb-6 animate-pulse">Actualidad</h2>
-        <h3 class="font-serif text-5xl md:text-6xl font-black text-academic-dark leading-tight tracking-tighter">
-            Análisis & <br/><span class="text-academic-accent-800 italic font-light">Perspectiva Crítica</span>
+        <h3 class="font-serif text-5xl md:text-6xl font-black text-white leading-tight tracking-tighter">
+            Análisis & <br/><span class="text-academic-accent italic font-light">Perspectiva Crítica</span>
         </h3>
     </div>
 
@@ -46,18 +46,18 @@
         </div>
     </div>
 
-    <div class="md:col-span-1 md:row-span-1 bg-white/30 backdrop-blur-sm border border-academic-accent/5 rounded-3xl p-10 flex flex-col justify-center text-center relative overflow-hidden group/quote">
+    <div class="md:col-span-1 md:row-span-1 bg-white/5 backdrop-blur-sm border border-white/5 rounded-3xl p-10 flex flex-col justify-center text-center relative overflow-hidden group/quote">
         <i class="fa-solid fa-quote-left text-academic-accent/10 text-6xl absolute top-8 left-8"></i>
-        <p class="font-serif italic text-xl text-academic-dark leading-relaxed relative z-10">
+        <p class="font-serif italic text-xl text-white/80 leading-relaxed relative z-10">
             "La historia no se repite, <br/>pero <span class="text-academic-accent not-italic font-black">rima</span> con la violencia del pasado."
         </p>
     </div>
 
-    <div class="md:col-span-2 md:row-span-1 bg-white/40 backdrop-blur-md rounded-3xl p-10 flex gap-8 items-center border border-white/20 overflow-hidden group/news">
+    <div class="md:col-span-2 md:row-span-1 bg-white/[0.03] backdrop-blur-md rounded-3xl p-10 flex gap-8 items-center border border-white/5 overflow-hidden group/news">
         <div class="flex-1">
             <span class="text-[9px] font-black tracking-[0.4em] uppercase text-academic-accent block mb-6 px-1 border-l-2 border-academic-accent">Últimas Novedades</span>
             <ul class="space-y-6">
-                <li class="news-item group cursor-pointer border-b border-academic-dark/5 pb-3 hover:border-academic-accent transition-colors" 
+                <li class="news-item group cursor-pointer border-b border-white/5 pb-3 hover:border-academic-accent transition-colors" 
                     data-type="video" 
                     data-src="/assets/preview-entrevista.mp4" 
                     data-thumbnail="/assets/original.jpeg"
@@ -65,29 +65,29 @@
                     aria-label="Ver entrevista en Radio Nacional (Video)">
                     <div class="flex items-center justify-between">
                         <div class="flex items-center gap-5">
-                            <span class="text-[8px] uppercase font-black text-academic-accent bg-academic-accent/5 px-3 py-1 rounded-full border border-academic-accent/20">Video</span>
-                            <span class="text-[11px] font-black tracking-widest text-academic-dark uppercase group-hover:text-black transition-colors">Entrevista en Radio Nacional</span>
+                            <span class="text-[8px] uppercase font-black text-academic-accent bg-academic-accent/10 px-3 py-1 rounded-full border border-academic-accent/20">Video</span>
+                            <span class="text-[11px] font-black tracking-widest text-white/70 uppercase group-hover:text-white transition-colors">Entrevista en Radio Nacional</span>
                         </div>
-                        <i class="fa-solid fa-play text-[10px] text-zinc-300 opacity-0 group-hover:opacity-100 transition-all"></i>
+                        <i class="fa-solid fa-play text-[10px] text-academic-accent/40 opacity-0 group-hover:opacity-100 transition-all"></i>
                     </div>
                 </li>
-                <li class="news-item group cursor-pointer border-b border-academic-dark/5 pb-3 hover:border-academic-accent transition-colors" 
+                <li class="news-item group cursor-pointer border-b border-white/5 pb-3 hover:border-academic-accent transition-colors" 
                     data-type="article"
                     role="link"
                     aria-label="Leer artículo: Perspectivas sobre la Paz">
                     <div class="flex items-center justify-between">
                         <div class="flex items-center gap-5">
-                            <span class="text-[8px] uppercase font-black text-zinc-400 bg-zinc-100 px-3 py-1 rounded-full border border-zinc-200">Artículo</span>
-                            <span class="text-[11px] font-black tracking-widest text-academic-dark uppercase group-hover:text-black transition-colors">Perspectivas sobre la Paz</span>
+                            <span class="text-[8px] uppercase font-black text-white/30 bg-white/5 px-3 py-1 rounded-full border border-white/10">Artículo</span>
+                            <span class="text-[11px] font-black tracking-widest text-white/70 uppercase group-hover:text-white transition-colors">Perspectivas sobre la Paz</span>
                         </div>
-                        <i class="fa-solid fa-arrow-right text-[10px] text-zinc-300 group-hover:text-academic-accent group-hover:translate-x-1 transition-all"></i>
+                        <i class="fa-solid fa-arrow-right text-[10px] text-white/20 group-hover:text-academic-accent group-hover:translate-x-1 transition-all"></i>
                     </div>
                 </li>
             </ul>
         </div>
 
         <div id="media-trigger" 
-             class="hidden lg:flex flex-col items-center justify-center w-40 h-40 bg-gradient-to-br from-white to-amber-50 rounded-2xl shadow-premium p-4 rotate-3 group-hover/news:rotate-0 transition-all duration-700 border border-academic-accent/10 relative overflow-hidden group/play"
+             class="hidden lg:flex flex-col items-center justify-center w-40 h-40 bg-gradient-to-br from-academic-dark to-slate-900 rounded-2xl shadow-2xl p-4 rotate-3 group-hover/news:rotate-0 transition-all duration-700 border border-white/5 relative overflow-hidden group/play"
              aria-hidden="true">
             
             <div id="thumbnail-bg" class="absolute inset-0 bg-cover bg-center opacity-0 transition-opacity duration-500 z-0"></div>
@@ -101,7 +101,7 @@
                 <i id="main-play-icon" class="fa-solid fa-play text-2xl text-white ml-1 transition-colors"></i>
             </div>
             
-            <span id="media-label" class="mt-4 text-[8px] font-black uppercase tracking-[0.2em] text-academic-muted opacity-0 group-hover/news:opacity-100 transition-all duration-1000 relative z-10">Explorar</span>
+            <span id="media-label" class="mt-4 text-[8px] font-black uppercase tracking-[0.2em] text-white/30 opacity-0 group-hover/news:opacity-100 transition-all duration-1000 relative z-10">Explorar</span>
         </div>
     </div>
   </div>

@@ -1,17 +1,20 @@
----
-// Footer Component
-const currentYear = new Date().getFullYear();
----
-<footer class="w-full bg-academic-dark text-white py-20 mt-20">
+<footer class="w-full bg-academic-dark text-white py-24 border-t border-white/5 relative overflow-hidden">
+  <!-- Fondo decorativo sutil -->
+  <div class="absolute top-0 right-0 w-[40%] h-full bg-academic-accent/5 blur-[100px] rounded-full translate-x-1/2 -z-10"></div>
+  
   <div class="max-w-[1440px] mx-auto px-6 md:px-12">
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-24 mb-16">
-      
-      <!-- Brand -->
-      <div class="col-span-1 md:col-span-1">
-        <h2 class="font-serif text-3xl font-bold mb-6 tracking-tight">Jerónimo Ríos</h2>
-        <p class="text-zinc-400 text-sm leading-relaxed max-w-sm mb-8">
-          Investigación académica dedicada al análisis de conflictos armados, terrorismo de estado y política en Iberoamérica.
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-16 mb-20">
+      <div class="md:col-span-2">
+        <a href="/" class="flex items-center gap-3 mb-8 group">
+          <div class="w-10 h-10 rounded-xl bg-academic-accent flex items-center justify-center transition-transform group-hover:rotate-12">
+            <span class="text-academic-dark font-serif font-bold text-xl">J</span>
+          </div>
+          <span class="font-serif text-2xl font-black text-white tracking-tight">Jerónimo Ríos <span class="text-slate-400 italic">Sierra</span></span>
+        </a>
+        <p class="text-white/40 max-w-sm font-sans leading-relaxed">
+          Pensamiento crítico y análisis académico sobre conflictos armados, terrorismo de Estado e insurgencia en Iberoamérica.
         </p>
+      </div>
         <div class="flex space-x-6 text-zinc-400">
           <a href="#" aria-label="X" class="hover:text-white transition-colors text-xl"><i class="fa-brands fa-x-twitter"></i></a>
           <a href="#" aria-label="LinkedIn" class="hover:text-white transition-colors text-xl"><i class="fa-brands fa-linkedin"></i></a>
@@ -23,25 +26,26 @@ const currentYear = new Date().getFullYear();
       <!-- Links -->
       <div class="grid grid-cols-2 gap-12 col-span-1 md:col-span-2">
         <div>
-          <h4 class="text-[10px] uppercase tracking-[0.3em] font-bold mb-8 text-academic-accent">Explora</h4>
-          <ul class="space-y-4 text-sm font-medium text-zinc-400">
-            <li><a href="/biografia" class="hover:text-white transition-colors">Biografía</a></li>
-            <li><a href="/publicaciones/articulos" class="hover:text-white transition-colors">Artículos</a></li>
-            <li><a href="/publicaciones/libros" class="hover:text-white transition-colors">Libros</a></li>
-            <li><a href="#" class="hover:text-white transition-colors">Medios</a></li>
+          <h4 class="text-[10px] uppercase tracking-[0.4em] font-bold mb-8 text-academic-accent/60">Explora</h4>
+          <ul class="space-y-4 text-sm font-medium text-white/40">
+            <li><a href="/biografia" class="hover:text-academic-accent transition-colors">Biografía</a></li>
+            <li><a href="/publicaciones/articulos" class="hover:text-academic-accent transition-colors">Artículos</a></li>
+            <li><a href="/publicaciones/libros" class="hover:text-academic-accent transition-colors">Libros</a></li>
+            <li><a href="/videos" class="hover:text-academic-accent transition-colors">Vídeos</a></li>
+            <li><a href="/contacto" class="hover:text-academic-accent transition-colors">Contacto</a></li>
           </ul>
         </div>
         <div>
-          <h4 class="text-[10px] uppercase tracking-[0.3em] font-bold mb-8 text-academic-accent">Contacto</h4>
-          <ul class="space-y-4 text-sm font-medium text-zinc-400">
-            <li><a href="mailto:info@jeronimorios.com" class="hover:text-white transition-colors">info@jeronimorios.com</a></li>
+          <h4 class="text-[10px] uppercase tracking-[0.3em] font-bold mb-8 text-academic-accent/60">Contacto</h4>
+          <ul class="space-y-4 text-sm font-medium text-white/40">
+            <li><a href="mailto:info@jeronimorios.com" class="hover:text-academic-accent transition-colors">info@jeronimorios.com</a></li>
             <li><span class="block">Madrid, España</span></li>
           </ul>
         </div>
       </div>
     </div>
 
-    <div class="pt-12 border-t border-zinc-800 flex flex-col md:flex-row justify-between items-center gap-6">
+    <div class="pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
       <p class="text-zinc-500 text-[10px] uppercase tracking-[0.2em] font-bold">
         © {new Date().getFullYear()} Jerónimo Ríos Sierra. Todos los derechos reservados.
       </p>

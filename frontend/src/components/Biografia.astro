@@ -4,78 +4,78 @@
 import { Image } from 'astro:assets';
 import profileImage from '../assets/original_profile.jpeg';
 ---
-<section id="biografia" class="relative w-full py-24 lg:py-32 overflow-hidden bg-transparent">
+<section id="biografia" class="relative w-full py-24 lg:py-32 overflow-hidden bg-academic-dark">
   
-  <!-- Fondos Decorativos (Gradients Sutiles Coherentes) -->
-  <div class="absolute top-0 right-0 w-[50%] h-[50%] bg-blue-100/10 blur-[100px] -z-10"></div>
-  <div class="absolute bottom-0 left-0 w-[40%] h-[40%] bg-amber-100/10 blur-[100px] -z-10"></div>
+  <!-- Fondos Decorativos -->
+  <div class="absolute top-0 right-0 w-[50%] h-[50%] bg-academic-accent/5 blur-[120px] -z-10"></div>
+  <div class="absolute bottom-0 left-0 w-[40%] h-[40%] bg-blue-900/10 blur-[100px] -z-10"></div>
 
   <div class="max-w-6xl mx-auto px-6 lg:px-8 relative z-10">
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
       
-      <!-- Columna Imagen: Estilo Portada (40% aprox) -->
+      <!-- Columna Imagen -->
       <div class="lg:col-span-5 order-2 lg:order-1 relative group">
-        <div class="relative rounded-2xl overflow-hidden shadow-2xl border border-white/20 backdrop-blur-sm aspect-[4/5]">
+        <div class="relative rounded-2xl overflow-hidden shadow-2xl border border-white/5 aspect-[4/5]">
           <Image 
             src={profileImage} 
             alt="Jerónimo Ríos Sierra" 
             class="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-1000 ease-in-out transform group-hover:scale-110"
           />
           
-          <!-- Tarjeta Flotante "Glassmorphism" -->
-          <div class="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-academic-dark/90 via-academic-dark/40 to-transparent backdrop-blur-md">
+          <!-- Tarjeta Flotante -->
+          <div class="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-academic-dark via-academic-dark/40 to-transparent backdrop-blur-md">
             <p class="text-white font-serif text-2xl font-black leading-tight mb-2 tracking-tight">Dr. Jerónimo Ríos</p>
             <p class="text-academic-accent text-[10px] font-black tracking-[0.4em] uppercase">Pensador Político • Académico</p>
           </div>
         </div>
         
-        <!-- Satis decorativo asimétrico -->
         <div class="absolute -top-6 -left-6 w-24 h-24 border-t-2 border-l-2 border-academic-accent/30 -z-10 group-hover:-translate-x-2 group-hover:-translate-y-2 transition-transform duration-700"></div>
       </div>
 
-      <!-- Columna Texto (60% aprox) -->
+      <!-- Columna Texto -->
       <div class="lg:col-span-7 order-1 lg:order-2 flex flex-col space-y-10 lg:pl-12">
         <div class="flex items-center gap-4">
           <span class="h-0.5 w-12 bg-academic-accent/40"></span>
           <span class="text-[10px] font-black tracking-[0.4em] text-academic-accent uppercase">Perfil Académico</span>
         </div>
 
-        <h2 class="font-serif text-5xl lg:text-7xl font-black text-academic-dark leading-[1.1] tracking-tighter">
+        <h2 class="font-serif text-5xl lg:text-7xl font-black text-white leading-[1.1] tracking-tighter">
           Violencia política y <br/>
           <span class="text-academic-accent italic font-light">construcción de paz.</span>
         </h2>
 
-        <div class="space-y-4 text-slate-700 leading-relaxed lg:leading-relaxed font-sans text-base">
-          <p class="text-lg">
-            Profesor Titular en la Facultad de Ciencias Políticas y Sociología de la <strong>Universidad Complutense de Madrid</strong>. Doble Doctor con Premio Extraordinario, su obra académica disecciona con precisión analítica las dinámicas de las insurgencias en Iberoamérica.
+        <div class="space-y-4 text-slate-400 leading-relaxed font-sans text-lg">
+          <p>
+            Profesor Titular en la Facultad de Ciencias Políticas y Sociología de la <strong class="text-white">Universidad Complutense de Madrid</strong>. Doble Doctor con <strong class="text-white">Premio Extraordinario</strong>, su obra académica disecciona con precisión analítica las dinámicas de las insurgencias en Iberoamérica.
           </p>
-          <p class="text-lg">
-            Su experiencia como asesor de la <strong>Organización de Estados Iberoamericanos (OEI)</strong> en el proceso de paz de Colombia le otorga una perspectiva única, combinando el rigor teórico con un extenso trabajo de campo en zonas de conflicto.
-          </p>
-          <p class="text-lg">
-            Su pensamiento, influenciado por una lectura profunda de la historia política y las dinámicas sociales, propone un enfoque integral para comprender y superar la violencia sistemática.
+          <p>
+            Su experiencia como asesor de la <strong class="text-white">Organización de Estados Iberoamericanos (OEI)</strong> en el proceso de paz de Colombia le otorga una perspectiva única, combinando el rigor teórico con un extenso trabajo de campo en zonas de conflicto.
           </p>
         </div>
 
-        <!-- Métricas Minimalistas con línea superior -->
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 border-t border-academic-accent/20 pt-10 mt-6">
+        <!-- Métricas -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 border-t border-white/5 pt-10 mt-6">
           <div class="group">
-            <span class="block text-4xl lg:text-5xl font-serif font-black text-academic-dark group-hover:text-academic-accent transition-colors duration-500">120+</span>
-            <span class="text-[9px] font-black text-academic-muted uppercase tracking-[0.3em] mt-3 block group-hover:text-academic-accent/60 transition-colors duration-500">Artículos</span>
+            <span class="block text-4xl lg:text-5xl font-serif font-black text-white group-hover:text-academic-accent transition-colors duration-500">120+</span>
+            <span class="text-[9px] font-black text-slate-500 uppercase tracking-[0.3em] mt-3 block group-hover:text-academic-accent/60 transition-colors duration-500">Artículos</span>
           </div>
           <div class="group">
-            <span class="block text-4xl lg:text-5xl font-serif font-black text-academic-dark group-hover:text-academic-accent transition-colors duration-500">19</span>
-            <span class="text-[9px] font-black text-academic-muted uppercase tracking-[0.3em] mt-3 block group-hover:text-academic-accent/60 transition-colors duration-500">Libros</span>
+            <span class="block text-4xl lg:text-5xl font-serif font-black text-white group-hover:text-academic-accent transition-colors duration-500">19</span>
+            <span class="text-[9px] font-black text-slate-500 uppercase tracking-[0.3em] mt-3 block group-hover:text-academic-accent/60 transition-colors duration-500">Libros</span>
           </div>
           <div class="group">
-            <span class="block text-4xl lg:text-5xl font-serif font-black text-academic-dark group-hover:text-academic-accent transition-colors duration-500">2</span>
-            <span class="text-[9px] font-black text-academic-muted uppercase tracking-[0.3em] mt-3 block group-hover:text-academic-accent/60 transition-colors duration-500">Premios</span>
+            <span class="block text-4xl lg:text-5xl font-serif font-black text-white group-hover:text-academic-accent transition-colors duration-500">2</span>
+            <span class="text-[9px] font-black text-slate-500 uppercase tracking-[0.3em] mt-3 block group-hover:text-academic-accent/60 transition-colors duration-500">Premios</span>
           </div>
           <div class="group">
-            <span class="block text-4xl lg:text-5xl font-serif font-black text-academic-dark group-hover:text-academic-accent transition-colors duration-500">300+</span>
-            <span class="text-[9px] font-black text-academic-muted uppercase tracking-[0.3em] mt-3 block group-hover:text-academic-accent/60 transition-colors duration-500">Entrevistas</span>
+            <span class="block text-4xl lg:text-5xl font-serif font-black text-white group-hover:text-academic-accent transition-colors duration-500">300+</span>
+            <span class="text-[9px] font-black text-slate-500 uppercase tracking-[0.3em] mt-3 block group-hover:text-academic-accent/60 transition-colors duration-500">Entrevistas</span>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
       </div>
     </div>
   </div>
