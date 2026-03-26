@@ -52,8 +52,8 @@ import Libros from '../../components/Libros.astro';
         <div class="container mx-auto px-6 flex flex-wrap items-center justify-between gap-8">
             <div class="flex gap-8 filter-container">
                 <button data-filter="all" class="filter-btn active text-academic-accent border-b-2 border-academic-accent pb-2 text-xs font-black tracking-widest uppercase transition-all">Todos</button>
-                <button data-filter="monografia" class="filter-btn text-white/30 hover:text-white pb-2 text-xs font-black tracking-widest uppercase transition-all">Monografías</button>
-                <button data-filter="coordinado" class="filter-btn text-white/30 hover:text-white pb-2 text-xs font-black tracking-widest uppercase transition-all">Coordinados</button>
+                <button data-filter="libros" class="filter-btn text-white/30 hover:text-white pb-2 text-xs font-black tracking-widest uppercase transition-all">Libros</button>
+                <button data-filter="capitulo" class="filter-btn text-white/30 hover:text-white pb-2 text-xs font-black tracking-widest uppercase transition-all">Capítulos</button>
             </div>
             <div class="relative w-full md:w-96 group">
                 <input type="text" id="bookSearch" placeholder="BUSCAR POR TÍTULO O AÑO..." class="w-full bg-white/5 border border-white/10 rounded-full py-4 px-8 text-[11px] tracking-widest text-white placeholder:text-white/20 focus:outline-none focus:border-academic-accent/50 transition-all font-medium" />
@@ -122,7 +122,7 @@ import Libros from '../../components/Libros.astro';
 </Layout>
 
 <script is:inline>
-    document.addEventListener('DOMContentLoaded', () => {
+    function initBookFilters() {
         const buttons = document.querySelectorAll('.filter-btn');
         const searchInput = document.getElementById('bookSearch');
 
@@ -134,29 +134,53 @@ import Libros from '../../components/Libros.astro';
             const searchText = searchInput ? searchInput.value.toLowerCase() : '';
             const cards = document.querySelectorAll('.book-card');
 
+            let visibleCount = 0;
+
             cards.forEach(card => {
-                const category = card.getAttribute('data-category');
-                const titleElement = card.querySelector('h4, h5');
+                const category = card.getAttribute('data-tipo');
+                const titleElement = card.querySelector('h4, h5, h6');
                 const title = titleElement ? titleElement.textContent.toLowerCase() : '';
                 const metaText = Array.from(card.querySelectorAll('p, span')).map(el => el.textContent.toLowerCase()).join(' ');
 
-                const matchesFilter = activeFilter === 'all' || category === activeFilter;
+                let matchesFilter = activeFilter === 'all' || category === activeFilter || (activeFilter === 'libros' && (category === 'monografia' || category === 'coordinado'));
+                
+                // Exclusión solicitada para el filtro Capítulos: ocultar Estado Novo
+                if (activeFilter === 'capitulo' && title.includes('estado novo')) {
+                    matchesFilter = false;
+                }
+
                 const matchesSearch = title.includes(searchText) || metaText.includes(searchText);
 
                 if (matchesFilter && matchesSearch) {
                     card.style.display = card.getAttribute('data-original-display') || (card.classList.contains('lg:grid-cols-12') ? 'grid' : 'block');
+                    
+                    // Efecto de aparición escalonada
+                    card.classList.remove('animate-fade-in-up');
+                    void card.offsetWidth; // Trigger reflow
+                    card.style.animationDelay = `${visibleCount * 0.1}s`;
+                    card.classList.add('animate-fade-in-up');
+                    
+                    visibleCount++;
                 } else {
                     if (!card.getAttribute('data-original-display')) {
                        card.setAttribute('data-original-display', window.getComputedStyle(card).display);
                     }
                     card.style.display = 'none';
+                    card.classList.remove('animate-fade-in-up');
                 }
             });
         }
 
+        // Limpiar event listeners previos si es por navegación de Astro
         buttons.forEach(btn => {
+            const newBtn = btn.cloneNode(true);
+            btn.parentNode.replaceChild(newBtn, btn);
+        });
+
+        const newButtons = document.querySelectorAll('.filter-btn');
+        newButtons.forEach(btn => {
             btn.addEventListener('click', () => {
-                buttons.forEach(b => {
+                newButtons.forEach(b => {
                     b.classList.remove('active', 'text-academic-accent', 'border-b-2', 'border-academic-accent');
                     b.classList.add('text-white/30');
                 });
@@ -167,9 +191,15 @@ import Libros from '../../components/Libros.astro';
         });
 
         if (searchInput) {
-            searchInput.addEventListener('input', filterBooks);
+            const newSearchInput = searchInput.cloneNode(true);
+            searchInput.parentNode.replaceChild(newSearchInput, searchInput);
+            document.getElementById('bookSearch').addEventListener('input', filterBooks);
         }
-    });
+    }
+
+    // Inicializar filtros la primera vez y tras cada navegación
+    document.addEventListener('DOMContentLoaded', initBookFilters);
+    document.addEventListener('astro:page-load', initBookFilters);
 </script>
 
 <style is:global>
@@ -183,6 +213,16 @@ import Libros from '../../components/Libros.astro';
         transform: rotateX(5deg);
     }
     
+    @keyframes fadeInUp {
+        from { opacity: 0; transform: translateY(20px) scale(0.95); }
+        to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    
+    .animate-fade-in-up {
+        animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        opacity: 0;
+    }
+
     @keyframes pulse-slow {
         0%, 100% { opacity: 0.1; transform: scale(1); }
         50% { opacity: 0.15; transform: scale(1.1); }

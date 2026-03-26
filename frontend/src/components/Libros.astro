@@ -1,5 +1,5 @@
 ---
-// Libros Component - Catálogo Completo 2023-2025
+// Libros Component - Catálogo Dinámico 2023-2025
 interface Props {
     showAllLink?: boolean;
     hideFeatured?: boolean;
@@ -7,11 +7,11 @@ interface Props {
 
 const { showAllLink = true, hideFeatured = false } = Astro.props;
 
-// BASE DE DATOS INTEGRADA
+// BASE DE DATOS INTEGRADA - Dr. Jerónimo Ríos
 const publicaciones = [
-  // --- 2025 ---
   {
-    id: "2025-tupamaros",
+    id: "2025-TUPA-COM",
+    autores: "Jerónimo Ríos y José Manuel Azcona",
     titulo: "Tupamaros en Uruguay",
     subtitulo: "Orígenes, evolución y relaciones internacionales de la guerrilla urbana (1962-1976).",
     año: "2025",
@@ -19,149 +19,174 @@ const publicaciones = [
     url: "https://www.comares.com/libro/tupamaros-en-uruguay_165135/",
     imagen: "/assets/covers/tupamaros.jpg",
     tipo: "monografia",
+    tag: "latam",
     featured: true 
   },
   {
-    id: "2025-guerrillas-en",
+    id: "2025-GUERR-SPR",
+    autores: "Jerónimo Ríos y García de las Heras",
     titulo: "Guerrillas in Latin America",
-    subtitulo: "Cycles of Political Violence, State Responses and Transnational Developments. Editorial Springer (Ginebra).",
+    subtitulo: "Cycles of Political Violence, State Responses and Transnational Developments.",
     año: "2025",
     editorial: "Springer (Ginebra)",
     url: "https://link.springer.com/book/10.1007/978-3-031-97521-9",
     imagen: "/assets/covers/guerrillas.jpg",
-    tipo: "monografia"
+    tipo: "monografia",
+    tag: "latam"
   },
   {
-    id: "2025-guerrillas-es",
-    titulo: "Historia de las guerrillas en América Latina",
-    subtitulo: "Jerónimo Ríos y José Manuel Azcona (coords.)",
+    id: "2025-GUERR-SIL",
+    autores: "Jerónimo Ríos y García de las Heras",
+    titulo: "Guerrillas en América Latina",
+    subtitulo: "Ciclos de violencia política, respuestas estatales y desarrollos transnacionales.",
     año: "2025",
-    editorial: "Editorial Catarata",
+    editorial: "Sílex Ediciones",
     url: "https://www.lacatarata.org/libro/historia-de-las-guerrillas-en-america-latina_1615/",
     imagen: "/assets/covers/guerrillas_esp.jpg",
-    tipo: "monografia"
+    tipo: "monografia",
+    tag: "latam"
   },
   {
-    id: "2025-gal-conversaciones",
+    id: "2025-GAL-TREA",
+    autores: "Jerónimo Ríos y E. Gago",
     titulo: "El terrorismo de Estado ante sus víctimas",
-    subtitulo: "Conversaciones a propósito de los GAL. Una revisión necesaria. Editorial Trea.",
+    subtitulo: "Conversaciones a propósito de los GAL. Una revisión necesaria.",
     año: "2025",
     editorial: "Trea Ediciones",
     url: "https://trea.es/producto/el-terrorismo-de-estado-ante-sus-victimas/",
     imagen: "/assets/covers/terrorismo_estado.jpg",
-    tipo: "monografia"
+    tipo: "monografia",
+    tag: "paz-terror"
   },
   {
-    id: "2025-terrorismo-silex",
+    id: "2025-TERR-SIL",
+    autores: "Jerónimo Ríos et al. (eds.)",
     titulo: "Terrorismo(s) de Estado. Teoría y práctica(s)",
-    subtitulo: "En contextos de violencia política contemporánea. Editorial Sílex Ediciones.",
+    subtitulo: "En contextos de violencia política contemporánea.",
     año: "2025",
     editorial: "Sílex Ediciones",
-    url: "https://www.marcialpons.es/libros/terrorismos-de-estado/9791387694227/",
+    url: "https://www.machadodistribucion.com/es/articles/64214",
     imagen: "/assets/covers/terrorismo_silex.jpg",
-    tipo: "coordinado"
+    tipo: "coordinado",
+    tag: "paz-terror"
   },
   {
-    id: "2025-cap-fronteras",
+    id: "2025-FRON-TIR",
+    autores: "Jerónimo Ríos et al.",
     titulo: "Fronteras, terrorismo y seguridad",
     subtitulo: "Implicaciones geopolíticas en el contexto actual europeo. En 'Geopolítica contemporánea'.",
     año: "2025",
     editorial: "Tirant Lo Blanch",
     url: "https://editorial.tirant.com/",
-    tipo: "capitulo"
+    tipo: "capitulo",
+    tag: "paz-terror"
   },
-
-  // --- 2024 ---
   {
-    id: "2024-timochenko",
+    id: "2024-TIMO-SIL",
+    autores: "Jerónimo Ríos",
     titulo: "El tránsito hacia la paz en Colombia",
-    subtitulo: "Conversaciones con el último comandante de las FARC-EP, Rodrigo Londoño Echeverri “Timochenko”.",
+    subtitulo: "Conversaciones con el último comandante de las FARC-EP, Rodrigo Londoño 'Timochenko'.",
     año: "2024",
     editorial: "Sílex Ediciones",
     url: "https://www.librerianevada.es/es/libro/el-transito-hacia-la-paz-en-colombia_2110540231",
     imagen: "/assets/covers/transito_paz.jpg",
-    tipo: "monografia"
+    tipo: "monografia",
+    tag: "colombia"
   },
   {
-    id: "2024-peru-violencia",
+    id: "2024-PERU-SIL",
+    autores: "Jerónimo Ríos y José Manuel Azcona",
     titulo: "Historia de la violencia en Perú",
     subtitulo: "Sendero Luminoso, MRTA y terrorismo de Estado (1962-2015).",
     año: "2024",
     editorial: "Sílex Ediciones",
     url: "https://www.silexediciones.com/producto/historia-de-la-violencia-en-peru-1962-2015/",
     imagen: "/assets/covers/violencia_peru.jpg",
-    tipo: "monografia"
+    tipo: "monografia",
+    tag: "latam"
   },
   {
-    id: "2024-lucha-hablada",
+    id: "2024-LUCH-ALT",
+    autores: "Jerónimo Ríos y E. Gago",
     titulo: "La lucha hablada",
     subtitulo: "Conversaciones con las víctimas de ETA. Editorial Altamarea.",
     año: "2024",
     editorial: "Editorial Altamarea",
     url: "https://altamarea.es/producto/la-lucha-hablada-conversaciones-con-victimas-de-eta/",
     imagen: "/assets/covers/lucha_hablada.jpg",
-    tipo: "monografia"
+    tipo: "monografia",
+    tag: "paz-terror"
   },
   {
-    id: "2024-victimas-eta-dykinson",
+    id: "2024-VICT-DYK",
+    autores: "Jerónimo Ríos et al.",
     titulo: "Las víctimas frente al terrorismo de ETA",
-    subtitulo: "Narrativas, movilización y resistencia ciudadana y perspectiva comparada. Editorial Dykinson.",
+    subtitulo: "Narrativas, movilización y resistencia ciudadana y perspectiva comparada.",
     año: "2024",
     editorial: "Editorial Dykinson",
     url: "https://www.dykinson.com/libros/las-victimas-frente-al-terrorismo-de-eta/9788411707961/",
     imagen: "/assets/covers/victimas_eta.jpg",
-    tipo: "coordinado"
+    tipo: "coordinado",
+    tag: "paz-terror"
   },
   {
-    id: "2024-paz-territorial",
+    id: "2024-PAZT-TRA",
+    autores: "Jerónimo Ríos et al.",
     titulo: "De la paz territorial a la paz total",
     subtitulo: "Un balance socio-espacial sobre la evolución de los modelos de paz en Colombia.",
     año: "2024",
     editorial: "Trama Editorial",
     url: "https://www.tramaeditorial.es/libro/de-la-paz-territorial-a-la-paz-total-en-colombia/",
     imagen: "/assets/covers/paz_territorial.jpg",
-    tipo: "coordinado"
+    tipo: "coordinado",
+    tag: "colombia"
   },
   {
-    id: "2024-colombia-disputa",
-    titulo: "Balance de seis años del Acuerdo de Paz con las FARC-EP",
-    subtitulo: "De los incumplimientos a la paz territorial a la esperanza de la paz total. En 'Colombia en disputa'.",
-    año: "2024",
-    editorial: "Editorial Bellaterra",
-    url: "https://www.bellaterra.coop/es/libros/colombia-en-disputa",
-    imagen: "/assets/covers/colombia_disputa.jpg",
-    tipo: "capitulo"
-  },
-  {
-    id: "2024-cap-salazar",
+    id: "2024-SALA-SIL",
+    autores: "Jerónimo Ríos y García de las Heras",
     titulo: "Estado Novo salazarista y Guerra de España",
     subtitulo: "En 'Ámbitos y designios de la Guerra Civil española'.",
     año: "2024",
     editorial: "Sílex Ediciones",
     url: "https://www.silexediciones.com/",
-    tipo: "capitulo"
+    tipo: "capitulo",
+    tag: "latam"
   },
   {
-    id: "2024-cap-condor",
+    id: "2024-COND-DYK",
+    autores: "Jerónimo Ríos y García de las Heras",
     titulo: "Transnacionalidades revolucionarias y contrarrevolucionarias en el Cono Sur: la Junta de Coordinación Revolucionaria y el Plan Cóndor",
-    subtitulo: "Azcona, J. M. y Madueño, M. (eds.). La sociedad y la historia del tiempo presente. El mundo y sus desvelos desde 1990. (207-228). Madrid: Dykinson.",
+    subtitulo: "Azcona, J. M. y Madueño, M. (eds.). La sociedad y la historia del tiempo presente. El mundo y sus desvelos desde 1990. (207-228).",
     año: "2024",
     editorial: "Editorial Dykinson",
     url: "https://www.dykinson.com/libros/historia-de-la-sociedad-presente/9788410700543/",
-    imagen: "/assets/covers/plan_condor.jpg",
-    tipo: "capitulo"
+    tipo: "capitulo",
+    imagen: "/assets/covers/sociedad_presente.jpg",
+    tag: "latam"
   },
-
-  // --- 2023 ---
   {
-    id: "2023-procesos-paz",
-    titulo: "Historia de los procesos de paz en Colombia (1982-2022)",
-    subtitulo: "Élites políticas, fuerzas militares, guerrillas y paramilitarismo. Editorial Comares.",
+    id: "2024-DISP-BEL",
+    autores: "Jerónimo Ríos",
+    titulo: "Balance de seis años del Acuerdo de Paz con las FARC-EP: de los incumplimientos a la paz territorial a la esperanza de la paz total",
+    subtitulo: "Coello, A. (Ed). Colombia en disputa. (175-195).",
+    año: "2024",
+    editorial: "Editorial Bellaterra",
+    url: "https://www.bellaterra.coop/es/libros/colombia-en-disputa",
+    tipo: "capitulo",
+    imagen: "/assets/covers/colombia_disputa_vol.jpg",
+    tag: "colombia"
+  },
+  {
+    id: "2023-PAZ-COM",
+    autores: "Jerónimo Ríos",
+    titulo: "Historia de los procesos de paz en Colombia",
+    subtitulo: "Élites políticas, fuerzas militares, guerrillas y paramilitarismo (1982-2022).",
     año: "2023",
     editorial: "Editorial Comares",
     url: "https://www.comares.com/libro/historia-de-los-procesos-de-paz-en-colombia-1982-2022_147668/",
     imagen: "/assets/covers/procesos_paz.jpg",
-    tipo: "monografia"
+    tipo: "monografia",
+    tag: "colombia"
   }
 ];
 
@@ -191,7 +216,7 @@ const listaSecundaria = publicaciones.filter(p => !p.featured);
         </div>
 
         {!hideFeatured && destacado && (
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center mb-32 group book-card" data-tipo={destacado.tipo}>
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center mb-32 group book-card" data-tipo={destacado.tipo} data-tag={destacado.tag}>
                 <div class="lg:col-span-1 text-[12rem] font-black text-white/5 leading-none hidden lg:block select-none transform -rotate-90">01</div>
                 <div class="lg:col-span-5 relative aspect-[3/4] overflow-hidden rounded-3xl bg-white/5 p-12 border border-white/10">
                     <img src={destacado.imagen} alt={destacado.titulo} class="w-full h-full object-contain drop-shadow-[0_20px_50px_rgba(0,0,0,0.5)] group-hover:scale-105 transition-transform duration-1000" />
@@ -213,10 +238,10 @@ const listaSecundaria = publicaciones.filter(p => !p.featured);
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12" id="books-grid">
             {listaSecundaria.map((pub) => (
-                <a href={pub.url} target="_blank" rel="noopener noreferrer" class="group block book-card h-full" data-tipo={pub.tipo}>
-                    <div class={`relative aspect-[3/4] rounded-2xl overflow-hidden mb-8 border border-white/10 transition-all duration-700 shadow-lg group-hover:shadow-2xl ${(pub.tipo === 'capitulo' && !pub.imagen) ? 'bg-gradient-to-br from-academic-accent/20 to-academic-dark flex items-center justify-center p-10 text-center' : 'bg-white/5'}`}>
+                <a href={pub.url} target="_blank" rel="noopener noreferrer" class="group block book-card h-full" data-tipo={pub.tipo} data-tag={pub.tag}>
+                    <div class={`relative aspect-[3/4] rounded-2xl overflow-hidden mb-8 border border-white/10 transition-all duration-700 shadow-lg group-hover:shadow-2xl ${(pub.tipo === 'capitulo' && !pub.imagen) ? 'bg-academic-accent/5 flex items-center justify-center p-10 text-center' : 'bg-white/5'}`}>
                         
-                        {pub.tipo === 'capitulo' && !pub.imagen ? (
+                        {(pub.tipo === 'capitulo' && !pub.imagen) ? (
                             <div class="group-hover:scale-105 transition-transform duration-500">
                                 <i class="fa-solid fa-file-lines text-academic-accent/30 text-5xl mb-6"></i>
                                 <h6 class="font-serif text-lg leading-snug px-4 italic">{pub.titulo}</h6>
@@ -242,37 +267,3 @@ const listaSecundaria = publicaciones.filter(p => !p.featured);
         </div>
     </div>
 </section>
-
-<style>
-    .filter-btn.active {
-        @apply bg-academic-accent border-academic-accent text-white;
-    }
-    
-    .book-card.hidden {
-        display: none;
-    }
-</style>
-
-<script>
-    const filterButtons = document.querySelectorAll('.filter-btn');
-    const bookCards = document.querySelectorAll('.book-card[data-tipo]');
-
-    filterButtons.forEach(btn => {
-        btn.addEventListener('click', () => {
-            // Update active state
-            filterButtons.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-
-            const filter = btn.getAttribute('data-filter');
-
-            bookCards.forEach(card => {
-                const tipo = card.getAttribute('data-tipo');
-                if (filter === 'all' || tipo === filter) {
-                    card.classList.remove('hidden');
-                } else {
-                    card.classList.add('hidden');
-                }
-            });
-        });
-    });
-</script>
