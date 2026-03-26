@@ -17,7 +17,7 @@ const { showAllLink = true, hideFeatured = false } = Astro.props;
             </div>
             <div class="md:text-right">
                 <p class="text-white/80 font-medium text-lg max-w-sm mb-8">
-                    Análisis críticos y revisiones históricas sobre la violencia en Iberoamérica.
+                    Análisis críticos y revisiones históricas sobre la violencia y la paz en Iberoamérica.
                 </p>
                 {showAllLink && (
                     <a href="/publicaciones/libros" class="inline-flex items-center gap-4 text-xs font-black tracking-widest uppercase text-white hover:text-academic-accent transition-colors group">
@@ -33,16 +33,16 @@ const { showAllLink = true, hideFeatured = false } = Astro.props;
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center mb-32 group book-card" data-category="monografia">
             <div class="lg:col-span-1 text-[12rem] font-black text-white/5 leading-none hidden lg:block select-none transform -rotate-90">01</div>
             <div class="lg:col-span-5 relative aspect-[3/4] overflow-hidden rounded-3xl bg-white/5 p-12">
-                <img src="/assets/Brevehistoriadelconflicto.jpg" alt="Última Publicación" class="w-full h-full object-contain drop-shadow-[0_20px_50px_rgba(0,0,0,0.5)] group-hover:scale-105 transition-transform duration-1000" />
+                <img src="/assets/covers/tupamaros.jpg" alt="Tupamaros en Uruguay" class="w-full h-full object-contain drop-shadow-[0_20px_50px_rgba(0,0,0,0.5)] group-hover:scale-105 transition-transform duration-1000" />
             </div>
             <div class="lg:col-span-6 flex flex-col justify-center">
                 <span class="text-academic-accent text-[11px] font-black tracking-[0.4em] uppercase mb-10">Última Lanzamiento</span>
-                <h4 class="font-serif text-4xl md:text-6xl font-black mb-8 leading-tight">Breve Historia del Conflicto Armado</h4>
+                <h4 class="font-serif text-4xl md:text-6xl font-black mb-8 leading-tight">Tupamaros en Uruguay</h4>
                 <p class="text-slate-400 text-xl leading-relaxed mb-12 max-w-xl font-light">
-                    Un viaje a través de las raíces de la insurgencia y la respuesta estatal, desgranando la complejidad de la guerra en el siglo XXI.
+                    Orígenes, evolución y relaciones internacionales de la guerrilla urbana (1962-1976). Un estudio exhaustivo sobre la insurgencia uruguaya.
                 </p>
                 <div class="flex gap-10">
-                    <button class="bg-white text-academic-dark px-10 py-3 rounded-full text-[10px] font-black tracking-widest uppercase hover:bg-academic-accent hover:text-white transition-all duration-500">Adquirir Copia</button>
+                    <a href="https://www.comares.com/libro/tupamaros-en-uruguay_165135/" target="_blank" class="bg-white text-academic-dark px-10 py-3 rounded-full text-[10px] font-black tracking-widest uppercase hover:bg-academic-accent hover:text-white transition-all duration-500">Adquirir Obra</a>
                     <button class="text-white border-b border-white/20 pb-2 text-[10px] font-black tracking-widest uppercase hover:border-academic-accent transition-all">Más Detalles</button>
                 </div>
             </div>
@@ -51,80 +51,190 @@ const { showAllLink = true, hideFeatured = false } = Astro.props;
 
         <!-- Grilla de Obras Secundarias -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
-            
-            <!-- Veinticinco años de posconflicto en Perú -->
-            <a href="https://www.cepc.gob.es/publicaciones/monografias/veinticinco-anos-de-posconflicto-en-peru-avances-y-limites-en-la-implementacion-de-las-politicas-de" target="_blank" rel="noopener noreferrer" class="group block book-card" data-category="monografia">
+                <!-- Guerrillas in Latin America -->
+            <a href="https://link.springer.com/book/9783031750625" target="_blank" class="group block book-card" data-category="monografia">
                 <div class="relative aspect-[3/4] rounded-2xl overflow-hidden mb-8 bg-gradient-to-br from-white/10 to-white/5 border border-white/10 group-hover:border-academic-accent/40 transition-all duration-700 shadow-lg group-hover:shadow-2xl group-hover:shadow-academic-accent/20">
-                    <img src="/assets/original.jpeg" alt="Veinticinco años de posconflicto en Perú" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105" />
-                    
-                    <!-- Overlay -->
+                    <img src="/assets/covers/guerrillas.jpg" alt="Guerrillas in Latin America" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105" />
                     <div class="absolute inset-0 bg-gradient-to-t from-academic-dark via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
-                        <span class="inline-block bg-academic-accent text-academic-dark text-[9px] font-black tracking-widest uppercase px-3 py-1 rounded-full w-fit mb-4">Justicia Transicional</span>
-                        <p class="text-white/80 text-sm leading-relaxed mb-6">Análisis crítico sobre la implementación de políticas de reparación y memoria en el Perú contemporáneo.</p>
-                        <button class="text-academic-accent border-b border-academic-accent text-[10px] font-black tracking-widest uppercase hover:text-white hover:border-white transition-all">Ver Publicación</button>
+                        <span class="inline-block bg-academic-accent text-academic-dark text-[9px] font-black tracking-widest uppercase px-3 py-1 rounded-full w-fit mb-4">Cycles of Violence</span>
+                        <p class="text-white/80 text-sm leading-relaxed mb-6">State responses and transnational developments in the Latin American context.</p>
+                        <button class="text-academic-accent border-b border-academic-accent text-[10px] font-black tracking-widest uppercase">Ver en Springer</button>
                     </div>
                 </div>
-                <h5 class="font-serif text-xl font-bold mb-2 group-hover:text-academic-accent transition-colors leading-tight">Veinticinco años de posconflicto en Perú</h5>
+                <h5 class="font-serif text-xl font-bold mb-2 group-hover:text-academic-accent transition-colors leading-tight">Guerrillas in Latin America</h5>
                 <div class="flex items-center justify-between">
                     <p class="text-slate-500 text-xs font-black tracking-widest uppercase">2025</p>
-                    <span class="text-slate-500 text-xs uppercase tracking-wider">CEPC</span>
-                </div>
-            </a>
-            
-            <!-- Libro 1 -->
-            <a href="#" class="group block book-card" data-category="monografia">
-                <div class="relative aspect-[3/4] rounded-2xl overflow-hidden mb-8 bg-gradient-to-br from-white/10 to-white/5 border border-white/10 group-hover:border-academic-accent/40 transition-all duration-700 shadow-lg group-hover:shadow-2xl group-hover:shadow-academic-accent/20">
-                    <img src="/assets/TerrorismodeEstadoyGruposArmadosEnPeruArticle.jpeg" alt="Terrorismo de Estado" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105" />
-                    
-                    <!-- Overlay -->
-                    <div class="absolute inset-0 bg-gradient-to-t from-academic-dark via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
-                        <span class="inline-block bg-academic-accent text-academic-dark text-[9px] font-black tracking-widest uppercase px-3 py-1 rounded-full w-fit mb-4">Teoría Política</span>
-                        <p class="text-white/80 text-sm leading-relaxed mb-6">Análisis crítico de la represión estatal y sus mecanismos de control territorial.</p>
-                        <button class="text-academic-accent border-b border-academic-accent text-[10px] font-black tracking-widest uppercase hover:text-white hover:border-white transition-all">Ver Detalles</button>
-                    </div>
-                </div>
-                <h5 class="font-serif text-xl font-bold mb-2 group-hover:text-academic-accent transition-colors">Terrorismo de Estado</h5>
-                <div class="flex items-center justify-between">
-                    <p class="text-slate-500 text-xs font-black tracking-widest uppercase">2021</p>
-                    <span class="text-slate-500 text-xs uppercase tracking-wider">Editorial UCM</span>
-                </div>
-            </a>
-
-            <!-- Libro 2 -->
-            <a href="#" class="group block book-card" data-category="coordinado">
-                <div class="relative aspect-[3/4] rounded-2xl overflow-hidden mb-8 bg-gradient-to-br from-white/10 to-white/5 border border-white/10 group-hover:border-academic-accent/40 transition-all duration-700 shadow-lg group-hover:shadow-2xl group-hover:shadow-academic-accent/20">
-                    <img src="/assets/1000x1000.jpg" alt="Análisis Político" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105" />
-                    
-                    <!-- Overlay -->
-                    <div class="absolute inset-0 bg-gradient-to-t from-academic-dark via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
-                        <span class="inline-block bg-academic-accent text-academic-dark text-[9px] font-black tracking-widest uppercase px-3 py-1 rounded-full w-fit mb-4">Geopolítica</span>
-                        <p class="text-white/80 text-sm leading-relaxed mb-6">Interpretación de las dinámicas políticas contemporáneas en contextos de transformación global.</p>
-                        <button class="text-academic-accent border-b border-academic-accent text-[10px] font-black tracking-widest uppercase hover:text-white hover:border-white transition-all">Ver Detalles</button>
-                    </div>
-                </div>
-                <h5 class="font-serif text-xl font-bold mb-2 group-hover:text-academic-accent transition-colors">Análisis Político Contemporáneo</h5>
-                <div class="flex items-center justify-between">
-                    <p class="text-white/40 text-xs font-black tracking-widest uppercase">2019</p>
-                    <span class="text-white/20 text-xs uppercase tracking-wider">Comares</span>
-                </div>
-            </a>
-
-            <!-- Libro 3 -->
-            <a href="#" class="group block book-card" data-category="monografia">
-                <div class="relative aspect-[3/4] rounded-2xl overflow-hidden mb-8 bg-gradient-to-br from-white/10 to-white/5 border border-white/10 group-hover:border-academic-accent/40 transition-all duration-700 shadow-lg group-hover:shadow-2xl group-hover:shadow-academic-accent/20">
-                    <img src="/assets/TerrorismodeEstadoyGruposArmadosEnPeruArticle.jpeg" alt="Seguridad Global" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105" />
-                    
-                    <!-- Overlay -->
-                    <div class="absolute inset-0 bg-gradient-to-t from-academic-dark via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
-                        <span class="inline-block bg-academic-accent text-academic-dark text-[9px] font-black tracking-widest uppercase px-3 py-1 rounded-full w-fit mb-4">Seguridad</span>
-                        <p class="text-white/80 text-sm leading-relaxed mb-6">Perspectiva integral sobre amenazas transnacionales y cooperación en seguridad multisectorial.</p>
-                        <button class="text-academic-accent border-b border-academic-accent text-[10px] font-black tracking-widest uppercase hover:text-white hover:border-white transition-all">Ver Detalles</button>
-                    </div>
-                </div>
-                <h5 class="font-serif text-xl font-bold mb-2 group-hover:text-academic-accent transition-colors">Seguridad Global e Iberoamérica</h5>
-                <div class="flex items-center justify-between">
-                    <p class="text-slate-500 text-xs font-black tracking-widest uppercase">2016</p>
                     <span class="text-slate-500 text-xs uppercase tracking-wider">Springer</span>
+                </div>
+            </a>
+
+            <!-- El tránsito hacia la paz en Colombia -->
+            <a href="https://www.librerianevada.es/es/libro/el-transito-hacia-la-paz-en-colombia_2110540231" target="_blank" class="group block book-card" data-category="monografia">
+                <div class="relative aspect-[3/4] rounded-2xl overflow-hidden mb-8 bg-gradient-to-br from-white/10 to-white/5 border border-white/10 group-hover:border-academic-accent/40 transition-all duration-700 shadow-lg group-hover:shadow-2xl group-hover:shadow-academic-accent/20">
+                    <img src="/assets/covers/transito_paz.jpg" alt="Paz en Colombia" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-academic-dark via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
+                        <span class="inline-block bg-academic-accent text-academic-dark text-[9px] font-black tracking-widest uppercase px-3 py-1 rounded-full w-fit mb-4">Post-conflicto</span>
+                        <p class="text-white/80 text-sm leading-relaxed mb-6">Conversaciones con Rodrigo Londoño "Timochenko" sobre el acuerdo con las FARC-EP.</p>
+                        <button class="text-academic-accent border-b border-academic-accent text-[10px] font-black tracking-widest uppercase">Ver Detalles</button>
+                    </div>
+                </div>
+                <h5 class="font-serif text-xl font-bold mb-2 group-hover:text-academic-accent transition-colors">El tránsito hacia la paz en Colombia</h5>
+                <div class="flex items-center justify-between">
+                    <p class="text-white/40 text-xs font-black tracking-widest uppercase">2024</p>
+                    <span class="text-white/20 text-xs uppercase tracking-wider">Sílex Ediciones</span>
+                </div>
+            </a>
+
+            <!-- Historia de los procesos de paz en Colombia -->
+            <a href="https://www.comares.com/libro/historia-de-los-procesos-de-paz-en-colombia-1982-2022_147668/" target="_blank" class="group block book-card" data-category="monografia">
+                <div class="relative aspect-[3/4] rounded-2xl overflow-hidden mb-8 bg-gradient-to-br from-white/10 to-white/5 border border-white/10 group-hover:border-academic-accent/40 transition-all duration-700 shadow-lg group-hover:shadow-2xl group-hover:shadow-academic-accent/20">
+                    <img src="/assets/covers/procesos_paz.jpg" alt="Procesos de Paz" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-academic-dark via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
+                        <span class="inline-block bg-academic-accent text-academic-dark text-[9px] font-black tracking-widest uppercase px-3 py-1 rounded-full w-fit mb-4">Investigación Histórica</span>
+                        <p class="text-white/80 text-sm leading-relaxed mb-6">Élites, militares, guerrillas y paramilitarismo en 40 años de búsqueda de paz.</p>
+                        <button class="text-academic-accent border-b border-academic-accent text-[10px] font-black tracking-widest uppercase">Ver en Comares</button>
+                    </div>
+                </div>
+                <h5 class="font-serif text-xl font-bold mb-2 group-hover:text-academic-accent transition-colors">Historia de los procesos de paz (1982-2022)</h5>
+                <div class="flex items-center justify-between">
+                    <p class="text-slate-500 text-xs font-black tracking-widest uppercase">2023</p>
+                    <span class="text-slate-500 text-xs uppercase tracking-wider">Comares</span>
+                </div>
+            </a>
+
+             <!-- De la paz territorial a la paz total -->
+             <a href="https://www.tramaeditorial.es/libro/de-la-paz-territorial-a-la-paz-total-en-colombia/" target="_blank" class="group block book-card" data-category="coordinado">
+                <div class="relative aspect-[3/4] rounded-2xl overflow-hidden mb-8 bg-gradient-to-br from-white/10 to-white/5 border border-white/10 group-hover:border-academic-accent/40 transition-all duration-700 shadow-lg group-hover:shadow-2xl group-hover:shadow-academic-accent/20">
+                    <img src="/assets/covers/paz_territorial.jpg" alt="Paz Territorial" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-academic-dark via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
+                        <span class="inline-block bg-academic-accent text-academic-dark text-[9px] font-black tracking-widest uppercase px-3 py-1 rounded-full w-fit mb-4">Socio-espacial</span>
+                        <p class="text-white/80 text-sm leading-relaxed mb-6">Un balance crítico sobre la evolución de los modelos de paz en el territorio.</p>
+                        <button class="text-academic-accent border-b border-academic-accent text-[10px] font-black tracking-widest uppercase">Ver Detalles</button>
+                    </div>
+                </div>
+                <h5 class="font-serif text-xl font-bold mb-2 group-hover:text-academic-accent transition-colors">De la paz territorial a la paz total</h5>
+                <div class="flex items-center justify-between">
+                    <p class="text-white/40 text-xs font-black tracking-widest uppercase">2024</p>
+                    <span class="text-white/20 text-xs uppercase tracking-wider">Trama Editorial</span>
+                </div>
+            </a>
+
+            <!-- Historia de la violencia en Perú -->
+            <a href="https://www.silexediciones.com/producto/historia-de-la-violencia-en-peru-1962-2015/" target="_blank" class="group block book-card" data-category="monografia">
+                <div class="relative aspect-[3/4] rounded-2xl overflow-hidden mb-8 bg-gradient-to-br from-white/10 to-white/5 border border-white/10 group-hover:border-academic-accent/40 transition-all duration-700 shadow-lg group-hover:shadow-2xl group-hover:shadow-academic-accent/20">
+                    <img src="/assets/covers/violencia_peru.jpg" alt="Violencia en Perú" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-academic-dark via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
+                        <span class="inline-block bg-academic-accent text-academic-dark text-[11px] font-black tracking-widest uppercase px-3 py-1 rounded-full w-fit mb-4">Sendero Luminoso</span>
+                        <p class="text-white/80 text-sm leading-relaxed mb-6">Estudio integral sobre insurgencia y terrorismo de Estado en el Perú.</p>
+                        <button class="text-academic-accent border-b border-academic-accent text-[10px] font-black tracking-widest uppercase">Ver en Sílex</button>
+                    </div>
+                </div>
+                <h5 class="font-serif text-xl font-bold mb-2 group-hover:text-academic-accent transition-colors">Historia de la violencia en Perú</h5>
+                <div class="flex items-center justify-between">
+                    <p class="text-slate-500 text-xs font-black tracking-widest uppercase">2024</p>
+                    <span class="text-slate-500 text-xs uppercase tracking-wider">Sílex Ediciones</span>
+                </div>
+            </a>
+
+             <!-- El terrorismo de Estado ante sus víctimas -->
+             <a href="https://trea.es/producto/el-terrorismo-de-estado-ante-sus-victimas/" target="_blank" class="group block book-card" data-category="monografia">
+                <div class="relative aspect-[3/4] rounded-2xl overflow-hidden mb-8 bg-gradient-to-br from-white/10 to-white/5 border border-white/10 group-hover:border-academic-accent/40 transition-all duration-700 shadow-lg group-hover:shadow-2xl group-hover:shadow-academic-accent/20">
+                    <img src="/assets/covers/terrorismo_estado.jpg" alt="Víctimas GAL" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-academic-dark via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
+                        <span class="inline-block bg-academic-accent text-academic-dark text-[9px] font-black tracking-widest uppercase px-3 py-1 rounded-full w-fit mb-4">Caso GAL</span>
+                        <p class="text-white/80 text-sm leading-relaxed mb-6">Conversaciones a propósito de los Grupos Antiterroristas de Liberación.</p>
+                        <button class="text-academic-accent border-b border-academic-accent text-[10px] font-black tracking-widest uppercase">Ver Detalles</button>
+                    </div>
+                </div>
+                <h5 class="font-serif text-xl font-bold mb-2 group-hover:text-academic-accent transition-colors">El terrorismo de Estado ante sus víctimas</h5>
+                <div class="flex items-center justify-between">
+                    <p class="text-white/40 text-xs font-black tracking-widest uppercase">2025</p>
+                    <span class="text-white/20 text-xs uppercase tracking-wider">Trea Ediciones</span>
+                </div>
+            </a>
+
+             <!-- La lucha hablada -->
+            <a href="https://altamarea.es/libro/la-lucha-hablada-conversaciones-con-victimas-de-eta/" target="_blank" class="group block book-card" data-category="monografia">
+                <div class="relative aspect-[3/4] rounded-2xl overflow-hidden mb-8 bg-gradient-to-br from-white/10 to-white/5 border border-white/10 group-hover:border-academic-accent/40 transition-all duration-700 shadow-lg group-hover:shadow-2xl group-hover:shadow-academic-accent/20">
+                    <img src="/assets/covers/lucha_hablada.jpg" alt="La lucha hablada" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-academic-dark via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
+                        <span class="inline-block bg-academic-accent text-academic-dark text-[10px] font-black tracking-widest uppercase px-3 py-1 rounded-full w-fit mb-4">Memoria Histórica</span>
+                        <p class="text-white/80 text-sm leading-relaxed mb-6">Conversaciones con víctimas de ETA sobre el perdón y la convivencia.</p>
+                        <button class="text-academic-accent border-b border-academic-accent text-[10px] font-black tracking-widest uppercase">Ver Detalles</button>
+                    </div>
+                </div>
+                <h5 class="font-serif text-xl font-bold mb-2 group-hover:text-academic-accent transition-colors leading-tight">La lucha hablada</h5>
+                <div class="flex items-center justify-between">
+                    <p class="text-slate-500 text-xs font-black tracking-widest uppercase">2024</p>
+                    <span class="text-slate-500 text-xs uppercase tracking-wider">Altamarea</span>
+                </div>
+            </a>
+
+            <!-- Guerrillas en América Latina (Sílex) -->
+             <a href="https://www.silexediciones.com/producto/guerrillas-en-america-latina/" target="_blank" class="group block book-card" data-category="monografia">
+                <div class="relative aspect-[3/4] rounded-2xl overflow-hidden mb-8 bg-gradient-to-br from-white/10 to-white/5 border border-white/10 group-hover:border-academic-accent/40 transition-all duration-700 shadow-lg group-hover:shadow-2xl group-hover:shadow-academic-accent/20">
+                    <img src="/assets/covers/guerrillas_esp.jpg" alt="Guerrillas en América Latina" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-academic-dark via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
+                        <span class="inline-block bg-academic-accent text-academic-dark text-[11px] font-black tracking-widest uppercase px-3 py-1 rounded-full w-fit mb-4">Insurgencia</span>
+                        <p class="text-white/80 text-sm leading-relaxed mb-6">Ciclos de violencia política, respuestas estatales y desarrollos transnacionales.</p>
+                        <button class="text-academic-accent border-b border-academic-accent text-[10px] font-black tracking-widest uppercase">Ver en Sílex</button>
+                    </div>
+                </div>
+                <h5 class="font-serif text-xl font-bold mb-2 group-hover:text-academic-accent transition-colors leading-tight">Guerrillas en América Latina</h5>
+                <div class="flex items-center justify-between">
+                    <p class="text-slate-500 text-xs font-black tracking-widest uppercase">2026</p>
+                    <span class="text-slate-500 text-xs uppercase tracking-wider">Sílex Ediciones</span>
+                </div>
+            </a>
+
+            <!-- Terrorismos de Estado. Teoría y prácticas -->
+             <a href="https://www.silexediciones.com/producto/terrorismos-de-estado-teoria-y-practicas/" target="_blank" class="group block book-card" data-category="coordinado">
+                <div class="relative aspect-[3/4] rounded-2xl overflow-hidden mb-8 bg-gradient-to-br from-white/10 to-white/5 border border-white/10 group-hover:border-academic-accent/40 transition-all duration-700 shadow-lg group-hover:shadow-2xl group-hover:shadow-academic-accent/20">
+                    <img src="/assets/covers/terrorismo_silex.jpg" alt="Terrorismos de Estado" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-academic-dark via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
+                        <span class="inline-block bg-academic-accent text-academic-dark text-[9px] font-black tracking-widest uppercase px-3 py-1 rounded-full w-fit mb-4">Terrorismo de Estado</span>
+                        <p class="text-white/80 text-sm leading-relaxed mb-6">Un análisis exhaustivo de las teorías y prácticas del terrorismo estatal a nivel global.</p>
+                        <button class="text-academic-accent border-b border-academic-accent text-[10px] font-black tracking-widest uppercase">Ver Detalles</button>
+                    </div>
+                </div>
+                <h5 class="font-serif text-xl font-bold mb-2 group-hover:text-academic-accent transition-colors leading-tight">Terrorismos de Estado</h5>
+                <div class="flex items-center justify-between">
+                    <p class="text-slate-500 text-xs font-black tracking-widest uppercase">2025</p>
+                    <span class="text-slate-500 text-xs uppercase tracking-wider">Sílex Ediciones</span>
+                </div>
+            </a>
+
+            <!-- Las víctimas frente al terrorismo de ETA -->
+             <a href="https://www.dykinson.com/libros/las-victimas-frente-al-terrorismo-de-eta/9788411707961/" target="_blank" class="group block book-card" data-category="coordinado">
+                <div class="relative aspect-[3/4] rounded-2xl overflow-hidden mb-8 bg-gradient-to-br from-white/10 to-white/5 border border-white/10 group-hover:border-academic-accent/40 transition-all duration-700 shadow-lg group-hover:shadow-2xl group-hover:shadow-academic-accent/20">
+                    <img src="/assets/covers/victimas_eta.jpg" alt="Víctimas de ETA" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-academic-dark via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
+                        <span class="inline-block bg-academic-accent text-academic-dark text-[9px] font-black tracking-widest uppercase px-3 py-1 rounded-full w-fit mb-4">Memoria Histórica</span>
+                        <p class="text-white/80 text-sm leading-relaxed mb-6">Narrativas, movilización ciudadana y resistencia frente a la violencia nacionalista radical.</p>
+                        <button class="text-academic-accent border-b border-academic-accent text-[10px] font-black tracking-widest uppercase">Ver en Dykinson</button>
+                    </div>
+                </div>
+                <h5 class="font-serif text-xl font-bold mb-2 group-hover:text-academic-accent transition-colors leading-tight">Las víctimas frente al terrorismo de ETA</h5>
+                <div class="flex items-center justify-between">
+                    <p class="text-slate-500 text-xs font-black tracking-widest uppercase">2024</p>
+                    <span class="text-slate-500 text-xs uppercase tracking-wider">Dykinson</span>
+                </div>
+            </a>
+
+            <!-- Colombia en disputa -->
+             <a href="https://www.bellaterra.coop/es/libros/colombia-en-disputa" target="_blank" class="group block book-card" data-category="coordinado">
+                <div class="relative aspect-[3/4] rounded-2xl overflow-hidden mb-8 bg-gradient-to-br from-white/10 to-white/5 border border-white/10 group-hover:border-academic-accent/40 transition-all duration-700 shadow-lg group-hover:shadow-2xl group-hover:shadow-academic-accent/20">
+                    <img src="/assets/covers/colombia_disputa.jpg" alt="Colombia en disputa" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-academic-dark via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-6">
+                        <span class="inline-block bg-academic-accent text-academic-dark text-[9px] font-black tracking-widest uppercase px-3 py-1 rounded-full w-fit mb-4">Conflicto Armado</span>
+                        <p class="text-white/80 text-sm leading-relaxed mb-6">El conflicto social y armado abordado desde una perspectiva crítica, jurídica y multidisciplinar.</p>
+                        <button class="text-academic-accent border-b border-academic-accent text-[10px] font-black tracking-widest uppercase">Ver en Bellaterra</button>
+                    </div>
+                </div>
+                <h5 class="font-serif text-xl font-bold mb-2 group-hover:text-academic-accent transition-colors leading-tight">Colombia en disputa</h5>
+                <div class="flex items-center justify-between">
+                    <p class="text-slate-500 text-xs font-black tracking-widest uppercase">2024</p>
+                    <span class="text-slate-500 text-xs uppercase tracking-wider">Bellaterra</span>
                 </div>
             </a>
 

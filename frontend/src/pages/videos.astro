@@ -184,5 +184,22 @@ const otherVideos = videos.filter(v => !v.featured);
     </section>
 
   </main>
-  <Footer />
+    <!-- CTA: Ir a Contacto -->
+    <section class="py-24 border-t border-white/5 bg-academic-dark/40 overflow-hidden relative">
+        <div class="absolute -top-24 -right-24 w-96 h-96 bg-academic-accent/5 rounded-full blur-[100px]"></div>
+        <div class="container mx-auto px-6 text-center">
+            <a href="/contacto" class="inline-flex flex-col items-center gap-8 group">
+                <div class="w-20 h-20 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-academic-accent group-hover:bg-white group-hover:text-academic-dark transition-all duration-700 shadow-2xl relative overflow-hidden">
+                    <div class="absolute inset-0 bg-academic-accent/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <i class="fa-solid fa-arrow-right-long text-2xl relative z-10 group-hover:translate-x-2 transition-transform duration-500"></i>
+                </div>
+                <div>
+                   <span class="text-[10px] font-black tracking-[0.5em] text-slate-500 uppercase mb-4 block">Siguiente Sección</span>
+                   <h2 class="font-serif text-5xl md:text-7xl font-black text-white leading-none tracking-tighter">Contactar con <br/><span class="text-slate-400 italic font-light">Jerónimo Ríos</span></h2>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <Footer />
 </Layout>

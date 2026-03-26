@@ -46,27 +46,139 @@ if (articles.length === 0) {
   articles = [
     {
       id: 1,
-      titulo: 'Dinamicas contemporaneas de violencia politica en Iberoamerica',
-      revista: 'Revista de Estudios Estrategicos',
-      anio: 2024,
-      url_externa: 'https://example.org/articulo-1',
-      descripcion_corta: 'Revision comparada sobre repertorios de accion armada y respuestas estatales en el siglo XXI.'
+      titulo: 'El terrorismo de ETA y su incidencia en el turismo: la singularidad de la campaña "Ven y cuéntalo"',
+      revista: 'Reflexión Política (Q3)',
+      anio: 2025,
+      url_externa: 'https://revistas.unab.edu.co/index.php/reflexion/article/view/5394',
+      descripcion_corta: 'Análisis sobre el impacto del terrorismo en la industria turística española y las estrategias de comunicación institucional.'
     },
     {
       id: 2,
-      titulo: 'Insurgencia, territorio y gobernanza local en Colombia',
-      revista: 'Journal of Conflict and Society',
-      anio: 2022,
-      url_externa: 'https://example.org/articulo-2',
-      descripcion_corta: 'Analisis del vinculo entre control territorial, legitimidad y construccion de paz subnacional.'
+      titulo: 'Terrorismo de Estado y dictaduras en Argentina y Uruguay: los informes N.N. (1975-1979)',
+      revista: 'El Futuro del Pasado (Q2)',
+      anio: 2025,
+      url_externa: 'https://revistas.usal.es/uno/index.php/1989-9289/article/view/31555/29762',
+      descripcion_corta: 'Estudio comparado sobre la represión sistemática y la gestión de la desaparición forzada en el Cono Sur.'
     },
     {
       id: 3,
-      titulo: 'Negociacion politica y desmovilizacion comparada',
-      revista: 'Anuario Iberoamericano de Seguridad',
-      anio: 2021,
-      url_externa: 'https://example.org/articulo-3',
-      descripcion_corta: 'Lecciones comparativas sobre procesos de desarme, reintegracion y estabilizacion institucional.'
+      titulo: 'MLN-Tupamaros: entre la contradicción y la derrota (1970-1972)',
+      revista: 'Hispania Nova (Q2)',
+      anio: 2025,
+      url_externa: 'https://e-revistas.uc3m.es/index.php/HISPNOV/article/view/7632/6944',
+      descripcion_corta: 'Revisión histórica de la etapa final de la insurgencia urbana uruguaya antes de la dictadura.'
+    },
+    {
+      id: 4,
+      titulo: 'La colaboración del MLN-Tupamaros con otras formaciones revolucionarias argentinas (1963-1976)',
+      revista: 'Revista Páginas (Q3)',
+      anio: 2024,
+      url_externa: 'https://revistapaginas.unr.edu.ar/index.php/RevPaginas/article/view/921',
+      descripcion_corta: 'Investigación sobre las redes transnacionales de apoyo insurgente en el Cono Sur.'
+    },
+    {
+      id: 5,
+      titulo: 'MLN-Tupamaros en Chile: entre la oportunidad y la posibilidad (1970-1973)',
+      revista: 'Rúbrica Contemporánea',
+      anio: 2024,
+      url_externa: 'https://revistes.uab.cat/rubrica/article/view/v13-n28-rios-madueno/395-pdf-es',
+      descripcion_corta: 'Análisis de la presencia y actividad del grupo insurgente uruguayo en el Chile de la Unidad Popular.'
+    },
+    {
+      id: 6,
+      titulo: 'Los discursos sobre memoria, dignidad y justicia en las víctimas del terrorismo y el activismo pacifista contra ETA',
+      revista: 'Bulletin of Spanish Studies (Q1)',
+      anio: 2024,
+      url_externa: 'https://www.tandfonline.com/doi/full/10.1080/14753820.2024.2398333',
+      descripcion_corta: 'Estudio sobre la evolución del discurso de las víctimas y la movilización social contra la violencia en el País Vasco.'
+    },
+    {
+      id: 7,
+      titulo: 'Las polisemias de la paz en Colombia: paz territorial, paz con legalidad y paz total',
+      revista: 'Revista de Estudios Políticos (Q2)',
+      anio: 2024,
+      url_externa: 'https://www.cepc.gob.es/publicaciones/revistas/revista-de-estudios-politicos/numero-203-eneromarzo-2024/las-polisemias-de-la-paz-en-colombia-paz-territorial-paz-con-legalidad-y-paz-total',
+      descripcion_corta: 'Análisis conceptual y político de las distintas visiones de paz implementadas en Colombia recientemente.'
+    },
+    {
+      id: 8,
+      titulo: 'Henry Kissinger (1923-2023): diplomacia, equilibrio de poder y orden internacional',
+      revista: 'Geopolítica(s) (Q2)',
+      anio: 2024,
+      url_externa: 'https://revistas.ucm.es/index.php/GEOP/article/view/96524/4564456569594',
+      descripcion_corta: 'Ensayo crítico sobre el legado geopolítico de Kissinger y su influencia en las relaciones internacionales.'
+    },
+    {
+      id: 9,
+      titulo: 'ELN y la paz total en Colombia: las dificultades de un proceso de negociación que nunca acaba',
+      revista: 'Revista CISDE (Q4)',
+      anio: 2024,
+      url_externa: 'http://www.uajournals.com/cisdejournal/journal/17/6.pdf',
+      descripcion_corta: 'Examen de los obstáculos estructurales en las negociaciones entre el Estado colombiano y el ELN.'
+    },
+    {
+      id: 10,
+      titulo: 'Elites y discursos políticos sobre la paz total en Colombia',
+      revista: 'Canadian Journal of Latin American and Caribbean Studies (Q2)',
+      anio: 2024,
+      url_externa: 'https://www.tandfonline.com/doi/full/10.1080/08263663.2024.2360885',
+      descripcion_corta: 'Investigación sobre la percepción de las élites políticas colombianas ante el proyecto de Paz Total.'
+    },
+    {
+      id: 11,
+      titulo: 'La paz sin consenso: los discursos de las elites militares y exguerrilleras sobre el Acuerdo con las FARC-EP',
+      revista: 'Revista de Ciencias Sociais (Q2)',
+      anio: 2025,
+      url_externa: 'https://www.scielo.br/j/dados/a/NhyZRZJ4TR7hD4rmjcxpCGd/?lang=es',
+      descripcion_corta: 'Análisis comparado de las narrativas de actores enfrentados tras la firma de la paz en 2016.'
+    },
+    {
+      id: 12,
+      titulo: 'From territorial peace to total peace in Colombia: A Geopolitical Balance',
+      revista: 'Geopolitics (Q1)',
+      anio: 2024,
+      url_externa: 'https://www.tandfonline.com/doi/full/10.1080/14650045.2023.2297941',
+      descripcion_corta: 'Balance geopolítico de la transición entre los distintos modelos de paz en el territorio colombiano.'
+    },
+    {
+      id: 13,
+      titulo: 'El fin de los Tupamaros y la dimensión internacional: la experiencia en la JCR (1972-1976)',
+      revista: 'Historia Actual OnLine (Q3)',
+      anio: 2023,
+      url_externa: 'https://www.historia-actual.org/Publicaciones/index.php/hao/article/view/2346',
+      descripcion_corta: 'Estudio sobre la coordinación insurgente transnacional y el ocaso de la guerrilla uruguaya.'
+    },
+    {
+      id: 14,
+      titulo: 'El discurso político de la izquierda colombiana sobre las dificultades de su acceso al poder',
+      revista: 'Política y Sociedad (Q2)',
+      anio: 2023,
+      url_externa: 'https://revistas.ucm.es/index.php/POSO/article/view/81477',
+      descripcion_corta: 'Análisis de las barreras institucionales y culturales para la izquierda en Colombia antes del cambio de gobierno.'
+    },
+    {
+      id: 15,
+      titulo: 'The political discourse of Comunes regarding FARC-EP dissidents in Colombia',
+      revista: 'Critical Studies on Security (Q1)',
+      anio: 2023,
+      url_externa: 'https://www.tandfonline.com/doi/full/10.1080/21624887.2023.2184101?src=',
+      descripcion_corta: 'Examen de las tensiones internas y discursivas del partido Comunes frente a las disidencias armadas.'
+    },
+    {
+      id: 16,
+      titulo: 'Territorial peace five years after the Peace Agreement in Colombia: An analysis of the former FARC-EP',
+      revista: 'Latin American Perspectives (Q1)',
+      anio: 2023,
+      url_externa: 'https://journals.sagepub.com/doi/10.1177/0094582X241231940',
+      descripcion_corta: 'Evaluación del impacto del acuerdo de paz en los territorios desde la voz de los excombatientes reincorporados.'
+    },
+    {
+      id: 17,
+      titulo: 'Environment and armed conflict in Colombia: terrorist attacks against water and oil infrastructure',
+      revista: 'Small Wars and Insurgencies (Q1)',
+      anio: 2023,
+      url_externa: 'https://www.tandfonline.com/doi/full/10.1080/09592318.2021.1978750?src',
+      descripcion_corta: 'Investigación sobre el impacto ecológico de la guerra y los ataques a infraestructuras críticas en Norte de Santander.'
     }
   ];
 }

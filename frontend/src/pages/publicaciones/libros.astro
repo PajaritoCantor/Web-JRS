@@ -18,15 +18,15 @@ import Libros from '../../components/Libros.astro';
                 
                 <!-- Info del Libro -->
                 <div class="relative z-10 order-2 lg:order-1 text-center lg:text-left">
-                    <span class="inline-block text-academic-accent text-[10px] font-black tracking-[0.5em] uppercase mb-10 border-l-2 border-academic-accent pl-6">Novedad Editorial</span>
+                    <span class="inline-block text-academic-accent text-[10px] font-black tracking-[0.5em] uppercase mb-10 border-l-2 border-academic-accent pl-6">Último Lanzamiento</span>
                     <h1 class="font-serif text-6xl md:text-8xl font-black mb-10 leading-[0.9] tracking-tighter text-white">
-                        Breve Historia <br/><span class="text-slate-400 italic font-light">del Conflicto</span>
+                        Tupamaros <br/><span class="text-slate-400 italic font-light">en Uruguay</span>
                     </h1>
                     <p class="text-white/60 text-xl leading-relaxed mb-12 max-w-xl font-light mx-auto lg:mx-0">
-                        Una investigación exhaustiva que disecciona las raíces de la insurgencia contemporánea y los nuevos paradigmas de la paz en Iberoamérica.
+                        Orígenes, evolución y relaciones internacionales de la guerrilla urbana (1962-1976). Una investigación definitiva sobre la insurgencia regional.
                     </p>
                     <div class="flex flex-wrap justify-center lg:justify-start gap-8 items-center">
-                        <button class="bg-white text-academic-dark px-12 py-5 rounded-full text-[11px] font-black tracking-[0.2em] uppercase hover:bg-academic-accent hover:text-white transition-all duration-700 shadow-2xl hover:scale-105 active:scale-95">Adquirir Obra</button>
+                        <a href="https://www.comares.com/libro/tupamaros-en-uruguay_165135/" target="_blank" class="bg-white text-academic-dark px-12 py-5 rounded-full text-[11px] font-black tracking-[0.2em] uppercase hover:bg-academic-accent hover:text-white transition-all duration-700 shadow-2xl hover:scale-105 active:scale-95">Adquirir Obra</a>
                         <span class="text-white/20 text-[10px] uppercase tracking-widest font-black border border-white/10 px-6 py-2 rounded-full">Editorial Comares</span>
                     </div>
                 </div>
@@ -36,8 +36,8 @@ import Libros from '../../components/Libros.astro';
                     <div class="relative group">
                         <div class="absolute -inset-10 bg-academic-accent/10 rounded-full blur-[100px] animate-pulse"></div>
                         <img 
-                            src="/assets/Brevehistoriadelconflicto.jpg" 
-                            alt="Portada del Libro" 
+                            src="/assets/covers/tupamaros.jpg" 
+                            alt="Portada Tupamaros en Uruguay" 
                             class="w-[300px] md:w-[450px] relative z-10 rounded-[5px] shadow-[20px_40px_80px_-15px_rgba(0,0,0,0.8)] transform rotate-y-12 rotate-x-6 hover:rotate-0 transition-all duration-1000 ease-out cursor-pointer hover:scale-105"
                         />
                     </div>
@@ -98,6 +98,23 @@ import Libros from '../../components/Libros.astro';
         
         <!-- Elementos Decorativos -->
         <div class="absolute -top-24 -left-24 w-96 h-96 bg-academic-accent/10 rounded-full blur-[100px]"></div>
+    </section>
+
+    <!-- CTA: Ir a Videos -->
+    <section class="py-24 border-t border-white/5 bg-academic-dark/40 overflow-hidden relative">
+        <div class="absolute -top-24 -right-24 w-96 h-96 bg-academic-accent/5 rounded-full blur-[100px]"></div>
+        <div class="container mx-auto px-6 text-center">
+            <a href="/videos" class="inline-flex flex-col items-center gap-8 group">
+                <div class="w-20 h-20 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-academic-accent group-hover:bg-white group-hover:text-academic-dark transition-all duration-700 shadow-2xl relative overflow-hidden">
+                    <div class="absolute inset-0 bg-academic-accent/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                    <i class="fa-solid fa-arrow-right-long text-2xl relative z-10 group-hover:translate-x-2 transition-transform duration-500"></i>
+                </div>
+                <div>
+                   <span class="text-[10px] font-black tracking-[0.5em] text-slate-500 uppercase mb-4 block">Siguiente Sección</span>
+                   <h2 class="font-serif text-5xl md:text-7xl font-black text-white leading-none tracking-tighter">Intervenciones en <br/><span class="text-slate-400 italic font-light">Vídeo</span></h2>
+                </div>
+            </a>
+        </div>
     </section>
 
     <Footer />
