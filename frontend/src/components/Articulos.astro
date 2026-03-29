@@ -45,6 +45,14 @@ try {
 if (articles.length === 0) {
   articles = [
     {
+      id: 0,
+      titulo: 'What happens when the state kills? The discourses of the victims of state terrorism in Spain on justice, memory and dignity',
+      revista: 'Critical Studies on Terrorism (Q1)',
+      anio: 2025,
+      url_externa: 'https://www.tandfonline.com/doi/full/10.1080/17539153.2025.2598096',
+      descripcion_corta: 'Análisis cualitativo de las experiencias y demandas de las víctimas de terrorismo de Estado en España respecto a la justicia y la dignidad.'
+    },
+    {
       id: 1,
       titulo: 'El terrorismo de ETA y su incidencia en el turismo: la singularidad de la campaña "Ven y cuéntalo"',
       revista: 'Reflexión Política (Q3)',
@@ -194,8 +202,8 @@ const visibleArticles = typeof limit === 'number' ? articles.slice(0, limit) : a
   <div class="absolute -top-20 -right-20 w-[60%] h-[60%] bg-academic-accent/5 blur-[120px] rounded-full -z-10"></div>
 
   <div class="max-w-6xl mx-auto px-6 lg:px-8 relative z-10">
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
-      <div class="lg:col-span-4">
+    <div class="flex flex-col gap-12 lg:gap-16 items-start">
+      <div class="w-full max-w-3xl">
         <div class="flex items-center gap-3 mb-5">
           <span class:list={["h-1 w-10", dark ? "bg-academic-accent/60" : "bg-blue-900/60"]}></span>
           <span class:list={["text-xs font-bold tracking-[0.2em] uppercase", dark ? "text-academic-accent/70" : "text-blue-900/70"]}>Publicaciones</span>
@@ -215,16 +223,16 @@ const visibleArticles = typeof limit === 'number' ? articles.slice(0, limit) : a
 
         {showAllLink && (
           <a href="/publicaciones/articulos" class:list={[
-            "inline-flex items-center gap-2 mt-7 rounded-full border px-5 py-2.5 font-sans text-[10px] tracking-[0.18em] uppercase font-black transition-colors duration-300",
+            "inline-flex items-center gap-2 mt-7 rounded-full border px-5 py-2.5 font-sans text-xs tracking-[0.18em] uppercase font-black transition-colors duration-300",
             dark ? "border-white/10 bg-white/5 text-white/70 hover:border-white/30 hover:text-white" : "border-slate-300/70 bg-white/80 text-slate-700 hover:border-blue-900/30 hover:text-blue-900"
           ]}>
             Ver todos
-            <i class="fa-solid fa-arrow-right text-[10px]" aria-hidden="true"></i>
+            <i class="fa-solid fa-arrow-right text-xs" aria-hidden="true"></i>
           </a>
         )}
       </div>
 
-      <div class="lg:col-span-8 space-y-4">
+      <div class="w-full space-y-4">
         {visibleArticles.map((article) => (
           <ArticleItem
             titulo={article.titulo}

@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   db:
     image: nouchka/sqlite3:latest
@@ -13,6 +11,7 @@ services:
     build:
       context: ./backend
       dockerfile: Dockerfile
+    image: pajaritocantor/webjrs-backend:latest
     container_name: webjrs-backend
     ports:
       - "3000:3000"
@@ -27,6 +26,7 @@ services:
     build:
       context: ./frontend
       dockerfile: Dockerfile
+    image: pajaritocantor/webjrs-frontend:latest
     container_name: webjrs-frontend
     ports:
       - "4321:80" # Nginx expone 80, lo mapeamos al 4321 (por defecto Astro ext)

@@ -18,7 +18,7 @@ import Libros from '../../components/Libros.astro';
                 
                 <!-- Info del Libro -->
                 <div class="relative z-10 order-2 lg:order-1 text-center lg:text-left">
-                    <span class="inline-block text-academic-accent text-[10px] font-black tracking-[0.5em] uppercase mb-10 border-l-2 border-academic-accent pl-6">Último Lanzamiento</span>
+                    <span class="inline-block text-academic-accent text-xs font-black tracking-[0.3em] uppercase mb-10 border-l-2 border-academic-accent pl-6">Último Lanzamiento</span>
                     <h1 class="font-serif text-6xl md:text-8xl font-black mb-10 leading-[0.9] tracking-tighter text-white">
                         Tupamaros <br/><span class="text-slate-400 italic font-light">en Uruguay</span>
                     </h1>
@@ -26,8 +26,8 @@ import Libros from '../../components/Libros.astro';
                         Orígenes, evolución y relaciones internacionales de la guerrilla urbana (1962-1976). Una investigación definitiva sobre la insurgencia regional.
                     </p>
                     <div class="flex flex-wrap justify-center lg:justify-start gap-8 items-center">
-                        <a href="https://www.comares.com/libro/tupamaros-en-uruguay_165135/" target="_blank" class="bg-white text-academic-dark px-12 py-5 rounded-full text-[11px] font-black tracking-[0.2em] uppercase hover:bg-academic-accent hover:text-white transition-all duration-700 shadow-2xl hover:scale-105 active:scale-95">Adquirir Obra</a>
-                        <span class="text-white/20 text-[10px] uppercase tracking-widest font-black border border-white/10 px-6 py-2 rounded-full">Editorial Comares</span>
+                        <a href="https://www.comares.com/libro/tupamaros-en-uruguay_165135/" target="_blank" class="bg-white text-academic-dark px-12 py-5 rounded-full text-sm font-black tracking-[0.2em] uppercase hover:bg-academic-accent hover:text-white transition-all duration-700 shadow-2xl hover:scale-105 active:scale-95">Adquirir Obra</a>
+                        <span class="text-white/20 text-xs uppercase tracking-widest font-black border border-white/10 px-6 py-2 rounded-full">Editorial Comares</span>
                     </div>
                 </div>
 
@@ -51,13 +51,13 @@ import Libros from '../../components/Libros.astro';
     <section class="py-10 bg-academic-dark/95 sticky top-0 z-50 backdrop-blur-xl border-b border-white/10">
         <div class="container mx-auto px-6 flex flex-wrap items-center justify-between gap-8">
             <div class="flex gap-8 filter-container">
-                <button data-filter="all" class="filter-btn active text-academic-accent border-b-2 border-academic-accent pb-2 text-xs font-black tracking-widest uppercase transition-all">Todos</button>
-                <button data-filter="libros" class="filter-btn text-white/30 hover:text-white pb-2 text-xs font-black tracking-widest uppercase transition-all">Libros</button>
-                <button data-filter="capitulo" class="filter-btn text-white/30 hover:text-white pb-2 text-xs font-black tracking-widest uppercase transition-all">Capítulos</button>
+                <button data-filter="all" class="filter-btn active text-academic-accent border-b-2 border-academic-accent pb-2 text-sm md:text-base font-black tracking-widest uppercase transition-all">Todos</button>
+                <button data-filter="libros" class="filter-btn text-white/50 hover:text-white pb-2 text-sm md:text-base font-black tracking-widest uppercase transition-all">Libros</button>
+                <button data-filter="capitulo" class="filter-btn text-white/50 hover:text-white pb-2 text-sm md:text-base font-black tracking-widest uppercase transition-all">Capítulos</button>
             </div>
             <div class="relative w-full md:w-96 group">
-                <input type="text" id="bookSearch" placeholder="BUSCAR POR TÍTULO O AÑO..." class="w-full bg-white/5 border border-white/10 rounded-full py-4 px-8 text-[11px] tracking-widest text-white placeholder:text-white/20 focus:outline-none focus:border-academic-accent/50 transition-all font-medium" />
-                <i class="fa-solid fa-magnifying-glass absolute right-8 top-1/2 -translate-y-1/2 text-white/20 text-sm group-focus-within:text-academic-accent transition-colors"></i>
+                <input type="text" id="bookSearch" placeholder="BUSCAR POR TÍTULO O AÑO..." class="w-full bg-white/5 border border-white/10 rounded-full py-4 px-8 text-sm tracking-widest text-white placeholder:text-white/40 focus:outline-none focus:border-academic-accent/50 transition-all font-medium" />
+                <i class="fa-solid fa-magnifying-glass absolute right-8 top-1/2 -translate-y-1/2 text-white/40 text-sm group-focus-within:text-academic-accent transition-colors"></i>
             </div>
         </div>
     </section>
@@ -72,7 +72,7 @@ import Libros from '../../components/Libros.astro';
         <div class="container mx-auto px-6 relative z-10">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
                 <div>
-                     <span class="text-academic-accent text-[10px] font-black tracking-[0.4em] uppercase mb-6 block">En Desarrollo</span>
+                     <span class="text-academic-accent text-xs font-black tracking-[0.2em] uppercase mb-6 block">En Desarrollo</span>
                     <h4 class="font-serif text-5xl md:text-6xl font-black mb-10 text-white italic">Próximos <br/>Lanzamientos</h4>
                     <p class="text-white/50 text-lg leading-relaxed mb-12 max-w-lg">
                         Actualmente trabajando en nuevas investigaciones que abordan la evolución de las insurgencias y los desafíos de la paz territorial.
@@ -82,14 +82,14 @@ import Libros from '../../components/Libros.astro';
                 <div class="relative group">
                     <div class="absolute -inset-4 bg-academic-accent/10 rounded-[40px] blur-2xl group-hover:bg-academic-accent/20 transition-all duration-700"></div>
                     <div class="relative p-12 rounded-[40px] border border-white/10 bg-academic-dark/60 backdrop-blur-md shadow-3xl">
-                        <span class="text-academic-accent text-[9px] font-black tracking-[0.4em] uppercase mb-6 block">Publicación Estimada 2025</span>
+                        <span class="text-academic-accent text-xs font-black tracking-[0.2em] uppercase mb-6 block">Publicación Estimada 2025</span>
                         <h5 class="text-3xl font-serif font-black mb-6 text-white">Geopolítica de la Insurgencia en el Siglo XXI</h5>
                         <p class="text-white/40 text-base leading-relaxed mb-10 font-light italic">
                             "Un estudio profundo sobre las nuevas formas de territorialidad armada y la erosión de la soberanía estatal en las periferias globales..."
                         </p>
                         <div class="flex items-center gap-6">
-                            <button class="bg-white text-academic-dark px-8 py-3 rounded-full text-[10px] font-black tracking-widest uppercase hover:bg-academic-accent hover:text-white transition-all duration-500 shadow-lg">Notificarme</button>
-                            <span class="text-white/20 text-[10px] uppercase tracking-widest font-black">Editorial Comares</span>
+                            <button class="bg-white text-academic-dark px-8 py-3 rounded-full text-sm font-black tracking-widest uppercase hover:bg-academic-accent hover:text-white transition-all duration-500 shadow-lg">Notificarme</button>
+                            <span class="text-white/20 text-sm md:text-xs uppercase tracking-widest font-black">Editorial Comares</span>
                         </div>
                     </div>
                 </div>
@@ -100,18 +100,18 @@ import Libros from '../../components/Libros.astro';
         <div class="absolute -top-24 -left-24 w-96 h-96 bg-academic-accent/10 rounded-full blur-[100px]"></div>
     </section>
 
-    <!-- CTA: Ir a Videos -->
+    <!-- CTA: Ir a Multimedia -->
     <section class="py-24 border-t border-white/5 bg-academic-dark/40 overflow-hidden relative">
         <div class="absolute -top-24 -right-24 w-96 h-96 bg-academic-accent/5 rounded-full blur-[100px]"></div>
         <div class="container mx-auto px-6 text-center">
-            <a href="/videos" class="inline-flex flex-col items-center gap-8 group">
+            <a href="/medios" class="inline-flex flex-col items-center gap-8 group">
                 <div class="w-20 h-20 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-academic-accent group-hover:bg-white group-hover:text-academic-dark transition-all duration-700 shadow-2xl relative overflow-hidden">
                     <div class="absolute inset-0 bg-academic-accent/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
                     <i class="fa-solid fa-arrow-right-long text-2xl relative z-10 group-hover:translate-x-2 transition-transform duration-500"></i>
                 </div>
                 <div>
-                   <span class="text-[10px] font-black tracking-[0.5em] text-slate-500 uppercase mb-4 block">Siguiente Sección</span>
-                   <h2 class="font-serif text-5xl md:text-7xl font-black text-white leading-none tracking-tighter">Intervenciones en <br/><span class="text-slate-400 italic font-light">Vídeo</span></h2>
+                   <span class="text-xs font-black tracking-[0.3em] text-zinc-400 uppercase mb-4 block">Siguiente Sección</span>
+                   <h2 class="font-serif text-5xl md:text-7xl font-black text-white leading-none tracking-tighter">Explorar <br/><span class="text-slate-400 italic font-light">Multimedia</span></h2>
                 </div>
             </a>
         </div>
@@ -182,10 +182,10 @@ import Libros from '../../components/Libros.astro';
             btn.addEventListener('click', () => {
                 newButtons.forEach(b => {
                     b.classList.remove('active', 'text-academic-accent', 'border-b-2', 'border-academic-accent');
-                    b.classList.add('text-white/30');
+                    b.classList.add('text-white/50');
                 });
                 btn.classList.add('active', 'text-academic-accent', 'border-b-2', 'border-academic-accent');
-                btn.classList.remove('text-white/30');
+                btn.classList.remove('text-white/50');
                 filterBooks();
             });
         });

@@ -1,5 +1,7 @@
 ---
 import Header from '../components/Header.astro';
+import CookieBanner from '../components/CookieBanner.astro';
+import AccessibilityWidget from '../components/AccessibilityWidget.astro';
 import { ViewTransitions } from 'astro:transitions';
 ---
 <!doctype html>
@@ -33,6 +35,8 @@ import { ViewTransitions } from 'astro:transitions';
 
 		<Header />
 		<slot />
+		<CookieBanner />
+		<AccessibilityWidget />
 		
 		<script>
 			// Intersection Observer for scroll fade-in animations

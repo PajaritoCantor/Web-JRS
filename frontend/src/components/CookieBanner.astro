@@ -1,0 +1,89 @@
+---
+// CookieBanner.astro - RGPD Compliant Cookie Consent
+---
+
+<!-- Cookie Banner -->
+<div id="cookie-banner" class="fixed bottom-0 left-0 right-0 z-[9999] p-4 md:p-6 hidden">
+  <div class="max-w-4xl mx-auto bg-[#0d1117] border border-white/10 rounded-2xl shadow-2xl shadow-black/60 backdrop-blur-xl p-6 md:p-8">
+    <div class="flex flex-col md:flex-row items-start md:items-center gap-6">
+      
+      <!-- Icon + Text -->
+      <div class="flex items-start gap-4 flex-1">
+        <div class="w-10 h-10 rounded-xl bg-academic-accent/10 border border-academic-accent/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+          <i class="fa-solid fa-cookie-bite text-academic-accent text-sm"></i>
+        </div>
+        <div>
+          <p class="text-white font-black text-sm tracking-wide mb-1">Política de Cookies</p>
+          <p class="text-white/50 text-xs leading-relaxed max-w-xl">
+            Utilizamos cookies técnicas (necesarias) y, con su consentimiento, cookies de análisis para mejorar su experiencia. 
+            Puede aceptar todas, rechazarlas o consultar nuestra 
+            <a href="/cookies" class="text-academic-accent hover:underline">política de cookies</a> 
+            para gestioarlas individualmente.
+          </p>
+        </div>
+      </div>
+
+      <!-- Actions -->
+      <div class="flex flex-wrap gap-3 flex-shrink-0 w-full md:w-auto">
+        <button 
+          id="cookie-reject" 
+          class="flex-1 md:flex-none px-6 py-3 rounded-full border border-white/10 text-xs font-black tracking-widest uppercase text-white/50 hover:text-white hover:border-white/30 transition-all duration-300"
+        >
+          Rechazar
+        </button>
+        <a 
+          href="/cookies" 
+          class="flex-1 md:flex-none px-6 py-3 rounded-full border border-white/10 text-xs font-black tracking-widest uppercase text-white/50 hover:text-white hover:border-white/30 transition-all text-center"
+        >
+          Gestionar
+        </a>
+        <button 
+          id="cookie-accept" 
+          class="flex-1 md:flex-none px-8 py-3 rounded-full bg-academic-accent text-academic-dark text-xs font-black tracking-widest uppercase hover:brightness-110 transition-all duration-300 shadow-lg shadow-academic-accent/20"
+        >
+          Aceptar todas
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script is:inline>
+  (function () {
+    const COOKIE_KEY = 'cookie_consent';
+    const banner = document.getElementById('cookie-banner');
+    const btnAccept = document.getElementById('cookie-accept');
+    const btnReject = document.getElementById('cookie-reject');
+
+    // Show banner only if no previous choice
+    if (!localStorage.getItem(COOKIE_KEY)) {
+      banner.classList.remove('hidden');
+      // Smooth entrance
+      setTimeout(() => {
+        banner.style.transition = 'transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease';
+        banner.style.opacity = '1';
+        banner.style.transform = 'translateY(0)';
+      }, 50);
+      banner.style.opacity = '0';
+      banner.style.transform = 'translateY(20px)';
+    }
+
+    function hideBanner() {
+      banner.style.transition = 'transform 0.4s ease, opacity 0.4s ease';
+      banner.style.transform = 'translateY(30px)';
+      banner.style.opacity = '0';
+      setTimeout(() => banner.classList.add('hidden'), 400);
+    }
+
+    btnAccept?.addEventListener('click', () => {
+      localStorage.setItem(COOKIE_KEY, 'accepted');
+      hideBanner();
+      // Here you would activate analytic cookies like GA
+    });
+
+    btnReject?.addEventListener('click', () => {
+      localStorage.setItem(COOKIE_KEY, 'rejected');
+      hideBanner();
+    });
+  })();
+</script>
