@@ -1,7 +1,7 @@
 ---
 // Showcase Component
 ---
-<section class="relative w-full h-[100vh] flex items-center justify-center overflow-hidden bg-academic-dark">
+<section class="relative w-full min-h-[100vh] flex flex-col items-center justify-between overflow-hidden bg-academic-dark py-20">
   
   <!-- Imagen de Fondo con Parallax Effect -->
   <div class="absolute inset-0 z-0">
@@ -9,8 +9,11 @@
     <img src="/assets/1000x1000.jpg" alt="Jerónimo Ríos Sierra" class="w-full h-full object-cover grayscale opacity-30 animate-fade-in" />
   </div>
 
+  <!-- Spacer superior (compensa la falta de centrado estricto) -->
+  <div class="h-[10vh]"></div>
+
   <!-- Contenido Central -->
-  <div class="relative z-20 container mx-auto px-6 text-center animate-slide-up">
+  <div class="relative z-20 container mx-auto px-6 text-center animate-slide-up flex flex-col items-center">
     <div class="max-w-4xl mx-auto">
       <h2 class="font-serif text-[clamp(3rem,8vw,6rem)] font-black text-white leading-[0.9] tracking-tighter mb-12">
         Jerónimo <br/>
@@ -34,8 +37,8 @@
   </div>
 
   <!-- Indicador de Scroll -->
-  <div class="absolute bottom-12 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-6 opacity-30 animate-bounce">
-    <span class="text-xs uppercase tracking-[0.8em] font-black text-zinc-400">EXPLORAR</span>
+  <div class="relative z-20 flex flex-col items-center gap-6 opacity-30 animate-bounce mt-12 pb-4">
+    <span class="text-xs uppercase tracking-[0.8em] font-black text-zinc-400 mr-[-0.8em]">EXPLORAR</span>
     <div class="w-[1px] h-16 bg-gradient-to-b from-slate-500 to-transparent"></div>
   </div>
 
