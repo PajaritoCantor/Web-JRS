@@ -25,60 +25,96 @@
         </div>
     </div>
 
-    <div class="md:col-span-1 md:row-span-1 bg-academic-dark rounded-3xl p-8 flex flex-col justify-between text-white hover:bg-black transition-all duration-500 group/event">
-        <div>
-            <div class="flex items-center justify-between mb-8">
-                <span class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center group-hover/event:bg-academic-accent/20 transition-colors">
-                    <i class="fa-solid fa-calendar-star text-academic-accent"></i>
-                </span>
-                <span class="text-xs font-bold tracking-widest uppercase text-white/50">Agenda</span>
+    <div class="md:col-span-2 md:row-span-1 group/event rounded-3xl overflow-hidden shadow-2xl bg-white flex flex-col border border-white/5 transition-all duration-700 cursor-pointer">
+        <!-- Parte Superior: Imagen y Ubicación -->
+        <div class="relative h-[200px] w-full overflow-hidden shrink-0">
+            <img src="/assets/original.jpeg" alt="Seminario" class="w-full h-full object-cover grayscale opacity-90 group-hover/event:scale-110 group-hover/event:grayscale-0 group-hover/event:opacity-100 transition-all duration-1000" />
+            <!-- Gradiente Inferior -->
+            <div class="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-academic-dark to-transparent flex items-end p-5">
+                <p class="text-white font-black tracking-widest uppercase text-xs flex items-center gap-2">
+                    <span class="text-xl">🇪🇸</span> Madrid, España
+                </p>
             </div>
-            <p class="text-xl font-serif font-medium leading-snug">Seminario sobre Terrorismo de Estado</p>
+            <!-- Etiqueta superior -->
+            <div class="absolute top-5 left-5 bg-academic-accent text-academic-dark text-[9px] font-black uppercase tracking-[0.3em] px-3 py-1.5 rounded-full shadow-lg">
+                Agenda Próxima
+            </div>
         </div>
-        <div class="flex items-end justify-between gap-2">
-            <div class="flex items-baseline gap-2">
-                <span class="text-4xl font-black text-academic-accent">15</span>
-                <span class="text-xs uppercase font-bold tracking-widest text-white/50">Mayo</span>
+
+        <!-- Parte Inferior: Fecha + Detalles (Asimétrica y Estética) -->
+        <div class="flex flex-1 items-stretch bg-white">
+            <!-- Columna Fecha (Más estrecha, alineada arriba) -->
+            <div class="w-[120px] md:w-[140px] border-r border-zinc-100 flex flex-col items-center justify-start pt-8 pb-6 px-4 shrink-0 relative overflow-hidden">
+                <div class="absolute inset-0 bg-academic-accent/5 opacity-0 group-hover/event:opacity-100 transition-opacity duration-500"></div>
+                <span class="text-[64px] font-serif font-black text-academic-dark leading-none tracking-tighter mb-1 relative z-10 transition-transform group-hover/event:scale-105">15</span>
+                <span class="text-[10px] font-black tracking-[0.3em] uppercase text-zinc-400 relative z-10">Mayo</span>
+                <span class="text-[9px] font-bold tracking-widest text-zinc-300 mt-1 relative z-10">2026</span>
             </div>
-            <a href="#" class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-academic-accent hover:border-academic-accent transition-all group/btn">
-                <i class="fa-solid fa-arrow-up-right-from-square text-xs group-hover/btn:scale-110 transition-transform"></i>
-            </a>
+            
+            <!-- Columna Detalles (Más amplia, con más espacio negativo) -->
+            <div class="flex-1 p-8 md:pl-10 flex flex-col justify-between">
+                <div>
+                    <h3 class="font-serif font-black text-xl md:text-2xl text-academic-dark leading-snug tracking-tight mb-4 group-hover/event:text-academic-accent transition-colors">Seminario sobre Terrorismo de Estado</h3>
+                    <p class="text-xs md:text-[13px] text-zinc-500 leading-relaxed font-medium line-clamp-3">Ponencia principal sobre el impacto y las dinámicas prolongadas de violencias asimétricas en Europa y América Latina.</p>
+                </div>
+                
+                <a href="#" class="mt-8 font-black uppercase tracking-[0.25em] text-[10px] text-academic-dark flex items-center gap-3 w-max group/link hover:text-academic-accent transition-colors">
+                    Portal del Evento
+                    <span class="block w-6 h-[1.5px] bg-academic-accent group-hover/link:w-16 transition-all duration-500"></span>
+                </a>
+            </div>
         </div>
     </div>
 
-    <div class="md:col-span-1 md:row-span-1 bg-white/5 backdrop-blur-sm border border-white/5 rounded-3xl p-10 flex flex-col justify-center text-center relative overflow-hidden group/quote">
-        <i class="fa-solid fa-quote-left text-academic-accent/10 text-6xl absolute top-8 left-8"></i>
-        <p class="font-serif italic text-xl text-white/80 leading-relaxed relative z-10">
-            "La historia no se repite, <br/>pero <span class="text-academic-accent not-italic font-black">rima</span> con la violencia del pasado."
-        </p>
-    </div>
+
 
     <div class="md:col-span-2 md:row-span-1 bg-white/[0.03] backdrop-blur-md rounded-3xl p-10 flex gap-8 items-center border border-white/5 overflow-hidden group/news">
-        <div class="flex-1">
+        <div class="flex-1 w-full overflow-hidden">
             <span class="text-xs font-black tracking-[0.2em] uppercase text-academic-accent block mb-6 px-1 border-l-2 border-academic-accent">Últimas Novedades</span>
-            <ul class="space-y-6">
+            <ul class="space-y-5 w-full">
+                <!-- Novedad 1: Medio (Audio) -->
                 <li class="news-item group cursor-pointer border-b border-white/5 pb-3 hover:border-academic-accent transition-colors" 
-                    data-type="video" 
-                    data-src="/assets/preview-entrevista.mp4" 
-                    data-thumbnail="/assets/original.jpeg"
+                    data-type="audio" 
+                    data-thumbnail="/assets/medios/paz_total_petro.jpg"
+                    data-url="https://www.rtve.es/play/audios/cinco-continentes/cinco-continentes-fracaso-paz-total-petro/16865608/"
                     role="link"
-                    aria-label="Ver entrevista en Radio Nacional (Video)">
+                    aria-label="Escuchar: El fracaso de la paz total de Petro">
                     <div class="flex items-center justify-between">
-                        <div class="flex items-center gap-5">
-                            <span class="text-[8px] uppercase font-black text-academic-accent bg-academic-accent/10 px-3 py-1 rounded-full border border-academic-accent/20">Video</span>
-                            <span class="text-sm font-black tracking-widest text-white/70 uppercase group-hover:text-white transition-colors">Entrevista en Radio Nacional</span>
+                        <div class="flex items-center gap-4">
+                            <span class="text-[8px] uppercase font-black text-academic-accent bg-academic-accent/10 px-3 py-1 rounded-full border border-academic-accent/20 shrink-0">Audio</span>
+                            <span class="text-[11px] md:text-sm font-black tracking-widest text-white/70 uppercase group-hover:text-white transition-colors truncate max-w-[130px] md:max-w-[200px]">El fracaso de la paz total de Petro</span>
                         </div>
-                        <i class="fa-solid fa-play text-xs text-academic-accent/40 opacity-0 group-hover:opacity-100 transition-all"></i>
+                        <i class="fa-solid fa-headphones text-xs text-white/20 group-hover:text-academic-accent group-hover:scale-110 transition-all"></i>
                     </div>
                 </li>
+                
+                <!-- Novedad 2: Libro -->
+                <li class="news-item group cursor-pointer border-b border-white/5 pb-3 hover:border-academic-accent transition-colors" 
+                    data-type="book"
+                    data-thumbnail="/assets/covers/tupamaros.jpg"
+                    data-url="/publicaciones/libros"
+                    role="link"
+                    aria-label="Ver libro: Tupamaros en Uruguay">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-4">
+                            <span class="text-[8px] uppercase font-black text-white/50 bg-white/5 px-3 py-1 rounded-full border border-white/10 shrink-0">Libro</span>
+                            <span class="text-[11px] md:text-sm font-black tracking-widest text-white/70 uppercase group-hover:text-white transition-colors truncate max-w-[130px] md:max-w-[200px]">Tupamaros en Uruguay</span>
+                        </div>
+                        <i class="fa-solid fa-book text-xs text-white/20 group-hover:text-academic-accent group-hover:translate-x-1 transition-all"></i>
+                    </div>
+                </li>
+
+                <!-- Novedad 3: Artículo -->
                 <li class="news-item group cursor-pointer border-b border-white/5 pb-3 hover:border-academic-accent transition-colors" 
                     data-type="article"
+                    data-thumbnail="/assets/covers/critical_studies.jpg"
+                    data-url="https://www.tandfonline.com/doi/full/10.1080/17539153.2025.2598096"
                     role="link"
-                    aria-label="Leer artículo: Perspectivas sobre la Paz">
+                    aria-label="Leer artículo: Victims of state terrorism in Spain">
                     <div class="flex items-center justify-between">
-                        <div class="flex items-center gap-5">
-                            <span class="text-[8px] uppercase font-black text-white/50 bg-white/5 px-3 py-1 rounded-full border border-white/10">Artículo</span>
-                            <span class="text-sm font-black tracking-widest text-white/70 uppercase group-hover:text-white transition-colors">Perspectivas sobre la Paz</span>
+                        <div class="flex items-center gap-4">
+                            <span class="text-[8px] uppercase font-black text-white/50 bg-white/5 px-3 py-1 rounded-full border border-white/10 shrink-0">Artículo</span>
+                            <span class="text-[11px] md:text-sm font-black tracking-widest text-white/70 uppercase group-hover:text-white transition-colors truncate max-w-[130px] md:max-w-[200px]">Víctimas del terrorismo de estado en España</span>
                         </div>
                         <i class="fa-solid fa-arrow-right text-xs text-white/20 group-hover:text-academic-accent group-hover:translate-x-1 transition-all"></i>
                     </div>
@@ -86,9 +122,10 @@
             </ul>
         </div>
 
-        <div id="media-trigger" 
-             class="hidden lg:flex flex-col items-center justify-center w-40 h-40 bg-gradient-to-br from-academic-dark to-slate-900 rounded-2xl shadow-2xl p-4 rotate-3 group-hover/news:rotate-0 transition-all duration-700 border border-white/5 relative overflow-hidden group/play"
-             aria-hidden="true">
+        <a id="media-trigger" 
+             href="#"
+             class="hidden lg:flex flex-col items-center justify-center w-40 h-40 shrink-0 bg-gradient-to-br from-academic-dark to-slate-900 rounded-2xl shadow-2xl p-4 rotate-3 group-hover/news:rotate-0 transition-all duration-700 border border-white/5 relative overflow-hidden group/play cursor-pointer"
+             aria-label="Ver contenido destacado">
             
             <div id="thumbnail-bg" class="absolute inset-0 bg-cover bg-center opacity-0 transition-opacity duration-500 z-0"></div>
             
@@ -98,92 +135,127 @@
 
             <div id="play-button-container" class="w-16 h-16 rounded-full bg-academic-dark flex items-center justify-center shadow-lg group-hover/play:scale-110 transition-all duration-500 relative z-10">
                 <div id="pulse-ring" class="absolute inset-0 rounded-full bg-academic-accent animate-ping-slow opacity-0"></div>
-                <i id="main-play-icon" class="fa-solid fa-play text-2xl text-white ml-1 transition-colors"></i>
+                <i id="main-play-icon" class="fa-solid fa-external-link-alt text-lg text-white transition-colors"></i>
             </div>
             
             <span id="media-label" class="mt-4 text-[8px] font-black uppercase tracking-[0.2em] text-white/50 opacity-0 group-hover/news:opacity-100 transition-all duration-1000 relative z-10">Explorar</span>
-        </div>
+        </a>
     </div>
   </div>
 </section>
 
 <script>
-  // Lógica de interacción dinámica
-  const newsItems = document.querySelectorAll('.news-item');
-  const player = document.getElementById('preview-player') as HTMLVideoElement;
-  const thumbnailBg = document.getElementById('thumbnail-bg');
-  const pulseRing = document.getElementById('pulse-ring');
-  const playIcon = document.getElementById('main-play-icon');
-  const playButtonContainer = document.getElementById('play-button-container');
-  const mediaLabel = document.getElementById('media-label');
+  function setupEditorialGrid() {
+      const newsItems = document.querySelectorAll('.news-item');
+      const player = document.getElementById('preview-player') as HTMLVideoElement;
+      const thumbnailBg = document.getElementById('thumbnail-bg');
+      const pulseRing = document.getElementById('pulse-ring');
+      const playIcon = document.getElementById('main-play-icon');
+      const playButtonContainer = document.getElementById('play-button-container');
+      const mediaLabel = document.getElementById('media-label');
+      const mediaTrigger = document.getElementById('media-trigger') as HTMLAnchorElement;
 
-  newsItems.forEach(item => {
-    item.addEventListener('mouseenter', () => {
-      const type = item.getAttribute('data-type');
-      const videoSrc = item.getAttribute('data-src');
-      const thumbSrc = item.getAttribute('data-thumbnail');
+      let currentUrl = '#';
 
-      // 1. Resetear estados previos si es necesario (limpieza suave)
-      if (player) {
-          player.style.opacity = '0';
-          player.pause();
-      }
-      if (thumbnailBg) thumbnailBg.style.opacity = '0';
+      newsItems.forEach(item => {
+        // Al hacer click en el item de la lista
+        item.addEventListener('click', (e) => {
+          const url = item.getAttribute('data-url');
+          if (url) {
+            window.open(url, url.startsWith('/') ? '_self' : '_blank');
+          }
+        });
 
-      if (type === 'video') {
-        // 2. Activar Thumbnail y Video Preview
-        if (thumbSrc && thumbnailBg) {
-            thumbnailBg.style.backgroundImage = `url('${thumbSrc}')`;
-            thumbnailBg.style.opacity = '0.3';
-        }
-        
-        if (videoSrc && player) {
-            if (player.src !== videoSrc) {
-                player.src = videoSrc;
-                player.load();
+        item.addEventListener('mouseenter', () => {
+          const type = item.getAttribute('data-type');
+          const videoSrc = item.getAttribute('data-src');
+          const thumbSrc = item.getAttribute('data-thumbnail');
+          const url = item.getAttribute('data-url');
+          
+          if (url) currentUrl = url;
+          if (mediaTrigger) {
+              mediaTrigger.href = currentUrl;
+              mediaTrigger.target = currentUrl.startsWith('/') ? '_self' : '_blank';
+          }
+
+          // 1. Reset multimedia
+          if (player) {
+              player.style.opacity = '0';
+              player.pause();
+          }
+          
+          // Activar Thumbnail para todos los ítems (Proyección mejorada)
+          if (thumbnailBg) {
+              thumbnailBg.style.opacity = '0';
+              if (thumbSrc) {
+                  thumbnailBg.style.backgroundImage = `url('${thumbSrc}')`;
+                  thumbnailBg.style.opacity = '0.6'; // Aumentada opacidad para mejor proyección
+              }
+          }
+
+          pulseRing?.classList.remove('opacity-0');
+          pulseRing?.classList.add('opacity-40');
+          if (playButtonContainer) {
+              playButtonContainer.classList.add('bg-academic-accent');
+              playButtonContainer.classList.remove('bg-academic-dark');
+          }
+          if (playIcon) {
+              playIcon.classList.remove('text-white');
+              playIcon.classList.add('text-academic-dark');
+          }
+
+          if (type === 'video' && videoSrc && player) {
+              if (player.src !== videoSrc) {
+                  player.src = videoSrc;
+                  player.load();
+              }
+              player.style.opacity = '1';
+              player.play().catch(() => {});
+              
+              if(playIcon) playIcon.className = "fa-solid fa-play text-2xl text-academic-dark ml-1 transition-colors";
+              if(mediaLabel) mediaLabel.textContent = "Ver Video";
+          } else if (type === 'audio') {
+              if(playIcon) playIcon.className = "fa-solid fa-headphones text-xl text-academic-dark transition-colors";
+              if(mediaLabel) mediaLabel.textContent = "Escuchar";
+          } else if (type === 'book') {
+              if(playIcon) playIcon.className = "fa-solid fa-book-open text-xl text-academic-dark transition-colors";
+              if(mediaLabel) mediaLabel.textContent = "Ver Libro";
+          } else {
+              if(playIcon) playIcon.className = "fa-solid fa-file-lines text-xl text-academic-dark transition-colors";
+              if(mediaLabel) mediaLabel.textContent = "Leer Artículo";
+          }
+        });
+      });
+
+      const gridSection = document.querySelector('section');
+      if (gridSection) {
+        gridSection.addEventListener('mouseleave', () => {
+            if (player) {
+                player.style.opacity = '0';
+                player.pause();
             }
-            player.style.opacity = '1';
-            player.play().catch(() => {});
-        }
-
-        // 3. Feedback visual en el botón
-        pulseRing?.classList.remove('opacity-0');
-        pulseRing?.classList.add('opacity-40');
-        playButtonContainer?.classList.add('bg-academic-accent');
-        playIcon?.classList.remove('text-white');
-        playIcon?.classList.add('text-academic-dark');
-        
-        if(mediaLabel) mediaLabel.textContent = "Ver Video";
-      } else {
-        // Para tipos que no son video, podemos elegir un estado por defecto o no hacer nada
-        // Pero para cumplir con la petición de persistir hasta "otro diferente", no reseteamos a Explorar aquí.
-        pulseRing?.classList.add('opacity-0');
-        pulseRing?.classList.remove('opacity-40');
-        playButtonContainer?.classList.remove('bg-academic-accent');
-        playIcon?.classList.add('text-white');
-        playIcon?.classList.remove('text-academic-dark');
-        if(mediaLabel) mediaLabel.textContent = "Leer Más";
+            if (thumbnailBg) thumbnailBg.style.opacity = '0';
+            pulseRing?.classList.add('opacity-0');
+            pulseRing?.classList.remove('opacity-40');
+            if (playButtonContainer) {
+                playButtonContainer.classList.remove('bg-academic-accent');
+                playButtonContainer.classList.add('bg-academic-dark');
+            }
+            if (playIcon) {
+                playIcon.classList.add('text-white');
+                playIcon.className = "fa-solid fa-external-link-alt text-lg text-white transition-colors";
+            }
+            if(mediaLabel) mediaLabel.textContent = "Explorar";
+            if(mediaTrigger) {
+                mediaTrigger.href = "#";
+                mediaTrigger.target = "_self";
+            }
+        });
       }
-    });
-  });
-
-  // Opcional: Resetear solo si sales del área del GRID completo para que no sea intrusivo
-  const gridSection = document.querySelector('section');
-  if (gridSection) {
-    gridSection.addEventListener('mouseleave', () => {
-        if (player) {
-            player.style.opacity = '0';
-            player.pause();
-        }
-        if (thumbnailBg) thumbnailBg.style.opacity = '0';
-        pulseRing?.classList.add('opacity-0');
-        pulseRing?.classList.remove('opacity-40');
-        playButtonContainer?.classList.remove('bg-academic-accent');
-        playIcon?.classList.add('text-white');
-        playIcon?.classList.remove('text-academic-dark');
-        if(mediaLabel) mediaLabel.textContent = "Explorar";
-    });
   }
+
+  // Ejecutar al cargar la página y en cada transición de Astro
+  document.addEventListener('astro:page-load', setupEditorialGrid);
 </script>
 
 <style>
