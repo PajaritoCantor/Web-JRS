@@ -11,10 +11,22 @@ import profileImage from '../assets/original_profile.jpeg';
   <div class="absolute bottom-0 left-0 w-[40%] h-[40%] bg-blue-900/10 blur-[100px] -z-10"></div>
 
   <div class="max-w-6xl mx-auto px-6 lg:px-8 relative z-10">
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+    <!-- Título superior (Independiente) -->
+    <div class="max-w-4xl mb-16 lg:mb-20 text-balance">
+      <div class="flex items-center gap-4 mb-8">
+        <span class="h-0.5 w-12 bg-academic-accent/40"></span>
+        <span class="text-xs font-black tracking-[0.2em] text-academic-accent uppercase">Perfil Académico</span>
+      </div>
+      <h2 class="font-serif text-5xl lg:text-8xl font-black text-white leading-[0.95] tracking-tighter">
+        Violencia política y <br/>
+        <span class="text-academic-accent italic font-light">construcción de paz.</span>
+      </h2>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-start">
       
-      <!-- Columna Imagen -->
-      <div class="lg:col-span-5 order-2 lg:order-1 relative group">
+      <!-- Columna Imagen (Ahora primero en mobile) -->
+      <div class="lg:col-span-5 order-1 relative group">
         <div class="relative rounded-2xl overflow-hidden shadow-2xl border border-white/5 aspect-[4/5]">
           <Image 
             src={profileImage} 
@@ -22,29 +34,17 @@ import profileImage from '../assets/original_profile.jpeg';
             class="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-1000 ease-in-out transform group-hover:scale-110"
           />
           
-          <!-- Tarjeta Flotante -->
           <div class="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-academic-dark via-academic-dark/40 to-transparent backdrop-blur-md">
             <p class="text-white font-serif text-2xl font-black leading-tight mb-2 tracking-tight">Dr. Jerónimo Ríos</p>
             <p class="text-academic-accent text-xs font-black tracking-[0.2em] uppercase">Pensador Político • Académico</p>
           </div>
         </div>
-        
         <div class="absolute -top-6 -left-6 w-24 h-24 border-t-2 border-l-2 border-academic-accent/30 -z-10 group-hover:-translate-x-2 group-hover:-translate-y-2 transition-transform duration-700"></div>
       </div>
 
       <!-- Columna Texto -->
-      <div class="lg:col-span-7 order-1 lg:order-2 flex flex-col space-y-10 lg:pl-12">
-        <div class="flex items-center gap-4">
-          <span class="h-0.5 w-12 bg-academic-accent/40"></span>
-          <span class="text-xs font-black tracking-[0.2em] text-academic-accent uppercase">Perfil Académico</span>
-        </div>
-
-        <h2 class="font-serif text-5xl lg:text-7xl font-black text-white leading-[1.1] tracking-tighter">
-          Violencia política y <br/>
-          <span class="text-academic-accent italic font-light">construcción de paz.</span>
-        </h2>
-
-        <div class="space-y-4 text-slate-400 leading-relaxed font-sans text-lg">
+      <div class="lg:col-span-7 order-2 flex flex-col">
+        <div class="space-y-6 text-slate-400 leading-relaxed font-sans text-lg">
           <p>
             Profesor Titular en la Facultad de Ciencias Políticas y Sociología de la <strong class="text-white">Universidad Complutense de Madrid</strong>. Doble Doctor con <strong class="text-white">Premio Extraordinario</strong>, su obra académica disecciona con precisión analítica las dinámicas de las insurgencias en Iberoamérica.
           </p>
@@ -54,38 +54,38 @@ import profileImage from '../assets/original_profile.jpeg';
         </div>
 
         <!-- Métricas -->
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 border-t border-white/5 pt-10 mt-6">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 border-t border-white/5 pt-10 mt-12">
           <div class="group">
             <span class="block text-4xl lg:text-5xl font-serif font-black text-white group-hover:text-academic-accent transition-colors duration-500">120+</span>
-            <span class="text-xs font-black text-zinc-400 uppercase tracking-[0.3em] mt-3 block group-hover:text-academic-accent/60 transition-colors duration-500">Artículos</span>
+            <span class="text-[10px] font-black text-zinc-500 uppercase tracking-[0.3em] mt-3 block">Artículos</span>
           </div>
           <div class="group">
             <span class="block text-4xl lg:text-5xl font-serif font-black text-white group-hover:text-academic-accent transition-colors duration-500">19</span>
-            <span class="text-xs font-black text-zinc-400 uppercase tracking-[0.3em] mt-3 block group-hover:text-academic-accent/60 transition-colors duration-500">Libros</span>
+            <span class="text-[10px] font-black text-zinc-500 uppercase tracking-[0.3em] mt-3 block">Libros</span>
           </div>
           <div class="group">
             <span class="block text-4xl lg:text-5xl font-serif font-black text-white group-hover:text-academic-accent transition-colors duration-500">2</span>
-            <span class="text-xs font-black text-zinc-400 uppercase tracking-[0.3em] mt-3 block group-hover:text-academic-accent/60 transition-colors duration-500">Premios</span>
+            <span class="text-[10px] font-black text-zinc-500 uppercase tracking-[0.3em] mt-3 block">Premios</span>
           </div>
           <div class="group">
             <span class="block text-4xl lg:text-5xl font-serif font-black text-white group-hover:text-academic-accent transition-colors duration-500">300+</span>
-            <span class="text-xs font-black text-zinc-400 uppercase tracking-[0.3em] mt-3 block group-hover:text-academic-accent/60 transition-colors duration-500">Entrevistas</span>
+            <span class="text-[10px] font-black text-zinc-500 uppercase tracking-[0.3em] mt-3 block">Entrevista</span>
           </div>
         </div>
+
         <!-- CTA: Ir a Publicaciones -->
-        <div class="pt-20">
+        <div class="mt-16">
           <a href="/publicaciones/articulos" class="inline-flex items-center gap-6 group">
             <div class="w-16 h-16 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-academic-accent group-hover:bg-white group-hover:text-academic-dark transition-all duration-700 shadow-2xl overflow-hidden relative">
               <div class="absolute inset-0 bg-academic-accent/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
               <i class="fa-solid fa-arrow-right-long text-xl relative z-10 group-hover:translate-x-2 transition-transform duration-500"></i>
             </div>
             <div class="flex flex-col">
-              <span class="text-xs font-black tracking-[0.3em] text-zinc-400 uppercase mb-1">Descubrir Obra</span>
+              <span class="text-[10px] font-black tracking-[0.3em] text-zinc-500 uppercase mb-1">Descubrir Obra</span>
               <h4 class="font-serif text-3xl font-black text-white group-hover:text-academic-accent transition-colors">Artículos <br/><span class="text-slate-400 italic font-light">Académicos</span></h4>
             </div>
           </a>
         </div>
-
       </div>
     </div>
   </div>
