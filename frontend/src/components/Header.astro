@@ -1,13 +1,13 @@
 ---
 // Header Component
 ---
-<header class="fixed top-0 left-0 w-full bg-white/95 backdrop-blur-xl h-[80px] md:h-[100px] border-b border-zinc-200/50 z-50 flex items-center justify-between px-6 md:px-12 transition-all duration-300">
+<header class="fixed top-0 left-0 w-full bg-white/95 backdrop-blur-xl h-[80px] lg:h-[100px] border-b border-zinc-200/50 z-50 flex items-center justify-between px-6 lg:px-12 transition-all duration-300">
   
   <!-- Logo y Nombre -->
   <div class="flex-shrink-0 z-20">
     <a href="/" class="flex items-center gap-4 group">
-      <div class="w-10 h-10 md:w-12 md:h-12 bg-black rounded-xl flex items-center justify-center shadow-lg transform group-hover:scale-110 transition-transform">
-        <span class="text-academic-accent font-serif font-black text-xl md:text-2xl">J</span>
+      <div class="w-10 h-10 lg:w-12 lg:h-12 bg-black rounded-xl flex items-center justify-center shadow-lg transform group-hover:scale-110 transition-transform">
+        <span class="text-academic-accent font-serif font-black text-xl lg:text-2xl">J</span>
       </div>
       <div class="hidden lg:block text-black">
         <h1 class="font-serif text-xl font-black leading-none tracking-tight">Jerónimo Ríos</h1>
@@ -16,9 +16,9 @@
     </a>
   </div>
   
-  <!-- Navegación Central Desktop -->
-  <nav class="hidden md:flex flex-1 items-center justify-center z-10">
-    <ul class="flex items-center space-x-12 text-xs lg:text-sm tracking-[0.3em] uppercase font-black text-black">
+  <!-- Navegación Central Desktop (visible solo desde lg/1024px) -->
+  <nav class="hidden lg:flex flex-1 items-center justify-center z-10">
+    <ul class="flex items-center space-x-12 text-sm tracking-[0.3em] uppercase font-black text-black">
       <li>
         <a href="/biografia" class="nav-link-underline hover:text-academic-dark transition-colors">
           Biografía
@@ -28,7 +28,7 @@
         <button
           id="publicaciones-toggle"
           type="button"
-          class="nav-link-underline hover:text-academic-dark transition-colors inline-flex items-center gap-2 text-xs lg:text-sm tracking-[0.3em] uppercase font-black leading-none"
+          class="nav-link-underline hover:text-academic-dark transition-colors inline-flex items-center gap-2 text-sm tracking-[0.3em] uppercase font-black leading-none"
           aria-expanded="false"
           aria-controls="publicaciones-menu"
         >
@@ -63,8 +63,8 @@
     </ul>
   </nav>
 
-  <!-- Utilidades: Buscador y Redes (Desktop) -->
-  <div class="hidden md:flex items-center space-x-6 text-black z-20">
+  <!-- Utilidades: Redes y Buscador (Desktop, solo desde lg) -->
+  <div class="hidden lg:flex items-center space-x-6 text-black z-20">
     
     <!-- Redes Sociales -->
     <div class="flex items-center space-x-5 border-r border-black/10 pr-6">
@@ -95,85 +95,180 @@
     </button>
   </div>
 
-  <!-- Botones UI Móvil -->
-  <div class="md:hidden flex items-center gap-5 z-20">
+  <!-- Menú Móvil y Tablet (visible por debajo de lg/1024px) -->
+  <div class="lg:hidden flex items-center gap-5 z-20">
     <button aria-label="Buscar" class="text-gray-600 hover:text-black transition-colors">
       <i class="fa-solid fa-magnifying-glass text-lg"></i>
     </button>
-    <div class="relative">
-      <button id="publicaciones-mobile-toggle" class="text-sm uppercase tracking-widest font-black text-academic-dark/70 hover:text-academic-dark transition-colors" aria-expanded="false" aria-controls="publicaciones-mobile-menu">
-        Publicaciones
-      </button>
-      <div id="publicaciones-mobile-menu" class="hidden absolute right-0 top-full mt-3 w-52 rounded-xl border border-zinc-200/60 bg-gradient-to-br from-white/95 via-gray-50/95 to-amber-50/95 p-2 shadow-premium backdrop-blur-md transition-all duration-300">
-        <a href="/publicaciones/articulos" class:list={[
-          "block rounded-lg px-4 py-3 text-xs tracking-[0.18em] uppercase font-black transition-colors",
-          "text-academic-dark/70 hover:bg-white/70 hover:text-academic-dark"
-        ]}>
-          Artículos
-        </a>
-        <a href="/publicaciones/libros" class:list={[
-          "block rounded-lg px-4 py-3 text-xs tracking-[0.18em] uppercase font-black transition-colors",
-          "text-academic-dark/70 hover:bg-white/70 hover:text-academic-dark"
-        ]}>
-          Libros
-        </a>
-      </div>
-    </div>
-    <button class="text-2xl text-gray-800 focus:outline-none" aria-label="Abrir Menú">
-      <i class="fa-solid fa-bars-staggered"></i>
+    <button id="mobile-menu-toggle" class="text-2xl text-gray-800 focus:outline-none" aria-label="Abrir Menú" aria-expanded="false" aria-controls="mobile-menu-panel">
+      <i id="hamburger-icon" class="fa-solid fa-bars-staggered"></i>
     </button>
   </div>
 </header>
 
+<!-- Panel Off-Canvas Menu (Tablet + Mobile) -->
+<div id="mobile-menu-panel" class="fixed inset-0 z-[60] pointer-events-none">
+  <!-- Overlay -->
+  <div id="mobile-overlay" class="absolute inset-0 bg-black/40 backdrop-blur-sm opacity-0 transition-opacity duration-300 pointer-events-none"></div>
+
+  <!-- Panel deslizante -->
+  <nav id="mobile-nav" class="absolute top-0 right-0 w-[320px] max-w-[85vw] h-full bg-white shadow-2xl transform translate-x-full transition-transform duration-300 ease-out pointer-events-auto flex flex-col">
+    
+    <!-- Cabecera del panel -->
+    <div class="flex items-center justify-between px-8 h-[80px] border-b border-zinc-100">
+      <span class="font-serif text-lg font-black text-academic-dark tracking-tight">Menú</span>
+      <button id="mobile-menu-close" class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-zinc-100 transition-colors" aria-label="Cerrar menú">
+        <i class="fa-solid fa-xmark text-xl text-gray-600"></i>
+      </button>
+    </div>
+
+    <!-- Links de navegación -->
+    <div class="flex-1 overflow-y-auto px-8 py-8">
+      <ul class="space-y-1">
+        <li>
+          <a href="/biografia" class="block py-4 text-sm uppercase tracking-[0.25em] font-black text-academic-dark/80 hover:text-academic-dark hover:pl-2 transition-all border-b border-zinc-100/50">
+            Biografía
+          </a>
+        </li>
+        <li>
+          <button id="mobile-pub-toggle" class="w-full flex items-center justify-between py-4 text-sm uppercase tracking-[0.25em] font-black text-academic-dark/80 hover:text-academic-dark transition-colors border-b border-zinc-100/50" aria-expanded="false">
+            <span>Publicaciones</span>
+            <i class="fa-solid fa-chevron-down text-xs transition-transform duration-200"></i>
+          </button>
+          <div id="mobile-pub-submenu" class="hidden pl-4 pb-2">
+            <a href="/publicaciones/articulos" class="block py-3 text-xs uppercase tracking-[0.2em] font-bold text-zinc-500 hover:text-academic-dark hover:pl-2 transition-all">
+              Artículos
+            </a>
+            <a href="/publicaciones/libros" class="block py-3 text-xs uppercase tracking-[0.2em] font-bold text-zinc-500 hover:text-academic-dark hover:pl-2 transition-all">
+              Libros
+            </a>
+          </div>
+        </li>
+        <li>
+          <a href="/medios" class="block py-4 text-sm uppercase tracking-[0.25em] font-black text-academic-dark/80 hover:text-academic-dark hover:pl-2 transition-all border-b border-zinc-100/50">
+            Medios
+          </a>
+        </li>
+        <li>
+          <a href="/contacto" class="block py-4 text-sm uppercase tracking-[0.25em] font-black text-academic-dark/80 hover:text-academic-dark hover:pl-2 transition-all border-b border-zinc-100/50">
+            Contacto
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Footer del panel: Redes + Email -->
+    <div class="px-8 py-6 border-t border-zinc-100 bg-zinc-50/50">
+      <p class="text-[9px] uppercase tracking-[0.3em] font-bold text-zinc-400 mb-4">Redes</p>
+      <div class="flex items-center gap-6">
+        <a href="#" aria-label="X" class="text-zinc-500 hover:text-academic-dark transition-colors">
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 4l16 16M4 20L20 4"/>
+          </svg>
+        </a>
+        <a href="#" aria-label="LinkedIn" class="text-zinc-500 hover:text-academic-dark transition-colors">
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+            <rect x="2" y="9" width="4" height="12"></rect>
+            <circle cx="4" cy="4" r="2"></circle>
+          </svg>
+        </a>
+        <a href="mailto:info@jeronimorios.com" aria-label="Email" class="text-zinc-500 hover:text-academic-dark transition-colors">
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+            <polyline points="22,6 12,13 2,6"></polyline>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </nav>
+</div>
+
 <script>
-  const desktopToggle = document.getElementById('publicaciones-toggle');
-  const desktopMenu = document.getElementById('publicaciones-menu');
-  const mobileToggle = document.getElementById('publicaciones-mobile-toggle');
-  const mobileMenu = document.getElementById('publicaciones-mobile-menu');
+  function setupHeader() {
+    // Desktop dropdown
+    const desktopToggle = document.getElementById('publicaciones-toggle');
+    const desktopMenu = document.getElementById('publicaciones-menu');
 
-  const closeDesktopMenu = () => {
-    if (!desktopToggle || !desktopMenu) return;
-    desktopToggle.setAttribute('aria-expanded', 'false');
-    desktopMenu.classList.add('opacity-0', 'pointer-events-none', 'translate-y-2');
-  };
+    if (desktopToggle && desktopMenu) {
+      desktopToggle.addEventListener('click', (event) => {
+        event.preventDefault();
+        const expanded = desktopToggle.getAttribute('aria-expanded') === 'true';
+        desktopToggle.setAttribute('aria-expanded', String(!expanded));
+        desktopMenu.classList.toggle('opacity-0', expanded);
+        desktopMenu.classList.toggle('pointer-events-none', expanded);
+        desktopMenu.classList.toggle('translate-y-2', expanded);
+      });
+    }
 
-  if (desktopToggle && desktopMenu) {
-    desktopToggle.addEventListener('click', (event) => {
-      event.preventDefault();
-      const expanded = desktopToggle.getAttribute('aria-expanded') === 'true';
-      desktopToggle.setAttribute('aria-expanded', String(!expanded));
-      desktopMenu.classList.toggle('opacity-0', expanded);
-      desktopMenu.classList.toggle('pointer-events-none', expanded);
-      desktopMenu.classList.toggle('translate-y-2', expanded);
-    });
-  }
+    // Mobile off-canvas panel
+    const menuToggle = document.getElementById('mobile-menu-toggle');
+    const menuClose = document.getElementById('mobile-menu-close');
+    const menuPanel = document.getElementById('mobile-menu-panel');
+    const menuNav = document.getElementById('mobile-nav');
+    const menuOverlay = document.getElementById('mobile-overlay');
 
-  if (mobileToggle && mobileMenu) {
-    mobileToggle.addEventListener('click', () => {
-      const expanded = mobileToggle.getAttribute('aria-expanded') === 'true';
-      mobileToggle.setAttribute('aria-expanded', String(!expanded));
-      mobileMenu.classList.toggle('hidden', expanded);
-      // Animación sutil de entrada
-      if (!expanded) {
-        mobileMenu.animate([
-          { opacity: 0, transform: 'translateY(10px)' },
-          { opacity: 1, transform: 'translateY(0)' }
-        ], { duration: 300, easing: 'ease-out' });
+    const openMenu = () => {
+      if (!menuPanel || !menuNav || !menuOverlay) return;
+      menuPanel.classList.remove('pointer-events-none');
+      menuNav.classList.remove('translate-x-full');
+      menuOverlay.classList.remove('opacity-0', 'pointer-events-none');
+      menuOverlay.classList.add('opacity-100', 'pointer-events-auto');
+      menuToggle?.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+    };
+
+    const closeMenu = () => {
+      if (!menuPanel || !menuNav || !menuOverlay) return;
+      menuNav.classList.add('translate-x-full');
+      menuOverlay.classList.add('opacity-0', 'pointer-events-none');
+      menuOverlay.classList.remove('opacity-100', 'pointer-events-auto');
+      setTimeout(() => {
+        menuPanel.classList.add('pointer-events-none');
+      }, 300);
+      menuToggle?.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    };
+
+    menuToggle?.addEventListener('click', openMenu);
+    menuClose?.addEventListener('click', closeMenu);
+    menuOverlay?.addEventListener('click', closeMenu);
+
+    // Mobile publicaciones submenu
+    const mobilePubToggle = document.getElementById('mobile-pub-toggle');
+    const mobilePubSubmenu = document.getElementById('mobile-pub-submenu');
+
+    if (mobilePubToggle && mobilePubSubmenu) {
+      mobilePubToggle.addEventListener('click', () => {
+        const expanded = mobilePubToggle.getAttribute('aria-expanded') === 'true';
+        mobilePubToggle.setAttribute('aria-expanded', String(!expanded));
+        mobilePubSubmenu.classList.toggle('hidden', expanded);
+        const icon = mobilePubToggle.querySelector('i');
+        if (icon) icon.style.transform = expanded ? '' : 'rotate(180deg)';
+        if (!expanded) {
+          mobilePubSubmenu.animate([
+            { opacity: 0, transform: 'translateY(-8px)' },
+            { opacity: 1, transform: 'translateY(0)' }
+          ], { duration: 250, easing: 'ease-out' });
+        }
+      });
+    }
+
+    // Close desktop dropdown on outside click
+    document.addEventListener('click', (event) => {
+      const target = event.target;
+      if (!(target instanceof Element)) return;
+      if (desktopToggle && desktopMenu && !desktopToggle.contains(target) && !desktopMenu.contains(target)) {
+        desktopToggle.setAttribute('aria-expanded', 'false');
+        desktopMenu.classList.add('opacity-0', 'pointer-events-none', 'translate-y-2');
       }
     });
+
+    // Close menu on Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeMenu();
+    });
   }
 
-  document.addEventListener('click', (event) => {
-    const target = event.target;
-    if (!(target instanceof Element)) return;
-
-    if (desktopToggle && desktopMenu && !desktopToggle.contains(target) && !desktopMenu.contains(target)) {
-      closeDesktopMenu();
-    }
-
-    if (mobileToggle && mobileMenu && !mobileToggle.contains(target) && !mobileMenu.contains(target)) {
-      mobileToggle.setAttribute('aria-expanded', 'false');
-      mobileMenu.classList.add('hidden');
-    }
-  });
+  document.addEventListener('astro:page-load', setupHeader);
 </script>
