@@ -1,5 +1,6 @@
 ---
 // Header Component
+import Search from './Search.astro';
 ---
 <header class="fixed top-0 left-0 w-full bg-white/95 backdrop-blur-xl h-[80px] lg:h-[100px] border-b border-zinc-200/50 z-50 flex items-center justify-between px-6 lg:px-12 transition-all duration-300">
   
@@ -89,7 +90,7 @@
     </div>
 
     <!-- Buscador -->
-    <button aria-label="Buscar" class="text-black hover:opacity-70 transition-colors flex items-center group">
+    <button type="button" aria-label="Buscar" class="text-black hover:opacity-70 transition-colors flex items-center group">
       <i class="fa-solid fa-magnifying-glass text-[17px]"></i>
       <span class="ml-2 text-sm uppercase tracking-widest font-black hidden xl:inline-block">Buscar</span>
     </button>
@@ -97,7 +98,7 @@
 
   <!-- Menú Móvil y Tablet (visible por debajo de lg/1024px) -->
   <div class="lg:hidden flex items-center gap-5 z-20">
-    <button aria-label="Buscar" class="text-gray-600 hover:text-black transition-colors">
+    <button type="button" aria-label="Buscar" class="text-gray-600 hover:text-black transition-colors">
       <i class="fa-solid fa-magnifying-glass text-lg"></i>
     </button>
     <button id="mobile-menu-toggle" class="text-2xl text-gray-800 focus:outline-none" aria-label="Abrir Menú" aria-expanded="false" aria-controls="mobile-menu-panel">
@@ -183,6 +184,8 @@
     </div>
   </nav>
 </div>
+
+<Search />
 
 <script>
   function setupHeader() {

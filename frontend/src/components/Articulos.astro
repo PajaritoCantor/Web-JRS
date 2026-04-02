@@ -8,6 +8,8 @@ interface Article {
   anio: number;
   url_externa: string;
   descripcion_corta?: string;
+  tema?: string;
+  quartil?: string;
 }
 
 interface Props {
@@ -50,7 +52,9 @@ if (articles.length === 0) {
       revista: 'Critical Studies on Terrorism (Q1)',
       anio: 2025,
       url_externa: 'https://www.tandfonline.com/doi/full/10.1080/17539153.2025.2598096',
-      descripcion_corta: 'Análisis cualitativo de las experiencias y demandas de las víctimas de terrorismo de Estado en España respecto a la justicia y la dignidad.'
+      descripcion_corta: 'Análisis cualitativo de las experiencias y demandas de las víctimas de terrorismo de Estado en España respecto a la justicia y la dignidad.',
+      tema: 'terrorismo',
+      quartil: 'q1'
     },
     {
       id: 1,
@@ -58,7 +62,9 @@ if (articles.length === 0) {
       revista: 'Reflexión Política (Q3)',
       anio: 2025,
       url_externa: 'https://revistas.unab.edu.co/index.php/reflexion/article/view/5394',
-      descripcion_corta: 'Análisis sobre el impacto del terrorismo en la industria turística española y las estrategias de comunicación institucional.'
+      descripcion_corta: 'Análisis sobre el impacto del terrorismo en la industria turística española y las estrategias de comunicación institucional.',
+      tema: 'terrorismo',
+      quartil: 'q3'
     },
     {
       id: 2,
@@ -66,7 +72,9 @@ if (articles.length === 0) {
       revista: 'El Futuro del Pasado (Q2)',
       anio: 2025,
       url_externa: 'https://revistas.usal.es/uno/index.php/1989-9289/article/view/31555/29762',
-      descripcion_corta: 'Estudio comparado sobre la represión sistemática y la gestión de la desaparición forzada en el Cono Sur.'
+      descripcion_corta: 'Estudio comparado sobre la represión sistemática y la gestión de la desaparición forzada en el Cono Sur.',
+      tema: 'insurgencias',
+      quartil: 'q2'
     },
     {
       id: 3,
@@ -74,7 +82,9 @@ if (articles.length === 0) {
       revista: 'Hispania Nova (Q2)',
       anio: 2025,
       url_externa: 'https://e-revistas.uc3m.es/index.php/HISPNOV/article/view/7632/6944',
-      descripcion_corta: 'Revisión histórica de la etapa final de la insurgencia urbana uruguaya antes de la dictadura.'
+      descripcion_corta: 'Revisión histórica de la etapa final de la insurgencia urbana uruguaya antes de la dictadura.',
+      tema: 'insurgencias',
+      quartil: 'q2'
     },
     {
       id: 4,
@@ -82,7 +92,9 @@ if (articles.length === 0) {
       revista: 'Revista Páginas (Q3)',
       anio: 2024,
       url_externa: 'https://revistapaginas.unr.edu.ar/index.php/RevPaginas/article/view/921',
-      descripcion_corta: 'Investigación sobre las redes transnacionales de apoyo insurgente en el Cono Sur.'
+      descripcion_corta: 'Investigación sobre las redes transnacionales de apoyo insurgente en el Cono Sur.',
+      tema: 'insurgencias',
+      quartil: 'q3'
     },
     {
       id: 5,
@@ -90,7 +102,9 @@ if (articles.length === 0) {
       revista: 'Rúbrica Contemporánea',
       anio: 2024,
       url_externa: 'https://revistes.uab.cat/rubrica/article/view/v13-n28-rios-madueno/395-pdf-es',
-      descripcion_corta: 'Análisis de la presencia y actividad del grupo insurgente uruguayo en el Chile de la Unidad Popular.'
+      descripcion_corta: 'Análisis de la presencia y actividad del grupo insurgente uruguayo en el Chile de la Unidad Popular.',
+      tema: 'insurgencias',
+      quartil: 'other'
     },
     {
       id: 6,
@@ -98,7 +112,9 @@ if (articles.length === 0) {
       revista: 'Bulletin of Spanish Studies (Q1)',
       anio: 2024,
       url_externa: 'https://www.tandfonline.com/doi/full/10.1080/14753820.2024.2398333',
-      descripcion_corta: 'Estudio sobre la evolución del discurso de las víctimas y la movilización social contra la violencia en el País Vasco.'
+      descripcion_corta: 'Estudio sobre la evolución del discurso de las víctimas y la movilización social contra la violencia en el País Vasco.',
+      tema: 'terrorismo',
+      quartil: 'q1'
     },
     {
       id: 7,
@@ -106,7 +122,9 @@ if (articles.length === 0) {
       revista: 'Revista de Estudios Políticos (Q2)',
       anio: 2024,
       url_externa: 'https://www.cepc.gob.es/publicaciones/revistas/revista-de-estudios-politicos/numero-203-eneromarzo-2024/las-polisemias-de-la-paz-en-colombia-paz-territorial-paz-con-legalidad-y-paz-total',
-      descripcion_corta: 'Análisis conceptual y político de las distintas visiones de paz implementadas en Colombia recientemente.'
+      descripcion_corta: 'Análisis conceptual y político de las distintas visiones de paz implementadas en Colombia recientemente.',
+      tema: 'colombia',
+      quartil: 'q2'
     },
     {
       id: 8,
@@ -114,7 +132,9 @@ if (articles.length === 0) {
       revista: 'Geopolítica(s) (Q2)',
       anio: 2024,
       url_externa: 'https://revistas.ucm.es/index.php/GEOP/article/view/96524/4564456569594',
-      descripcion_corta: 'Ensayo crítico sobre el legado geopolítico de Kissinger y su influencia en las relaciones internacionales.'
+      descripcion_corta: 'Ensayo crítico sobre el legado geopolítico de Kissinger y su influencia en las relaciones internacionales.',
+      tema: 'geopolitica',
+      quartil: 'q2'
     },
     {
       id: 9,
@@ -122,7 +142,9 @@ if (articles.length === 0) {
       revista: 'Revista CISDE (Q4)',
       anio: 2024,
       url_externa: 'http://www.uajournals.com/cisdejournal/journal/17/6.pdf',
-      descripcion_corta: 'Examen de los obstáculos estructurales en las negociaciones entre el Estado colombiano y el ELN.'
+      descripcion_corta: 'Examen de los obstáculos estructurales en las negociaciones entre el Estado colombiano y el ELN.',
+      tema: 'colombia',
+      quartil: 'q4'
     },
     {
       id: 10,
@@ -130,7 +152,9 @@ if (articles.length === 0) {
       revista: 'Canadian Journal of Latin American and Caribbean Studies (Q2)',
       anio: 2024,
       url_externa: 'https://www.tandfonline.com/doi/full/10.1080/08263663.2024.2360885',
-      descripcion_corta: 'Investigación sobre la percepción de las élites políticas colombianas ante el proyecto de Paz Total.'
+      descripcion_corta: 'Investigación sobre la percepción de las élites políticas colombianas ante el proyecto de Paz Total.',
+      tema: 'colombia',
+      quartil: 'q2'
     },
     {
       id: 11,
@@ -138,7 +162,9 @@ if (articles.length === 0) {
       revista: 'Revista de Ciencias Sociais (Q2)',
       anio: 2025,
       url_externa: 'https://www.scielo.br/j/dados/a/NhyZRZJ4TR7hD4rmjcxpCGd/?lang=es',
-      descripcion_corta: 'Análisis comparado de las narrativas de actores enfrentados tras la firma de la paz en 2016.'
+      descripcion_corta: 'Análisis comparado de las narrativas de actores enfrentados tras la firma de la paz en 2016.',
+      tema: 'colombia',
+      quartil: 'q2'
     },
     {
       id: 12,
@@ -146,7 +172,9 @@ if (articles.length === 0) {
       revista: 'Geopolitics (Q1)',
       anio: 2024,
       url_externa: 'https://www.tandfonline.com/doi/full/10.1080/14650045.2023.2297941',
-      descripcion_corta: 'Balance geopolítico de la transición entre los distintos modelos de paz en el territorio colombiano.'
+      descripcion_corta: 'Balance geopolítico de la transición entre los distintos modelos de paz en el territorio colombiano.',
+      tema: 'colombia',
+      quartil: 'q1'
     },
     {
       id: 13,
@@ -154,7 +182,9 @@ if (articles.length === 0) {
       revista: 'Historia Actual OnLine (Q3)',
       anio: 2023,
       url_externa: 'https://www.historia-actual.org/Publicaciones/index.php/hao/article/view/2346',
-      descripcion_corta: 'Estudio sobre la coordinación insurgente transnacional y el ocaso de la guerrilla uruguaya.'
+      descripcion_corta: 'Estudio sobre la coordinación insurgente transnacional y el ocaso de la guerrilla uruguaya.',
+      tema: 'insurgencias',
+      quartil: 'q3'
     },
     {
       id: 14,
@@ -162,7 +192,9 @@ if (articles.length === 0) {
       revista: 'Política y Sociedad (Q2)',
       anio: 2023,
       url_externa: 'https://revistas.ucm.es/index.php/POSO/article/view/81477',
-      descripcion_corta: 'Análisis de las barreras institucionales y culturales para la izquierda en Colombia antes del cambio de gobierno.'
+      descripcion_corta: 'Análisis de las barreras institucionales y culturales para la izquierda en Colombia antes del cambio de gobierno.',
+      tema: 'colombia',
+      quartil: 'q2'
     },
     {
       id: 15,
@@ -170,7 +202,9 @@ if (articles.length === 0) {
       revista: 'Critical Studies on Security (Q1)',
       anio: 2023,
       url_externa: 'https://www.tandfonline.com/doi/full/10.1080/21624887.2023.2184101?src=',
-      descripcion_corta: 'Examen de las tensiones internas y discursivas del partido Comunes frente a las disidencias armadas.'
+      descripcion_corta: 'Examen de las tensiones internas y discursivas del partido Comunes frente a las disidencias armadas.',
+      tema: 'colombia',
+      quartil: 'q1'
     },
     {
       id: 16,
@@ -178,7 +212,9 @@ if (articles.length === 0) {
       revista: 'Latin American Perspectives (Q1)',
       anio: 2023,
       url_externa: 'https://journals.sagepub.com/doi/10.1177/0094582X241231940',
-      descripcion_corta: 'Evaluación del impacto del acuerdo de paz en los territorios desde la voz de los excombatientes reincorporados.'
+      descripcion_corta: 'Evaluación del impacto del acuerdo de paz en los territorios desde la voz de los excombatientes reincorporados.',
+      tema: 'colombia',
+      quartil: 'q1'
     },
     {
       id: 17,
@@ -186,7 +222,9 @@ if (articles.length === 0) {
       revista: 'Small Wars and Insurgencies (Q1)',
       anio: 2023,
       url_externa: 'https://www.tandfonline.com/doi/full/10.1080/09592318.2021.1978750?src',
-      descripcion_corta: 'Investigación sobre el impacto ecológico de la guerra y los ataques a infraestructuras críticas en Norte de Santander.'
+      descripcion_corta: 'Investigación sobre el impacto ecológico de la guerra y los ataques a infraestructuras críticas en Norte de Santander.',
+      tema: 'colombia',
+      quartil: 'q1'
     }
   ];
 }
@@ -240,6 +278,8 @@ const visibleArticles = typeof limit === 'number' ? articles.slice(0, limit) : a
             anio={article.anio}
             urlExterna={article.url_externa}
             descripcionCorta={article.descripcion_corta}
+            tema={article.tema}
+            quartil={article.quartil}
             dark={dark}
           />
         ))}

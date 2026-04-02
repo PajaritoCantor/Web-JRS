@@ -12,7 +12,7 @@ import Articulos from '../../components/Articulos.astro';
         <div class="container mx-auto px-6 relative z-10">
             <div class="max-w-4xl">
                 <span class="text-academic-accent text-[10px] font-black tracking-[0.5em] uppercase mb-8 block px-1 border-l-2 border-academic-accent">Producción Científica</span>
-                <h1 class="font-serif text-6xl md:text-9xl font-black mb-10 leading-none tracking-tighter text-white">Artículos <br/><span class="text-white/80 italic font-light">Académicos</span></h1>
+                <h1 id="hero-articulos" class="font-serif text-6xl md:text-9xl font-black mb-10 leading-none tracking-tighter text-white">Artículos <br/><span class="text-white/80 italic font-light">Académicos</span></h1>
                 <p class="text-white/90 text-xl md:text-2xl leading-relaxed max-w-2xl font-light">
                     Explora la producción académica en revistas de impacto nacional e internacional sobre conflictos armados y relaciones internacionales.
                 </p>
@@ -23,10 +23,12 @@ import Articulos from '../../components/Articulos.astro';
     <!-- Filtros y Buscador (Consistente con libros.astro) -->
     <section class="py-10 bg-academic-dark/95 sticky top-0 z-50 backdrop-blur-xl border-b border-white/10">
         <div class="container mx-auto px-6 flex flex-wrap items-center justify-between gap-8">
-            <div class="flex gap-8 filter-container">
-                <button data-filter="all" class="filter-btn active text-academic-accent border-b-2 border-academic-accent pb-2 text-sm font-black tracking-widest uppercase transition-all">Todos</button>
-                <button data-filter="q1q2" class="filter-btn text-white/50 hover:text-white pb-2 text-sm font-black tracking-widest uppercase transition-all">Q1/Q2 Journals</button>
-                <button data-filter="general" class="filter-btn text-white/50 hover:text-white pb-2 text-sm font-black tracking-widest uppercase transition-all">Otras Pub.</button>
+            <div class="flex flex-wrap gap-4 filter-container">
+                <button data-filter="all" class="filter-btn active text-academic-accent border-b-2 border-academic-accent pb-2 text-[11px] font-black tracking-[0.2em] uppercase transition-all">Todos</button>
+                <button data-filter="colombia" class="filter-btn text-white/50 hover:text-white pb-2 text-[11px] font-black tracking-[0.2em] uppercase transition-all">Colombia & Paz</button>
+                <button data-filter="insurgencias" class="filter-btn text-white/50 hover:text-white pb-2 text-[11px] font-black tracking-[0.2em] uppercase transition-all">Insurgencias</button>
+                <button data-filter="terrorismo" class="filter-btn text-white/50 hover:text-white pb-2 text-[11px] font-black tracking-[0.2em] uppercase transition-all">Terrorismo</button>
+                <button data-filter="q1q2" class="filter-btn text-white/50 hover:text-white pb-2 text-[11px] font-black tracking-[0.2em] uppercase transition-all">Q1 / Q2</button>
             </div>
             <div class="relative w-full md:w-96 group">
                 <input type="text" id="articleSearch" placeholder="BUSCAR POR PALABRA CLAVE O REVISTA..." class="w-full bg-white/5 border border-white/10 rounded-full py-4 px-8 text-sm tracking-widest text-white placeholder:text-white/40 focus:outline-none focus:border-academic-accent/50 transition-all font-medium" />
@@ -84,18 +86,39 @@ import Articulos from '../../components/Articulos.astro';
             const searchText = searchInput ? searchInput.value.toLowerCase() : '';
             const cards = document.querySelectorAll('.article-card');
 
+            let visibleCount = 0;
+
             cards.forEach(card => {
-                const category = card.getAttribute('data-category');
+                const category = card.getAttribute('data-category') || '';
+                const tema = card.getAttribute('data-tema') || '';
+                const quartil = card.getAttribute('data-quartil') || '';
                 const titleElement = card.querySelector('h3');
                 const title = titleElement ? titleElement.textContent.toLowerCase() : '';
                 const journal = card.getAttribute('data-journal') || '';
                 const bodyText = card.innerText.toLowerCase();
 
-                const matchesFilter = activeFilter === 'all' || category === activeFilter;
+                let matchesFilter = false;
+                if (activeFilter === 'all') {
+                    matchesFilter = true;
+                } else if (activeFilter === 'q1q2') {
+                    matchesFilter = quartil === 'q1' || quartil === 'q2';
+                } else {
+                    // Tema-based filters: colombia, insurgencias, terrorismo, geopolitica
+                    matchesFilter = tema === activeFilter;
+                }
+
                 const matchesSearch = title.includes(searchText) || journal.includes(searchText) || bodyText.includes(searchText);
 
                 if (matchesFilter && matchesSearch) {
                     card.style.display = 'block';
+                    card.style.opacity = '0';
+                    card.style.transform = 'translateY(12px)';
+                    setTimeout(() => {
+                        card.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
+                    }, visibleCount * 60);
+                    visibleCount++;
                 } else {
                     card.style.display = 'none';
                 }

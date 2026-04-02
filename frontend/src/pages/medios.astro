@@ -74,7 +74,7 @@ const otherVideos = medios.filter(v => !v.featured);
   <main class="bg-academic-dark min-h-screen pt-24 relative overflow-hidden">
     
     <!-- Hero Section: Vídeo Destacado -->
-    <section class="max-w-[1440px] mx-auto px-6 py-12 relative z-10">
+    <section class="max-w-[1440px] mx-auto px-6 py-12 relative z-10" id="medio-destacado" data-pagefind-meta="title:Medio Destacado — El fracaso de la paz total de Petro">
       <div class="relative rounded-[2.5rem] overflow-hidden group shadow-2xl bg-black/20 aspect-video lg:aspect-[21/9] border border-white/5">
         <!-- Miniatura de Fondo con Overlay -->
         <img 
@@ -95,7 +95,7 @@ const otherVideos = medios.filter(v => !v.featured);
             </span>
           </div>
           
-          <h2 class="font-serif text-3xl md:text-5xl lg:text-7xl text-white font-black leading-tight max-w-4xl mb-6 tracking-tighter">
+          <h2 id={`medio-${featuredVideo.id}`} class="font-serif text-3xl md:text-5xl lg:text-7xl text-white font-black leading-tight max-w-4xl mb-6 tracking-tighter">
             {featuredVideo.title}
           </h2>
           
@@ -107,7 +107,7 @@ const otherVideos = medios.filter(v => !v.featured);
             <div class={`w-16 h-16 rounded-full bg-white flex items-center justify-center group-hover/btn:bg-academic-accent transition-all duration-500 shadow-xl group-hover/btn:scale-110 ${featuredVideo.tipo === 'audio' ? 'border-2 border-academic-accent/30' : ''}`}>
               <i class={`fa-solid ${featuredVideo.tipo === 'audio' ? 'fa-headphones text-xl' : 'fa-play text-2xl ml-1'} text-academic-dark`}></i>
             </div>
-            <span class="text-white text-sm uppercase tracking-[0.3em] font-black border-b border-white/20 pb-2 group-hover/btn:border-academic-accent group-hover/btn:text-academic-accent transition-all">
+            <span data-pagefind-ignore class="text-white text-sm uppercase tracking-[0.3em] font-black border-b border-white/20 pb-2 group-hover/btn:border-academic-accent group-hover/btn:text-academic-accent transition-all">
               {featuredVideo.tipo === 'audio' ? 'Escuchar Ahora' : 'Reproducir Ahora'}
             </span>
           </a>
@@ -124,7 +124,7 @@ const otherVideos = medios.filter(v => !v.featured);
         </div>
         
         <!-- Filtros -->
-        <div class="flex flex-wrap gap-3 filter-buttons">
+        <div data-pagefind-ignore class="flex flex-wrap gap-3 filter-buttons">
           {['Todos', 'Audios', 'Conferencias', 'Académico'].map((filter, index) => (
             <button 
               data-filter={filter}
@@ -137,7 +137,9 @@ const otherVideos = medios.filter(v => !v.featured);
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12" id="media-grid">
         {otherVideos.map((media) => (
-          <a href={media.url} target="_blank" rel="noopener noreferrer" class="group cursor-pointer block media-card" data-category={media.category}>
+          <div>
+            <h3 id={`medio-${media.id}`} class="pf-anchor">{media.title}</h3>
+            <a href={media.url} target="_blank" rel="noopener noreferrer" class="group cursor-pointer block media-card" data-category={media.category}>
             <div class="aspect-video rounded-3xl overflow-hidden relative mb-8 shadow-2xl border border-white/5 bg-white/5">
               <img 
                 src={media.thumbnail} 
@@ -161,7 +163,7 @@ const otherVideos = medios.filter(v => !v.featured);
             </div>
 
             <div class="px-2">
-              <div class="flex items-center gap-4 mb-5">
+                <div data-pagefind-ignore class="flex items-center gap-4 mb-5">
                 <span class="text-xs font-black text-academic-accent uppercase tracking-[0.2em]">{media.category}</span>
                 <span class="text-xs font-bold text-zinc-400 uppercase tracking-widest">{media.date}</span>
               </div>
@@ -172,13 +174,14 @@ const otherVideos = medios.filter(v => !v.featured);
                 {media.description}
               </p>
             </div>
-          </a>
+            </a>
+          </div>
         ))}
       </div>
     </section>
 
     <!-- Sección de Suscripción -->
-    <section class="max-w-[1440px] mx-auto px-6 py-24 pb-48 relative z-10">
+    <section data-pagefind-ignore class="max-w-[1440px] mx-auto px-6 py-24 pb-48 relative z-10">
         <div class="bg-gradient-to-br from-academic-dark to-slate-950 border border-white/5 rounded-[4rem] p-12 md:p-24 text-center relative overflow-hidden group shadow-premium">
             <div class="absolute -top-[50%] -left-[20%] w-[100%] h-[100%] bg-academic-accent/5 blur-[150px] rounded-full"></div>
             
@@ -194,7 +197,7 @@ const otherVideos = medios.filter(v => !v.featured);
                 </p>
                 <div class="flex flex-col md:flex-row gap-6 max-w-2xl mx-auto">
                     <input type="email" placeholder="Tu correo electrónico" class="flex-1 bg-white/5 border border-white/10 rounded-2xl px-10 py-5 text-white text-base focus:outline-none focus:border-academic-accent transition-all placeholder:text-slate-600" />
-                    <button class="bg-white text-academic-dark font-black uppercase text-sm tracking-[0.2em] px-12 py-5 rounded-2xl hover:bg-academic-accent hover:text-white transition-all duration-500 shadow-xl">
+                    <button data-pagefind-ignore class="bg-white text-academic-dark font-black uppercase text-sm tracking-[0.2em] px-12 py-5 rounded-2xl hover:bg-academic-accent hover:text-white transition-all duration-500 shadow-xl">
                         Suscribirse
                     </button>
                 </div>
@@ -204,7 +207,7 @@ const otherVideos = medios.filter(v => !v.featured);
 
   </main>
     <!-- CTA: Ir a Contacto -->
-    <section class="py-24 border-t border-white/5 bg-academic-dark/40 overflow-hidden relative">
+    <section data-pagefind-ignore class="py-24 border-t border-white/5 bg-academic-dark/40 overflow-hidden relative">
         <div class="absolute -top-24 -right-24 w-96 h-96 bg-academic-accent/5 rounded-full blur-[100px]"></div>
         <div class="container mx-auto px-6 text-center">
             <a href="/contacto" class="inline-flex flex-col items-center gap-8 group">
@@ -268,3 +271,16 @@ const otherVideos = medios.filter(v => !v.featured);
     });
   });
 </script>
+
+<style>
+  .pf-anchor {
+    display: block;
+    height: 0;
+    overflow: hidden;
+    font-size: 0;
+    line-height: 0;
+    color: transparent;
+    visibility: hidden;
+    scroll-margin-top: 120px;
+  }
+</style>
