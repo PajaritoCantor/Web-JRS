@@ -20,19 +20,14 @@ import Articulos from '../../components/Articulos.astro';
         </div>
     </section>
 
-    <!-- Filtros y Buscador (Consistente con libros.astro) -->
     <section class="py-10 bg-academic-dark/95 sticky top-0 z-50 backdrop-blur-xl border-b border-white/10">
-        <div class="container mx-auto px-6 flex flex-wrap items-center justify-between gap-8">
-            <div class="flex flex-wrap gap-4 filter-container">
+        <div class="container mx-auto px-6 flex flex-wrap items-center justify-center">
+            <div class="flex flex-wrap gap-8 filter-container justify-center">
                 <button data-filter="all" class="filter-btn active text-academic-accent border-b-2 border-academic-accent pb-2 text-[11px] font-black tracking-[0.2em] uppercase transition-all">Todos</button>
                 <button data-filter="colombia" class="filter-btn text-white/50 hover:text-white pb-2 text-[11px] font-black tracking-[0.2em] uppercase transition-all">Colombia & Paz</button>
                 <button data-filter="insurgencias" class="filter-btn text-white/50 hover:text-white pb-2 text-[11px] font-black tracking-[0.2em] uppercase transition-all">Insurgencias</button>
                 <button data-filter="terrorismo" class="filter-btn text-white/50 hover:text-white pb-2 text-[11px] font-black tracking-[0.2em] uppercase transition-all">Terrorismo</button>
                 <button data-filter="q1q2" class="filter-btn text-white/50 hover:text-white pb-2 text-[11px] font-black tracking-[0.2em] uppercase transition-all">Q1 / Q2</button>
-            </div>
-            <div class="relative w-full md:w-96 group">
-                <input type="text" id="articleSearch" placeholder="BUSCAR POR PALABRA CLAVE O REVISTA..." class="w-full bg-white/5 border border-white/10 rounded-full py-4 px-8 text-sm tracking-widest text-white placeholder:text-white/40 focus:outline-none focus:border-academic-accent/50 transition-all font-medium" />
-                <i class="fa-solid fa-magnifying-glass absolute right-8 top-1/2 -translate-y-1/2 text-white/40 text-sm group-focus-within:text-academic-accent transition-colors"></i>
             </div>
         </div>
     </section>
@@ -74,16 +69,13 @@ import Articulos from '../../components/Articulos.astro';
 </Layout>
 
 <script is:inline>
-    document.addEventListener('DOMContentLoaded', () => {
         const buttons = document.querySelectorAll('.filter-btn');
-        const searchInput = document.getElementById('articleSearch');
 
         function filterArticles() {
             const activeBtn = document.querySelector('.filter-btn.active');
             if (!activeBtn) return;
             
             const activeFilter = activeBtn.getAttribute('data-filter');
-            const searchText = searchInput ? searchInput.value.toLowerCase() : '';
             const cards = document.querySelectorAll('.article-card');
 
             let visibleCount = 0;
@@ -107,9 +99,7 @@ import Articulos from '../../components/Articulos.astro';
                     matchesFilter = tema === activeFilter;
                 }
 
-                const matchesSearch = title.includes(searchText) || journal.includes(searchText) || bodyText.includes(searchText);
-
-                if (matchesFilter && matchesSearch) {
+                if (matchesFilter) {
                     card.style.display = 'block';
                     card.style.opacity = '0';
                     card.style.transform = 'translateY(12px)';
@@ -136,10 +126,6 @@ import Articulos from '../../components/Articulos.astro';
                 filterArticles();
             });
         });
-
-        if (searchInput) {
-            searchInput.addEventListener('input', filterArticles);
-        }
     });
 </script>
 
