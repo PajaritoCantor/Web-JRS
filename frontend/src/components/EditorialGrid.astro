@@ -30,7 +30,7 @@
 
     <div class="md:col-span-2 md:row-span-1 group/event rounded-3xl overflow-hidden shadow-2xl bg-white flex flex-col border border-white/5 transition-all duration-700 cursor-pointer">
         <!-- Parte Superior: Imagen y Ubicación -->
-        <div class="relative h-[200px] w-full overflow-hidden shrink-0">
+        <div class="relative h-[150px] md:h-[160px] w-full overflow-hidden shrink-0">
             <img src="/assets/original.jpeg" alt="Seminario" class="w-full h-full object-cover grayscale opacity-90 group-hover/event:scale-110 group-hover/event:grayscale-0 group-hover/event:opacity-100 transition-all duration-1000" />
             <!-- Gradiente Inferior -->
             <div class="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-academic-dark to-transparent flex items-end p-5">
@@ -47,21 +47,21 @@
         <!-- Parte Inferior: Fecha + Detalles (Asimétrica y Estética) -->
         <div class="flex flex-1 items-stretch bg-white">
             <!-- Columna Fecha (Más estrecha, alineada arriba) -->
-            <div class="w-[120px] md:w-[140px] border-r border-zinc-100 flex flex-col items-center justify-start pt-8 pb-6 px-4 shrink-0 relative overflow-hidden">
+            <div class="w-[100px] md:w-[120px] border-r border-zinc-100 flex flex-col items-center justify-center py-6 px-4 shrink-0 relative overflow-hidden">
                 <div class="absolute inset-0 bg-academic-accent/5 opacity-0 group-hover/event:opacity-100 transition-opacity duration-500"></div>
-                <span class="text-[64px] font-serif font-black text-academic-dark leading-none tracking-tighter mb-1 relative z-10 transition-transform group-hover/event:scale-105">15</span>
-                <span class="text-[10px] font-black tracking-[0.3em] uppercase text-zinc-400 relative z-10">Mayo</span>
-                <span class="text-[9px] font-bold tracking-widest text-zinc-300 mt-1 relative z-10">2026</span>
+                <span class="text-[50px] md:text-[58px] font-serif font-black text-academic-dark leading-none tracking-tighter mb-1 relative z-10 transition-transform group-hover/event:scale-105">15</span>
+                <span class="text-[9px] font-black tracking-[0.3em] uppercase text-zinc-400 relative z-10">Mayo</span>
+                <span class="text-[8px] font-bold tracking-widest text-zinc-300 mt-1 relative z-10">2026</span>
             </div>
             
             <!-- Columna Detalles (Más amplia, con más espacio negativo) -->
-            <div class="flex-1 p-8 md:pl-10 flex flex-col justify-between">
+            <div class="flex-1 p-6 flex flex-col justify-between">
                 <div>
-                    <h3 class="font-serif font-black text-xl md:text-2xl text-academic-dark leading-snug tracking-tight mb-4 group-hover/event:text-academic-accent transition-colors">Seminario sobre Terrorismo de Estado</h3>
-                    <p class="text-xs md:text-[13px] text-zinc-500 leading-relaxed font-medium line-clamp-3">Ponencia principal sobre el impacto y las dinámicas prolongadas de violencias asimétricas en Europa y América Latina.</p>
+                    <h3 class="font-serif font-black text-lg md:text-xl text-academic-dark leading-tight tracking-tight mb-2 group-hover/event:text-academic-accent transition-colors line-clamp-2">Seminario sobre Terrorismo de Estado</h3>
+                    <p class="text-[11px] md:text-xs text-zinc-500 leading-relaxed font-medium line-clamp-2" title="Ponencia principal sobre el impacto y las dinámicas prolongadas de violencias asimétricas en Europa y América Latina.">Ponencia principal sobre el impacto y las dinámicas prolongadas de violencias asimétricas en Europa y América Latina.</p>
                 </div>
                 
-                <a href="#" class="mt-8 font-black uppercase tracking-[0.25em] text-[10px] text-academic-dark flex items-center gap-3 w-max group/link hover:text-academic-accent transition-colors">
+                <a href="#" class="mt-3 md:mt-4 font-black uppercase tracking-[0.2em] text-[9px] md:text-[10px] text-academic-dark flex items-center gap-3 w-max group/link hover:text-academic-accent transition-colors">
                     Portal del Evento
                     <span class="block w-6 h-[1.5px] bg-academic-accent group-hover/link:w-16 transition-all duration-500"></span>
                 </a>
