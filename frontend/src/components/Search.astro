@@ -124,43 +124,47 @@
     const closeBtn = document.getElementById('close-search');
     const triggers = document.querySelectorAll('[aria-label="Buscar"], [data-open-search]');
 
-    // Cargar Pagefind dinámicamente — new Function() evita que Vite analice el import en dev mode
-    try {
-      pagefind = await new Function('return import("/pagefind/pagefind.js")')() as any;
-      await pagefind.options({ highlightParam: "highlight" });
-    } catch (e) {
-      console.warn("Buscador: Índice no encontrado (normal en dev mode).");
-    }
+    if (!modal || !input) return;
+
+    // Prevenir duplicación de listeners en transiciones de Astro
+    if ((modal as any)._searchInitialized) return;
+    (modal as any)._searchInitialized = true;
 
     const openModal = () => {
-      modal?.classList.add('active');
-      modal?.classList.remove('hidden');
-      setTimeout(() => input?.focus(), 100);
+      modal.classList.remove('hidden');
+      // Forzar un reflow para que la transición de opacidad funcione
+      modal.offsetHeight; 
+      modal.classList.add('active');
+      setTimeout(() => input.focus(), 100);
       document.body.style.overflow = 'hidden';
     };
 
     const closeModal = () => {
-      modal?.classList.remove('active');
-      setTimeout(() => modal?.classList.add('hidden'), 300);
+      modal.classList.remove('active');
+      setTimeout(() => {
+        if (!modal.classList.contains('active')) {
+          modal.classList.add('hidden');
+        }
+      }, 300);
       document.body.style.overflow = '';
     };
 
+    // Adjuntar listeners INMEDIATAMENTE
     triggers.forEach(trigger => {
         trigger.addEventListener('click', (e) => {
             e.preventDefault();
-            const initialValue = (trigger as HTMLInputElement).value || '';
             openModal();
-            if (initialValue && input) {
-                input.value = initialValue;
-                // Trigger input event to update search results immediately
+            // Si el trigger es un input, copiar su valor
+            if (trigger instanceof HTMLInputElement && trigger.value) {
+                input.value = trigger.value;
                 input.dispatchEvent(new Event('input'));
             }
         });
-        // Also open modal on focus for in-page search bars
         if (trigger.hasAttribute('data-open-search')) {
             trigger.addEventListener('focus', openModal);
         }
     });
+
     overlay?.addEventListener('click', closeModal);
     closeBtn?.addEventListener('click', closeModal);
 
@@ -173,6 +177,19 @@
       if (e.key === 'Escape') closeModal();
     });
 
+    // Cargar Pagefind en segundo plano
+    try {
+      if (!pagefind) {
+        // El import dinámico puede fallar en dev o si no se ha buildeado
+        const pf = await new Function('return import("/pagefind/pagefind.js")')();
+        pagefind = pf;
+        await pagefind.options({ highlightParam: "highlight" });
+        console.log("Buscador: Índice cargado correctamente.");
+      }
+    } catch (e) {
+      console.warn("Buscador: Índice no encontrado. Ejecuta 'npm run build' para generar la búsqueda.");
+    }
+
     // Mapeo de URL a sección y su icono
     function getSectionInfo(url: string): { label: string; icon: string } {
       if (url.includes('/medios')) return { label: 'Medios', icon: 'fa-microphone-lines' };
@@ -184,12 +201,13 @@
       return { label: 'Página', icon: 'fa-file' };
     }
 
-    // Search Logic
+    // Lógica de Búsqueda
     let debounceTimer: ReturnType<typeof setTimeout>;
-    input?.addEventListener('input', async (e) => {
+    input.addEventListener('input', async (e) => {
       clearTimeout(debounceTimer);
       const query = (e.target as HTMLInputElement).value;
-      if (!query || query.length < 2) {
+      
+      if (!query || query.length < 1) {
         if (resultsContainer) resultsContainer.innerHTML = `
           <div id="search-placeholder" class="py-20 text-center">
               <i class="fa-solid fa-feather-pointed text-white/5 text-6xl mb-6"></i>
@@ -199,111 +217,114 @@
         return;
       }
 
+      // Si Pagefind no ha cargado, mostrar aviso amigable
       if (!pagefind) {
         if (resultsContainer) resultsContainer.innerHTML = `
           <div class="py-20 text-center px-10">
-              <i class="fa-solid fa-triangle-exclamation text-academic-accent/50 text-4xl mb-6"></i>
-              <p class="text-white/50 text-sm uppercase tracking-widest font-black mb-2">Buscador en fase de indexación</p>
-              <p class="text-white/20 text-xs">La búsqueda completa estará disponible tras el despliegue a producción.</p>
+              <i class="fa-solid fa-clock-rotate-left text-academic-accent/50 text-4xl mb-6"></i>
+              <p class="text-white/50 text-sm uppercase tracking-widest font-black mb-2">Buscador en preparación</p>
+              <p class="text-white/20 text-xs">El índice se genera al compilar el sitio. En modo desarrollo, la búsqueda completa puede no estar disponible.</p>
           </div>
         `;
         return;
       }
 
       debounceTimer = setTimeout(async () => {
-        const search = await pagefind.search(query);
-        const rawResults = await Promise.all(search.results.slice(0, 15).map((r: any) => r.data()));
+        try {
+          const search = await pagefind.search(query);
+          const rawResults = await Promise.all(search.results.slice(0, 15).map((r: any) => r.data()));
 
-        // Flatten: extract sub_results from each page result for element-level precision
-        interface SubResult {
-          title: string;
-          url: string;
-          excerpt: string;
-          pageUrl: string;
-        }
-        const allSubResults: SubResult[] = [];
+          // Flatten: extract sub_results from each page result for element-level precision
+          interface SubResult {
+            title: string;
+            url: string;
+            excerpt: string;
+            pageUrl: string;
+          }
+          const allSubResults: SubResult[] = [];
 
-        for (const res of rawResults) {
-          if (res.sub_results && res.sub_results.length > 0) {
-            for (const sub of res.sub_results) {
+          for (const res of rawResults) {
+            if (res.sub_results && res.sub_results.length > 0) {
+              for (const sub of res.sub_results) {
+                allSubResults.push({
+                  title: sub.title || res.meta?.title || 'Sin título',
+                  url: sub.url || res.url,
+                  excerpt: sub.excerpt || res.excerpt || '',
+                  pageUrl: res.url
+                });
+              }
+            } else {
               allSubResults.push({
-                title: sub.title || res.meta?.title || 'Sin título',
-                url: sub.url || res.url,
-                excerpt: sub.excerpt || res.excerpt || '',
+                title: res.meta?.title || 'Sin título',
+                url: res.url,
+                excerpt: res.excerpt || '',
                 pageUrl: res.url
               });
             }
-          } else {
-            allSubResults.push({
-              title: res.meta?.title || 'Sin título',
-              url: res.url,
-              excerpt: res.excerpt || '',
-              pageUrl: res.url
-            });
           }
-        }
 
-        // Deduplicate by title — prefer detail pages over index
-        const seen = new Map<string, SubResult>();
-        for (const sr of allSubResults) {
-          const key = sr.title.toLowerCase().trim();
-          if (!seen.has(key)) {
-            seen.set(key, sr);
-          } else {
-            // Prefer the URL that is NOT the homepage
-            const existing = seen.get(key)!;
-            if (existing.pageUrl === '/' || existing.pageUrl === '/index.html') {
+          // Deduplicate by title — prefer detail pages over index
+          const seen = new Map<string, SubResult>();
+          for (const sr of allSubResults) {
+            const key = sr.title.toLowerCase().trim();
+            if (!seen.has(key)) {
               seen.set(key, sr);
+            } else {
+              const existing = seen.get(key)!;
+              if (existing.pageUrl === '/' || existing.pageUrl === '/index.html') {
+                seen.set(key, sr);
+              }
             }
           }
-        }
 
-        const dedupedResults = Array.from(seen.values()).slice(0, 8);
+          const dedupedResults = Array.from(seen.values()).slice(0, 8);
 
-        if (resultsContainer) {
-          if (dedupedResults.length === 0) {
-            resultsContainer.innerHTML = `
-              <div class="py-20 text-center">
-                  <i class="fa-solid fa-magnifying-glass-minus text-white/5 text-6xl mb-6"></i>
-                  <p class="text-white/30 text-sm uppercase tracking-[0.2em] font-black">No hay resultados para "${query}"</p>
-              </div>
-            `;
-          } else {
-            resultsContainer.innerHTML = dedupedResults
-              .map((sr) => {
-                const section = getSectionInfo(sr.url);
-                return `
-                  <a href="${sr.url}" class="search-result-item" data-search-link>
-                    <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px;">
-                      <span style="display:inline-flex;align-items:center;gap:6px;background:rgba(251,191,36,0.08);border:1px solid rgba(251,191,36,0.15);padding:3px 10px;border-radius:999px;">
-                        <i class="fa-solid ${section.icon}" style="font-size:9px;color:#fbbf24;"></i>
-                        <span style="font-size:9px;text-transform:uppercase;letter-spacing:0.15em;font-weight:900;color:rgba(251,191,36,0.7);">${section.label}</span>
-                      </span>
-                    </div>
-                    <span class="search-result-title">${sr.title}</span>
-                    <p class="search-result-excerpt">${sr.excerpt}</p>
-                  </a>
-                `;
-              })
-              .join('');
+          if (resultsContainer) {
+            if (dedupedResults.length === 0) {
+              resultsContainer.innerHTML = `
+                <div class="py-20 text-center">
+                    <i class="fa-solid fa-magnifying-glass-minus text-white/5 text-6xl mb-6"></i>
+                    <p class="text-white/30 text-sm uppercase tracking-[0.2em] font-black">No hay resultados para "${query}"</p>
+                </div>
+              `;
+            } else {
+              resultsContainer.innerHTML = dedupedResults
+                .map((sr) => {
+                  const section = getSectionInfo(sr.url);
+                  return `
+                    <a href="${sr.url}" class="search-result-item" data-search-link>
+                      <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px;">
+                        <span style="display:inline-flex;align-items:center;gap:6px;background:rgba(251,191,36,0.08);border:1px solid rgba(251,191,36,0.15);padding:3px 10px;border-radius:999px;">
+                          <i class="fa-solid ${section.icon}" style="font-size:9px;color:#fbbf24;"></i>
+                          <span style="font-size:9px;text-transform:uppercase;letter-spacing:0.15em;font-weight:900;color:rgba(251,191,36,0.7);">${section.label}</span>
+                        </span>
+                      </div>
+                      <span class="search-result-title">${sr.title}</span>
+                      <p class="search-result-excerpt">${sr.excerpt}</p>
+                    </a>
+                  `;
+                })
+                .join('');
 
-            // Click → store anchor in sessionStorage → navigate
-            // The astro:page-load listener below will handle the scroll after navigation
-            resultsContainer.querySelectorAll('[data-search-link]').forEach((link: Element) => {
-              link.addEventListener('click', (ev) => {
-                ev.preventDefault();
-                const href = (link as HTMLAnchorElement).href;
-                const hash = new URL(href, window.location.origin).hash;
-                if (hash) {
-                  sessionStorage.setItem('pf-target', hash.slice(1));
-                }
-                closeModal();
-                setTimeout(() => {
-                  window.location.href = href;
-                }, 350);
+              // Click → store anchor in sessionStorage → navigate
+              resultsContainer.querySelectorAll('[data-search-link]').forEach((link: Element) => {
+                link.addEventListener('click', (ev) => {
+                  ev.preventDefault();
+                  const href = (link as HTMLAnchorElement).href;
+                  const hash = new URL(href, window.location.origin).hash;
+                  if (hash) {
+                    sessionStorage.setItem('pf-target', hash.slice(1));
+                  }
+                  closeModal();
+                  setTimeout(() => {
+                    window.location.href = href;
+                  }, 350);
+                });
               });
-            });
+            }
           }
+        } catch (err) {
+          console.error("Error en la búsqueda:", err);
         }
       }, 200);
     });
